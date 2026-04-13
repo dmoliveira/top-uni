@@ -5,9 +5,9 @@
     "updated_year": "2026",
     "source_note": "Curated from the Times Higher Education Computer Science World University Rankings 2026 top 200, then enriched with ROR institutional metadata and official research links for spotlight universities.",
     "coverage": {
-      "official_url": 123,
-      "founded": 109,
-      "city": 109,
+      "official_url": 124,
+      "founded": 108,
+      "city": 108,
       "department": 12,
       "spotlight": 12
     },
@@ -5903,16 +5903,16 @@
       "slug": "beijing-institute-of-technology",
       "country": "China",
       "region": "Asia",
-      "city": null,
-      "founded": null,
-      "official_url": null,
-      "wikipedia_url": null,
-      "ror_url": null,
+      "city": "Beijing",
+      "founded": 1940,
+      "official_url": "https://bit.edu.cn",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Beijing_Institute_of_Technology",
+      "ror_url": "https://ror.org/01skt4w74",
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/beijing-institute-technology"
       },
       "metadata_source": "ror",
-      "metadata_confidence": 82,
+      "metadata_confidence": 100,
       "scorecard": {
         "overall": "52.0–53.9",
         "research": "39.3",
@@ -7373,16 +7373,16 @@
       "slug": "universite-grenoble-alpes",
       "country": "France",
       "region": "Europe",
-      "city": "Saint-Martin-d'Hères",
-      "founded": 2016,
+      "city": null,
+      "founded": null,
       "official_url": "https://www.univ-grenoble-alpes.fr/english/",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University",
-      "ror_url": "https://ror.org/02rx3b187",
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/universite-grenoble-alpes"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 100,
+      "metadata_confidence": 95,
       "scorecard": {
         "overall": "49.5–51.9",
         "research": "32.1",
@@ -7393,11 +7393,7 @@
       },
       "department": null,
       "labs": [],
-      "selected_centers": [
-        "Centre Interuniversitaire de MicroElectronique et Nanotechnologies",
-        "Laboratoire d'Economie Appliquée de Grenoble",
-        "Institut polytechnique de Grenoble"
-      ],
+      "selected_centers": [],
       "strengths": [
         "computer science",
         "AI/data",
@@ -7449,16 +7445,16 @@
       "slug": "universiti-teknologi-petronas",
       "country": "Malaysia",
       "region": "Asia",
-      "city": "Ipoh",
-      "founded": 1997,
+      "city": null,
+      "founded": null,
       "official_url": "https://www.utp.edu.my/",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Universiti_Teknologi_Petronas",
-      "ror_url": "https://ror.org/048g2sh07",
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/universiti-teknologi-petronas"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 100,
+      "metadata_confidence": 95,
       "scorecard": {
         "overall": "49.5–51.9",
         "research": "31.6",
@@ -7469,9 +7465,7 @@
       },
       "department": null,
       "labs": [],
-      "selected_centers": [
-        "Yayasan UTP"
-      ],
+      "selected_centers": [],
       "strengths": [
         "computer science",
         "AI/data",
