@@ -56,8 +56,13 @@ h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: .2rem 0 1rem; }
   box-shadow: 0 20px 60px rgba(0,0,0,.25);
 }
 .section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
 input[type="search"] {
   min-width: 280px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line);
+  background: #091221; color: var(--text);
+}
+select {
+  min-width: 190px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line);
   background: #091221; color: var(--text);
 }
 .table-wrap { overflow: auto; }
@@ -71,5 +76,7 @@ th { text-align: left; position: sticky; top: 0; background: var(--panel); }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .section-head { flex-direction: column; align-items: stretch; }
+  .controls { justify-content: stretch; }
   input[type="search"] { min-width: 100%; }
+  select { min-width: 100%; }
 }

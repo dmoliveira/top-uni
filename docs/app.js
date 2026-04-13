@@ -14,38 +14,83 @@ function tagList(items = []) {
   return items.map((item) => `<span class="tag">${item}</span>`).join("");
 }
 
+function numericScore(value) {
+  if (typeof value === "number") return value;
+  if (!value) return 0;
+  const matches = String(value).match(/\d+(?:\.\d+)?/g);
+  if (!matches || !matches.length) return 0;
+  const nums = matches.map(Number);
+  return nums.reduce((sum, n) => sum + n, 0) / nums.length;
+}
+
+function compareUniversities(a, b, mode) {
+  switch (mode) {
+    case "name-asc":
+      return a.name.localeCompare(b.name);
+    case "country-asc":
+      return a.country.localeCompare(b.country) || a.rank - b.rank;
+    case "founded-asc":
+      return (a.founded || 99999) - (b.founded || 99999) || a.rank - b.rank;
+    case "founded-desc":
+      return (b.founded || 0) - (a.founded || 0) || a.rank - b.rank;
+    case "score-desc":
+      return numericScore(b.scorecard.overall) - numericScore(a.scorecard.overall) || a.rank - b.rank;
+    case "rank-asc":
+    default:
+      return a.rank - b.rank;
+  }
+}
+
 function renderOverview(universities) {
   const body = document.getElementById("overview-body");
-  if (!body) return;
-  body.innerHTML = universities
-    .map((u) => {
-      const dept = u.department ? link(u.department.label, u.department.url) : "—";
-      const labs = u.labs?.length
-        ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ")
-        : (u.selected_centers || []).join(", ") || "—";
-      const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
-      return `
-        <tr>
-          <td>${u.rank}<div class="muted">THE: ${u.rank_display || u.rank}</div></td>
-          <td><strong>${u.name}</strong><div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
-          <td>${u.region}</td>
-          <td>${u.founded || "—"}</td>
-          <td>${[u.city, u.country].filter(Boolean).join(", ")}</td>
-          <td><div>${dept}</div><div class="muted">${labs}</div></td>
-          <td>${tagList(u.strengths)}</td>
-          <td>${link("Official", u.official_url)} · ${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
-        </tr>`;
-    })
-    .join("");
-
   const search = document.getElementById("search");
-  if (!search) return;
-  search.addEventListener("input", () => {
+  const countryFilter = document.getElementById("country-filter");
+  const sortBy = document.getElementById("sort-by");
+  const countEl = document.getElementById("overview-count");
+  if (!body || !search || !countryFilter || !sortBy || !countEl) return;
+
+  const countries = [...new Set(universities.map((u) => u.country).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  countryFilter.innerHTML = '<option value="">All countries</option>' + countries.map((country) => `<option value="${country}">${country}</option>`).join("");
+
+  function draw() {
     const q = search.value.toLowerCase().trim();
-    [...body.querySelectorAll("tr")].forEach((row) => {
-      row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
-    });
-  });
+    const country = countryFilter.value;
+    const sort = sortBy.value;
+    const filtered = universities
+      .filter((u) => !country || u.country === country)
+      .filter((u) => {
+        if (!q) return true;
+        return [u.name, u.country, u.region, u.city || "", ...(u.strengths || [])].join(" ").toLowerCase().includes(q);
+      })
+      .sort((a, b) => compareUniversities(a, b, sort));
+
+    countEl.textContent = `${filtered.length} universities shown`;
+    body.innerHTML = filtered
+      .map((u) => {
+        const dept = u.department ? link(u.department.label, u.department.url) : "—";
+        const researchLinks = u.labs?.length
+          ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ")
+          : "—";
+        const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
+        return `
+          <tr>
+            <td>${u.rank}<div class="muted">THE: ${u.rank_display || u.rank}</div></td>
+            <td><strong>${u.name}</strong><div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
+            <td>${u.region}</td>
+            <td>${u.founded || "—"}</td>
+            <td>${[u.city, u.country].filter(Boolean).join(", ")}</td>
+            <td><div>${dept}</div><div class="muted">${researchLinks}</div></td>
+            <td>${tagList(u.strengths)}</td>
+            <td>${link("Official", u.official_url)} · ${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
+          </tr>`;
+      })
+      .join("");
+  }
+
+  [search, countryFilter, sortBy].forEach((el) => el.addEventListener("input", draw));
+  countryFilter.addEventListener("change", draw);
+  sortBy.addEventListener("change", draw);
+  draw();
 }
 
 function renderMeta(meta, universities) {
@@ -61,7 +106,8 @@ function renderMeta(meta, universities) {
     <p><strong>Updated:</strong> ${meta.updated_at}</p>
     <div class="badge-row">
       ${Object.entries(counts).map(([region, count]) => `<span class="badge">${region}: ${count}</span>`).join("")}
-    </div>`;
+    </div>
+    <p class="muted">Coverage: official links ${meta.coverage?.official_url || 0}/200 · founded year ${meta.coverage?.founded || 0}/200 · city ${meta.coverage?.city || 0}/200 · spotlight pages ${meta.coverage?.spotlight || 0}</p>`;
 }
 
 function renderRegions(universities) {
