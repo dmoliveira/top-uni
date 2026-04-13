@@ -1,0 +1,44 @@
+# Top Universities for CS, AI/ML, and Data Science
+
+[![Updated 2026](https://img.shields.io/badge/updated-2026-blue)](./docs/data/universities.json)
+[![Top 200](https://img.shields.io/badge/list-top--200-success)](./docs/)
+[![GitHub Pages Ready](https://img.shields.io/badge/GitHub%20Pages-ready-black)](./docs/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+[![Public Repo](https://img.shields.io/badge/repo-public-lightgrey)](./README.md)
+[![Donate](https://img.shields.io/badge/donate-support-orange)](./SUPPORT.md)
+
+Research-friendly directory of the **top 200 universities in the world for Computer Science, AI/ML, and closely related data science fields**.
+
+## What this includes
+
+- global top-200 directory
+- region views for easier navigation
+- official links, founded year, location, strengths, and score snapshots
+- spotlight pages for especially influential universities
+- methodology + update year
+- static site ready for **GitHub Pages** from `/docs`
+
+## Open the site
+
+Serve `/docs` locally because the site loads JSON with `fetch()`:
+
+```bash
+python3 -m http.server 8000 -d docs
+```
+
+- Main site: [http://localhost:8000/index.html](http://localhost:8000/index.html)
+- Spotlight pages: [http://localhost:8000/spotlight.html](http://localhost:8000/spotlight.html)
+- Methodology: [http://localhost:8000/methodology.html](http://localhost:8000/methodology.html)
+
+## Data notes
+
+- Base ranking source: **Times Higher Education Computer Science World University Rankings 2026**.
+- Metadata enrichment: **ROR** plus official university research pages for spotlight institutions.
+- If an automated official-site match looked unreliable, the field is left blank on purpose.
+- This repo is a practical curated directory, not an official publication of any ranking body.
+
+## Rebuild data
+
+```bash
+python3 scripts/build_data.py
+```

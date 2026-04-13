@@ -1,0 +1,75 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --panel: #101b2c;
+  --line: #24354f;
+  --text: #edf3ff;
+  --muted: #9fb0ca;
+  --accent: #6ee7ff;
+  --accent2: #b27cff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  background: linear-gradient(180deg, #06101d, #0b1525 30%, #0d1728);
+  color: var(--text);
+}
+a { color: var(--accent); }
+main, .hero, .footer, .narrow { max-width: 1240px; margin: 0 auto; padding: 24px; }
+.narrow { max-width: 980px; }
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+  min-height: 70vh;
+}
+.hero-art { width: 100%; max-height: 380px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .78rem; }
+h1, h2, h3 { line-height: 1.1; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: .2rem 0 1rem; }
+.badge-row, .hero-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge, .tag {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: .88rem;
+}
+.tag { display: inline-block; margin: 0 6px 6px 0; }
+.hero-nav a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(110,231,255,.06);
+}
+.panel {
+  background: rgba(16, 27, 44, .88);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; }
+input[type="search"] {
+  min-width: 280px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line);
+  background: #091221; color: var(--text);
+}
+.table-wrap { overflow: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { text-align: left; position: sticky; top: 0; background: var(--panel); }
+.muted { color: var(--muted); font-size: .92rem; }
+.regions-grid, .card-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.footer { color: var(--muted); padding-bottom: 48px; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .section-head { flex-direction: column; align-items: stretch; }
+  input[type="search"] { min-width: 100%; }
+}

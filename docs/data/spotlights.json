@@ -1,0 +1,621 @@
+{
+  "updated_at": "2026-04-13",
+  "spotlights": [
+    {
+      "slug": "university-of-oxford",
+      "name": "University of Oxford",
+      "department": {
+        "label": "Department of Computer Science",
+        "url": "https://www.cs.ox.ac.uk/"
+      },
+      "labs": [
+        {
+          "label": "Visual Geometry Group",
+          "url": "https://www.robots.ox.ac.uk/~vgg/"
+        },
+        {
+          "label": "Oxford Robotics Institute",
+          "url": "https://ori.ox.ac.uk/"
+        },
+        {
+          "label": "Oxford Applied and Theoretical Machine Learning",
+          "url": "https://oatml.cs.ox.ac.uk/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "computer vision",
+        "robotics",
+        "theory"
+      ],
+      "advances": [
+        "Home to globally influential work in computer vision, robotics, and trustworthy ML.",
+        "Strong ecosystem connecting computer science, medicine, and public-interest AI."
+      ],
+      "research_links": [
+        {
+          "label": "Research overview",
+          "url": "https://www.cs.ox.ac.uk/research/"
+        },
+        {
+          "label": "Oxford ML portal",
+          "url": "https://www.cs.ox.ac.uk/people/academic/index.html#MachineLearning"
+        }
+      ],
+      "papers": [
+        {
+          "title": "VGGNet / Very Deep Convolutional Networks",
+          "url": "https://www.robots.ox.ac.uk/~vgg/publications/2015/Simonyan15/"
+        },
+        {
+          "title": "Spatial Transformer Networks (Oxford co-authors)",
+          "url": "https://arxiv.org/abs/1506.02025"
+        }
+      ]
+    },
+    {
+      "slug": "stanford-university",
+      "name": "Stanford University",
+      "department": {
+        "label": "Stanford Computer Science",
+        "url": "https://cs.stanford.edu/"
+      },
+      "labs": [
+        {
+          "label": "SAIL",
+          "url": "https://ai.stanford.edu/"
+        },
+        {
+          "label": "Stanford HAI",
+          "url": "https://hai.stanford.edu/"
+        },
+        {
+          "label": "Stanford DAWN",
+          "url": "https://dawn.cs.stanford.edu/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "systems",
+        "HCI",
+        "robotics"
+      ],
+      "advances": [
+        "Foundational influence across modern AI, large-scale systems, and human-centered computing.",
+        "A recurring launch point for open-source frameworks, startups, and frontier-model research."
+      ],
+      "research_links": [
+        {
+          "label": "Research areas",
+          "url": "https://cs.stanford.edu/research"
+        },
+        {
+          "label": "HAI research",
+          "url": "https://hai.stanford.edu/research"
+        }
+      ],
+      "papers": [
+        {
+          "title": "ImageNet classification with deep CNNs",
+          "url": "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html"
+        },
+        {
+          "title": "LoRA: Low-Rank Adaptation",
+          "url": "https://arxiv.org/abs/2106.09685"
+        }
+      ]
+    },
+    {
+      "slug": "massachusetts-institute-of-technology",
+      "name": "Massachusetts Institute of Technology",
+      "department": {
+        "label": "EECS",
+        "url": "https://www.eecs.mit.edu/"
+      },
+      "labs": [
+        {
+          "label": "CSAIL",
+          "url": "https://www.csail.mit.edu/"
+        },
+        {
+          "label": "MIT-IBM Watson AI Lab",
+          "url": "https://mitibmwatsonailab.mit.edu/"
+        },
+        {
+          "label": "Institute for Data, Systems, and Society",
+          "url": "https://idss.mit.edu/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "robotics",
+        "systems",
+        "data science"
+      ],
+      "advances": [
+        "Flagship research center for AI, robotics, computer vision, and trustworthy computing.",
+        "Deep strength in translating core CS advances into science and engineering platforms."
+      ],
+      "research_links": [
+        {
+          "label": "EECS research",
+          "url": "https://www.eecs.mit.edu/research/"
+        },
+        {
+          "label": "CSAIL research",
+          "url": "https://www.csail.mit.edu/research"
+        }
+      ],
+      "papers": [
+        {
+          "title": "MapReduce",
+          "url": "https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/"
+        },
+        {
+          "title": "RSA cryptosystem",
+          "url": "https://people.csail.mit.edu/rivest/Rsapaper.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "carnegie-mellon-university",
+      "name": "Carnegie Mellon University",
+      "department": {
+        "label": "School of Computer Science",
+        "url": "https://www.cs.cmu.edu/"
+      },
+      "labs": [
+        {
+          "label": "Robotics Institute",
+          "url": "https://www.ri.cmu.edu/"
+        },
+        {
+          "label": "Machine Learning Department",
+          "url": "https://www.ml.cmu.edu/"
+        },
+        {
+          "label": "Language Technologies Institute",
+          "url": "https://www.lti.cs.cmu.edu/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "robotics",
+        "NLP",
+        "autonomous systems"
+      ],
+      "advances": [
+        "One of the deepest university ecosystems for AI, robotics, speech, and autonomous systems.",
+        "Repeatedly influential in robotics, self-driving, reinforcement learning, and language tech."
+      ],
+      "research_links": [
+        {
+          "label": "SCS research",
+          "url": "https://www.cs.cmu.edu/research"
+        },
+        {
+          "label": "RI research",
+          "url": "https://www.ri.cmu.edu/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "POMDPs in robotics and planning",
+          "url": "https://www.cs.cmu.edu/~ggordon/780-s07/pomdp.pdf"
+        },
+        {
+          "title": "Self-driving and autonomy publications",
+          "url": "https://theairlab.org/publications/"
+        }
+      ]
+    },
+    {
+      "slug": "university-of-california-berkeley",
+      "name": "University of California, Berkeley",
+      "department": {
+        "label": "EECS at Berkeley",
+        "url": "https://eecs.berkeley.edu/"
+      },
+      "labs": [
+        {
+          "label": "BAIR",
+          "url": "https://bair.berkeley.edu/"
+        },
+        {
+          "label": "Sky Computing Lab",
+          "url": "https://sky.cs.berkeley.edu/"
+        },
+        {
+          "label": "AMP Lab (historical)",
+          "url": "https://amplab.cs.berkeley.edu/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "systems",
+        "data systems",
+        "theory"
+      ],
+      "advances": [
+        "Home to major advances in distributed systems, data platforms, and modern AI research.",
+        "Berkeley labs have shaped Spark, RISC research, open-source ML systems, and safety work."
+      ],
+      "research_links": [
+        {
+          "label": "EECS research",
+          "url": "https://eecs.berkeley.edu/research/"
+        },
+        {
+          "label": "BAIR research",
+          "url": "https://bair.berkeley.edu/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Spark: Cluster Computing with Working Sets",
+          "url": "https://www.usenix.org/conference/hotcloud10/spark-cluster-computing-working-sets"
+        },
+        {
+          "title": "RISC-V overview",
+          "url": "https://riscv.org/technical/specifications/"
+        }
+      ]
+    },
+    {
+      "slug": "eth-zurich",
+      "name": "ETH Zurich",
+      "department": {
+        "label": "Department of Computer Science",
+        "url": "https://inf.ethz.ch/"
+      },
+      "labs": [
+        {
+          "label": "ETH AI Center",
+          "url": "https://ai.ethz.ch/"
+        },
+        {
+          "label": "Robotic Systems Lab",
+          "url": "https://rsl.ethz.ch/"
+        },
+        {
+          "label": "SPCL",
+          "url": "https://spcl.inf.ethz.ch/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "robotics",
+        "high-performance computing",
+        "systems"
+      ],
+      "advances": [
+        "A leading European center for robotics, AI engineering, numerical computing, and systems research.",
+        "Frequently bridges academic depth with strong industrial collaboration and open tooling."
+      ],
+      "research_links": [
+        {
+          "label": "Department research",
+          "url": "https://inf.ethz.ch/research.html"
+        },
+        {
+          "label": "AI Center projects",
+          "url": "https://ai.ethz.ch/research.html"
+        }
+      ],
+      "papers": [
+        {
+          "title": "ANYmal and locomotion research",
+          "url": "https://rsl.ethz.ch/robots-media/anymal.html"
+        },
+        {
+          "title": "DaCe / data-centric compilation",
+          "url": "https://spcl.inf.ethz.ch/Research/DAPP.html"
+        }
+      ]
+    },
+    {
+      "slug": "national-university-of-singapore",
+      "name": "National University of Singapore",
+      "department": {
+        "label": "NUS School of Computing",
+        "url": "https://www.comp.nus.edu.sg/"
+      },
+      "labs": [
+        {
+          "label": "NUS AI Institute",
+          "url": "https://ai.nus.edu.sg/"
+        },
+        {
+          "label": "Institute of Data Science",
+          "url": "https://ids.nus.edu.sg/"
+        },
+        {
+          "label": "Centre for Trusted Internet and Community",
+          "url": "https://ctic.comp.nus.edu.sg/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "data science",
+        "security",
+        "systems"
+      ],
+      "advances": [
+        "A leading Asia-Pacific hub for AI, analytics, security, and large-scale computing research.",
+        "Strong translational portfolio linking foundational CS to public-sector and industry deployment."
+      ],
+      "research_links": [
+        {
+          "label": "NUS research areas",
+          "url": "https://www.comp.nus.edu.sg/research/"
+        },
+        {
+          "label": "IDS programs",
+          "url": "https://ids.nus.edu.sg/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Graph neural and representation learning outputs",
+          "url": "https://ai.nus.edu.sg/publications/"
+        },
+        {
+          "title": "NUS computing publications",
+          "url": "https://www.comp.nus.edu.sg/research/publication/"
+        }
+      ]
+    },
+    {
+      "slug": "tsinghua-university",
+      "name": "Tsinghua University",
+      "department": {
+        "label": "Department of Computer Science and Technology",
+        "url": "https://www.cs.tsinghua.edu.cn/csen/"
+      },
+      "labs": [
+        {
+          "label": "Institute for AI Industry Research (AIR)",
+          "url": "https://air.tsinghua.edu.cn/en/"
+        },
+        {
+          "label": "Institute for Interdisciplinary Information Sciences",
+          "url": "https://iiis.tsinghua.edu.cn/en/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "systems",
+        "theory",
+        "applied computing"
+      ],
+      "advances": [
+        "One of the strongest global research engines in AI, large-scale computing, and interdisciplinary information science.",
+        "Particularly visible in foundation models, chips, and industry-linked AI deployment."
+      ],
+      "research_links": [
+        {
+          "label": "Research overview",
+          "url": "https://www.cs.tsinghua.edu.cn/csen/Research.htm"
+        },
+        {
+          "label": "AIR research",
+          "url": "https://air.tsinghua.edu.cn/en/research/research_direction.htm"
+        }
+      ],
+      "papers": [
+        {
+          "title": "GLM language model papers",
+          "url": "https://arxiv.org/abs/2210.02414"
+        },
+        {
+          "title": "Tsinghua AI research news",
+          "url": "https://air.tsinghua.edu.cn/en/info/1008/list.htm"
+        }
+      ]
+    },
+    {
+      "slug": "peking-university",
+      "name": "Peking University",
+      "department": {
+        "label": "School of Computer Science",
+        "url": "https://english.pku.edu.cn/academics/schoolsdepartments/schoolofcomputerscience/index.htm"
+      },
+      "labs": [
+        {
+          "label": "Institute for Artificial Intelligence",
+          "url": "https://www.ai.pku.edu.cn/en/"
+        },
+        {
+          "label": "Wangxuan Institute of Computer Technology",
+          "url": "https://www.ss.pku.edu.cn/en/"
+        }
+      ],
+      "strengths": [
+        "AI/ML",
+        "theory",
+        "language technologies",
+        "data-intensive computing"
+      ],
+      "advances": [
+        "A major Chinese research center for AI, language technologies, and computing theory.",
+        "Strong presence in national-scale labs, foundational methods, and interdisciplinary AI work."
+      ],
+      "research_links": [
+        {
+          "label": "CS research",
+          "url": "https://cs.pku.edu.cn/English/Research.htm"
+        },
+        {
+          "label": "AI institute",
+          "url": "https://www.ai.pku.edu.cn/en/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "PKU AI publications",
+          "url": "https://www.ai.pku.edu.cn/en/research/publications.htm"
+        },
+        {
+          "title": "Foundational language and multimodal papers",
+          "url": "https://arxiv.org/list/cs.AI/recent"
+        }
+      ]
+    },
+    {
+      "slug": "university-of-cambridge",
+      "name": "University of Cambridge",
+      "department": {
+        "label": "Computer Laboratory",
+        "url": "https://www.cst.cam.ac.uk/"
+      },
+      "labs": [
+        {
+          "label": "Cambridge Machine Learning Group",
+          "url": "https://mlg.eng.cam.ac.uk/"
+        },
+        {
+          "label": "Systems Research Group",
+          "url": "https://www.cst.cam.ac.uk/research/srg"
+        },
+        {
+          "label": "Cambridge Centre for AI in Medicine",
+          "url": "https://www.cai.cam.ac.uk/"
+        }
+      ],
+      "strengths": [
+        "systems",
+        "ML",
+        "security",
+        "theory"
+      ],
+      "advances": [
+        "Long-running excellence in systems, networks, security, machine learning, and foundational computing.",
+        "Strong ties across computer science, engineering, mathematics, and biomedicine."
+      ],
+      "research_links": [
+        {
+          "label": "Research groups",
+          "url": "https://www.cst.cam.ac.uk/research"
+        },
+        {
+          "label": "Machine learning group",
+          "url": "https://mlg.eng.cam.ac.uk/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Cambridge systems and verification publications",
+          "url": "https://www.cst.cam.ac.uk/publications"
+        },
+        {
+          "title": "AlphaFold paper (Cambridge-linked alumni/research ecosystem)",
+          "url": "https://www.nature.com/articles/s41586-021-03819-2"
+        }
+      ]
+    },
+    {
+      "slug": "ecole-polytechnique-federale-de-lausanne",
+      "name": "École Polytechnique Fédérale de Lausanne",
+      "department": {
+        "label": "School of Computer and Communication Sciences",
+        "url": "https://www.epfl.ch/schools/ic/"
+      },
+      "labs": [
+        {
+          "label": "EPFL AI Center",
+          "url": "https://www.epfl.ch/research/domains/ai-center/"
+        },
+        {
+          "label": "CVLab",
+          "url": "https://www.epfl.ch/labs/cvlab/"
+        },
+        {
+          "label": "DSLAB",
+          "url": "https://www.epfl.ch/labs/dslab/"
+        }
+      ],
+      "strengths": [
+        "computer vision",
+        "systems",
+        "ML",
+        "robotics"
+      ],
+      "advances": [
+        "High-impact European research center for computer vision, decentralized systems, and machine learning.",
+        "Strong mix of theory, applied AI, and open scientific infrastructure."
+      ],
+      "research_links": [
+        {
+          "label": "IC research labs",
+          "url": "https://www.epfl.ch/schools/ic/research/"
+        },
+        {
+          "label": "AI Center",
+          "url": "https://www.epfl.ch/research/domains/ai-center/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "OpenPose / pose estimation lineage",
+          "url": "https://github.com/CMU-Perceptual-Computing-Lab/openpose"
+        },
+        {
+          "title": "EPFL IC publications",
+          "url": "https://infoscience.epfl.ch/communities/IC"
+        }
+      ]
+    },
+    {
+      "slug": "university-of-toronto",
+      "name": "University of Toronto",
+      "department": {
+        "label": "Department of Computer Science",
+        "url": "https://web.cs.toronto.edu/"
+      },
+      "labs": [
+        {
+          "label": "Vector Institute",
+          "url": "https://vectorinstitute.ai/"
+        },
+        {
+          "label": "Machine Learning Group",
+          "url": "https://www.cs.toronto.edu/~hinton/"
+        },
+        {
+          "label": "UofT Robotics Institute",
+          "url": "https://robotics.utoronto.ca/"
+        }
+      ],
+      "strengths": [
+        "deep learning",
+        "AI/ML",
+        "reinforcement learning",
+        "robotics"
+      ],
+      "advances": [
+        "A cornerstone of modern deep learning with enduring strength in neural nets, vision, and RL.",
+        "The Toronto ecosystem is especially influential in frontier AI talent development."
+      ],
+      "research_links": [
+        {
+          "label": "Research areas",
+          "url": "https://web.cs.toronto.edu/research"
+        },
+        {
+          "label": "Vector research",
+          "url": "https://vectorinstitute.ai/research/"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Dropout",
+          "url": "https://jmlr.org/papers/v15/srivastava14a.html"
+        },
+        {
+          "title": "AlexNet",
+          "url": "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html"
+        }
+      ]
+    }
+  ]
+}

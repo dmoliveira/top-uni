@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Top 200 CS / AI / Data Science Universities</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Updated 2026 · GitHub Pages ready</p>
+        <h1>Top 200 universities for Computer Science, AI/ML, and Data Science</h1>
+        <p>
+          Searchable global directory with ranked overview, region breakdowns, official links,
+          founded year, locations, strengths, and spotlight research pages.
+        </p>
+        <div class="badge-row">
+          <span class="badge">Top 200</span>
+          <span class="badge">World coverage</span>
+          <span class="badge">Spotlight pages</span>
+          <span class="badge">Methodology included</span>
+        </div>
+        <nav class="hero-nav">
+          <a href="#overview">Overview table</a>
+          <a href="#regions">By region</a>
+          <a href="./methodology.html">Methodology</a>
+          <a href="./spotlight.html">Spotlights</a>
+        </nav>
+      </div>
+      <img src="./assets/hero-banner.svg" alt="Abstract university and AI research banner" class="hero-art" />
+    </header>
+
+    <main>
+      <section class="panel meta-panel">
+        <div id="meta-summary">Loading dataset…</div>
+      </section>
+
+      <section id="overview" class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Overall list</p>
+            <h2>Global top-200 table</h2>
+          </div>
+          <input id="search" type="search" placeholder="Search university, country, strength…" />
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>University</th>
+                <th>Region</th>
+                <th>Founded</th>
+                <th>Location</th>
+                <th>Department / Research links</th>
+                <th>Strong at</th>
+                <th>Links</th>
+              </tr>
+            </thead>
+            <tbody id="overview-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="regions" class="panel">
+        <p class="eyebrow">Regional navigation</p>
+        <h2>Region views</h2>
+        <div id="regions-grid" class="regions-grid"></div>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Featured institutions</p>
+        <h2>Spotlight universities</h2>
+        <div id="spotlight-grid" class="card-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for static hosting on GitHub Pages. Last project update is shown in the dataset metadata.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

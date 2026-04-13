@@ -1,0 +1,29 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="520" rx="36" fill="url(#bg)"/>
+  <circle cx="611" cy="126" r="92" fill="url(#orb)" fill-opacity="0.8"/>
+  <circle cx="168" cy="364" r="118" fill="#163251" fill-opacity="0.8"/>
+  <rect x="72" y="102" width="322" height="232" rx="24" fill="#081524" stroke="#2A4569"/>
+  <rect x="108" y="144" width="250" height="16" rx="8" fill="#6EE7FF" fill-opacity="0.85"/>
+  <rect x="108" y="180" width="180" height="12" rx="6" fill="#B27CFF" fill-opacity="0.7"/>
+  <rect x="108" y="210" width="220" height="12" rx="6" fill="#9FB0CA" fill-opacity="0.55"/>
+  <rect x="108" y="240" width="140" height="12" rx="6" fill="#9FB0CA" fill-opacity="0.55"/>
+  <rect x="438" y="174" width="226" height="166" rx="24" fill="#0A1829" stroke="#2A4569"/>
+  <path d="M496 286C529.137 286 556 259.137 556 226C556 192.863 529.137 166 496 166C462.863 166 436 192.863 436 226C436 259.137 462.863 286 496 286Z" fill="#6EE7FF" fill-opacity="0.18"/>
+  <path d="M490 221L520 197L550 221V257L520 281L490 257V221Z" fill="#6EE7FF" stroke="#6EE7FF" stroke-width="3"/>
+  <circle cx="520" cy="239" r="12" fill="#081524"/>
+  <path d="M244 364H596" stroke="#2A4569" stroke-width="2" stroke-dasharray="10 10"/>
+  <circle cx="244" cy="364" r="12" fill="#6EE7FF"/>
+  <circle cx="420" cy="364" r="12" fill="#B27CFF"/>
+  <circle cx="596" cy="364" r="12" fill="#6EE7FF"/>
+  <path d="M244 364C286 323 352 316 420 364C484 406 548 398 596 364" stroke="#6EE7FF" stroke-width="4"/>
+  <defs>
+    <linearGradient id="bg" x1="33" y1="31" x2="726" y2="467" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1E33"/>
+      <stop offset="1" stop-color="#09111E"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(611 126) rotate(90) scale(92)">
+      <stop stop-color="#B27CFF"/>
+      <stop offset="1" stop-color="#B27CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
