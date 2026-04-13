@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Custom Domain Setup</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="narrow">
+      <p><a href="./index.html">← Back to directory</a></p>
+      <h1>Custom domain setup for GitHub Pages</h1>
+      <div class="panel">
+        <ol>
+          <li>Buy or choose your domain/subdomain.</li>
+          <li>In GitHub repo settings, open <strong>Pages</strong> and enter the custom domain.</li>
+          <li>Create a <code>docs/CNAME</code> file containing only your domain, for example <code>cs-top.example.com</code>.</li>
+          <li>Update your DNS:
+            <ul>
+              <li><strong>Subdomain</strong>: add a <code>CNAME</code> record pointing to <code>dmoliveira.github.io</code>.</li>
+              <li><strong>Apex/root domain</strong>: use GitHub Pages A/AAAA records from GitHub’s official docs.</li>
+            </ul>
+          </li>
+          <li>Wait for DNS to propagate, then enable HTTPS in GitHub Pages.</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h2>Helpful commands</h2>
+        <pre><code>printf 'cs-top.example.com\n' > docs/CNAME
+git add docs/CNAME
+git commit -m "Add custom domain configuration"</code></pre>
+      </div>
+      <div class="panel">
+        <h2>Notes</h2>
+        <ul>
+          <li>Do not commit a placeholder <code>CNAME</code> unless you really own and want to use that domain.</li>
+          <li>This project already publishes from <code>/docs</code>, so no extra build step is needed.</li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

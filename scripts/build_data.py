@@ -515,15 +515,31 @@ OFFICIAL_OVERRIDES = {
         "city": "Cambridge",
         "founded": 1861,
     },
-    "princeton-university": {"official_url": "https://www.princeton.edu/"},
+    "princeton-university": {
+        "official_url": "https://www.princeton.edu/",
+        "city": "Princeton",
+        "founded": 1746,
+    },
     "stanford-university": {
         "official_url": "https://www.stanford.edu/",
         "city": "Stanford",
         "founded": 1885,
     },
-    "carnegie-mellon-university": {"official_url": "https://www.cmu.edu/"},
-    "harvard-university": {"official_url": "https://www.harvard.edu/"},
-    "imperial-college-london": {"official_url": "https://www.imperial.ac.uk"},
+    "carnegie-mellon-university": {
+        "official_url": "https://www.cmu.edu/",
+        "city": "Pittsburgh",
+        "founded": 1900,
+    },
+    "harvard-university": {
+        "official_url": "https://www.harvard.edu/",
+        "city": "Cambridge",
+        "founded": 1636,
+    },
+    "imperial-college-london": {
+        "official_url": "https://www.imperial.ac.uk",
+        "city": "London",
+        "founded": 1907,
+    },
     "ecole-polytechnique-federale-de-lausanne": {
         "official_url": "https://www.epfl.ch/en/"
     },
@@ -537,23 +553,74 @@ OFFICIAL_OVERRIDES = {
         "city": "Beijing",
         "founded": 1911,
     },
-    "national-university-of-singapore": {"official_url": "https://www.nus.edu.sg/"},
-    "university-of-california-berkeley": {"official_url": "https://www.berkeley.edu/"},
-    "university-of-toronto": {"official_url": "https://www.utoronto.ca/"},
-    "technical-university-of-munich": {"official_url": "https://www.tum.de/en"},
-    "zhejiang-university": {"official_url": "https://www.zju.edu.cn/english/"},
+    "national-university-of-singapore": {
+        "official_url": "https://www.nus.edu.sg/",
+        "city": "Singapore",
+        "founded": 1905,
+    },
+    "university-of-california-berkeley": {
+        "official_url": "https://www.berkeley.edu/",
+        "city": "Berkeley",
+        "founded": 1868,
+    },
+    "university-of-toronto": {
+        "official_url": "https://www.utoronto.ca/",
+        "city": "Toronto",
+        "founded": 1827,
+    },
+    "technical-university-of-munich": {
+        "official_url": "https://www.tum.de/en",
+        "city": "Munich",
+        "founded": 1868,
+    },
+    "nanyang-technological-university-singapore": {
+        "official_url": "https://www.ntu.edu.sg/",
+        "city": "Singapore",
+        "founded": 1991,
+    },
+    "zhejiang-university": {
+        "official_url": "https://www.zju.edu.cn/english/",
+        "city": "Hangzhou",
+        "founded": 1897,
+    },
     "the-hong-kong-university-of-science-and-technology": {
-        "official_url": "https://hkust.edu.hk/"
+        "official_url": "https://hkust.edu.hk/",
+        "city": "Hong Kong",
+        "founded": 1991,
     },
-    "georgia-institute-of-technology": {"official_url": "https://www.gatech.edu/"},
-    "johns-hopkins-university": {"official_url": "https://www.jhu.edu/"},
+    "georgia-institute-of-technology": {
+        "official_url": "https://www.gatech.edu/",
+        "city": "Atlanta",
+        "founded": 1885,
+    },
+    "johns-hopkins-university": {
+        "official_url": "https://www.jhu.edu/",
+        "city": "Baltimore",
+        "founded": 1876,
+    },
     "the-chinese-university-of-hong-kong": {
-        "official_url": "https://www.cuhk.edu.hk/english/"
+        "official_url": "https://www.cuhk.edu.hk/english/",
+        "city": "Hong Kong",
+        "founded": 1963,
     },
-    "delft-university-of-technology": {"official_url": "https://www.tudelft.nl/en"},
+    "delft-university-of-technology": {
+        "official_url": "https://www.tudelft.nl/en",
+        "city": "Delft",
+        "founded": 1842,
+    },
     "university-of-hong-kong": {"official_url": "https://www.hku.hk/"},
     "university-of-science-and-technology-of-china": {
         "official_url": "https://en.ustc.edu.cn/"
+    },
+    "university-of-texas-at-austin": {
+        "official_url": "https://www.utexas.edu/",
+        "city": "Austin",
+        "founded": 1883,
+    },
+    "korea-advanced-institute-of-science-and-technology-kaist": {
+        "official_url": "https://www.kaist.ac.kr/en/",
+        "city": "Daejeon",
+        "founded": 1971,
     },
     "nanjing-university": {"official_url": "https://www.nju.edu.cn/EN/"},
     "city-university-of-hong-kong": {"official_url": "https://www.cityu.edu.hk/"},
@@ -562,7 +629,11 @@ OFFICIAL_OVERRIDES = {
     },
     "kyoto-university": {"official_url": "https://www.kyoto-u.ac.jp/en"},
     "wuhan-university": {"official_url": "https://en.whu.edu.cn/"},
-    "australian-national-university": {"official_url": "https://www.anu.edu.au/"},
+    "australian-national-university": {
+        "official_url": "https://www.anu.edu.au/",
+        "city": "Canberra",
+        "founded": 1946,
+    },
     "monash-university": {"official_url": "https://www.monash.edu/"},
     "university-of-auckland": {"official_url": "https://www.auckland.ac.nz/"},
     "universite-grenoble-alpes": {
@@ -838,6 +909,7 @@ def build_record(row):
     slug = slugify(row["name"])
     override = OFFICIAL_OVERRIDES.get(slug, {})
     match_name_score = canonical_name_score(row["name"], match) if match else 0
+    metadata_source = "ror" if match else "none"
     if override.get("official_url"):
         website = override["official_url"]
     if match_name_score < 95:
@@ -849,10 +921,13 @@ def build_record(row):
         related = []
     if override.get("official_url"):
         website = override["official_url"]
+        metadata_source = "manual_override"
     if override.get("city"):
         city = override["city"]
     if override.get("founded"):
         founded = override["founded"]
+    if metadata_source == "manual_override":
+        match_name_score = max(match_name_score, 95)
     if website and not trusted_official(row["name"], website):
         website = None
         wikipedia = None
@@ -877,6 +952,7 @@ def build_record(row):
         "ranking_links": {
             "the": row["the_url"],
         },
+        "metadata_source": metadata_source,
         "metadata_confidence": match_name_score,
         "scorecard": {
             "overall": row["overall_score"],
@@ -913,11 +989,20 @@ def main():
             f"Spotlights missing from top-200 dataset: {spotlight_missing}"
         )
 
+    coverage = {
+        "official_url": sum(1 for u in universities if u.get("official_url")),
+        "founded": sum(1 for u in universities if u.get("founded")),
+        "city": sum(1 for u in universities if u.get("city")),
+        "department": sum(1 for u in universities if u.get("department")),
+        "spotlight": sum(1 for u in universities if u.get("spotlight")),
+    }
+
     metadata = {
         "title": "Top 200 Computer Science, AI/ML, and Data Science Universities",
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "updated_year": datetime.now(timezone.utc).strftime("%Y"),
         "source_note": "Curated from the Times Higher Education Computer Science World University Rankings 2026 top 200, then enriched with ROR institutional metadata and official research links for spotlight universities.",
+        "coverage": coverage,
         "methodology": [
             "Primary ranked list: THE Computer Science World University Rankings 2026 top 200.",
             "Metadata enrichment: Research Organization Registry (ROR) for official websites, location, and founding year when available.",

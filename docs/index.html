@@ -26,6 +26,7 @@
           <a href="#regions">By region</a>
           <a href="./methodology.html">Methodology</a>
           <a href="./spotlight.html">Spotlights</a>
+          <a href="./custom-domain.html">Custom domain</a>
         </nav>
       </div>
       <img src="./assets/hero-banner.svg" alt="Abstract university and AI research banner" class="hero-art" />
@@ -42,8 +43,22 @@
             <p class="eyebrow">Overall list</p>
             <h2>Global top-200 table</h2>
           </div>
-          <input id="search" type="search" placeholder="Search university, country, strength…" />
+          <div class="controls">
+            <input id="search" type="search" placeholder="Search university, country, strength…" />
+            <select id="country-filter">
+              <option value="">All countries</option>
+            </select>
+            <select id="sort-by">
+              <option value="rank-asc">Sort: rank</option>
+              <option value="name-asc">Sort: name A–Z</option>
+              <option value="country-asc">Sort: country A–Z</option>
+              <option value="founded-asc">Sort: oldest first</option>
+              <option value="founded-desc">Sort: newest first</option>
+              <option value="score-desc">Sort: THE score</option>
+            </select>
+          </div>
         </div>
+        <p id="overview-count" class="muted"></p>
         <div class="table-wrap">
           <table>
             <thead>
