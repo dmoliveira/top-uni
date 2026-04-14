@@ -99,17 +99,23 @@ main, .hero, .footer, .narrow { max-width: 1240px; margin: 0 auto; padding: 24px
 
 body { padding-top: var(--topbar-offset); }
 
-.hero {
+.hero { 
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 24px;
+  gap: 36px;
   align-items: center;
-  min-height: calc(70vh - 100px);
+  min-height: calc(72vh - 100px);
+  padding-top: 40px;
+  padding-bottom: 36px;
 }
+.hero-copy { max-width: 720px; }
 .hero-art { width: 100%; max-height: 380px; }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .78rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .78rem; margin: 0 0 10px; }
 h1, h2, h3 { line-height: 1.1; }
-h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: .2rem 0 1rem; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); margin: .2rem 0 1rem; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin: 0; letter-spacing: -0.02em; }
+h3 { font-size: 1.15rem; margin: 0 0 .5rem; }
+.hero-copy > p:not(.eyebrow) { font-size: 1.08rem; line-height: 1.65; color: var(--muted); max-width: 60ch; }
 .badge, .tag {
   border: 1px solid var(--line);
   background: var(--chip);
@@ -129,12 +135,12 @@ h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: .2rem 0 1rem; }
 }
 .panel-inline {
   margin-top: 16px;
-  padding: 14px 16px;
+  padding: 16px 18px;
   border-radius: 16px;
   border: 1px solid var(--line);
   background: var(--chip);
 }
-.section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; }
+.section-head { display: flex; justify-content: space-between; gap: 18px; align-items: end; }
 .controls {
   display: grid;
   grid-template-columns: minmax(280px, 1.4fr) repeat(3, minmax(180px, 1fr));
@@ -170,7 +176,7 @@ th { text-align: left; position: sticky; top: var(--topbar-offset); background: 
 .table-wrap table th:nth-child(6), .table-wrap table td:nth-child(6) { min-width: 190px; }
 .table-wrap table th:nth-child(7), .table-wrap table td:nth-child(7) { min-width: 180px; }
 .table-wrap table th:nth-child(8), .table-wrap table td:nth-child(8) { width: 108px; }
-.muted { color: var(--muted); font-size: .92rem; }
+.muted { color: var(--muted); font-size: .92rem; line-height: 1.45; }
 .regions-grid, .card-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .footer { color: var(--muted); padding-bottom: 48px; }
 .footer a { color: var(--accent); }
@@ -185,7 +191,7 @@ th { text-align: left; position: sticky; top: var(--topbar-offset); background: 
     gap: 12px;
   }
   .topbar-nav, .theme-toggle { justify-content: center; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero { grid-template-columns: 1fr; min-height: auto; gap: 24px; padding-top: 28px; padding-bottom: 20px; }
   .section-head { flex-direction: column; align-items: stretch; }
   .controls { grid-template-columns: 1fr 1fr; }
   input[type="search"], select { min-width: 100%; }
@@ -196,4 +202,36 @@ th { text-align: left; position: sticky; top: var(--topbar-offset); background: 
   .topbar { padding: 12px 16px; }
   .topbar-nav a, .theme-button, .page-button { font-weight: 600; }
   .controls { grid-template-columns: 1fr; }
+  main, .hero, .footer, .narrow { padding: 18px; }
+  .hero-copy > p:not(.eyebrow) { font-size: 1rem; }
+  .table-wrap { overflow: visible; }
+  table, thead, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tbody { display: grid; gap: 12px; }
+  tr {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 8px 12px;
+    background: color-mix(in srgb, var(--panel-solid) 92%, transparent);
+    box-shadow: var(--shadow);
+  }
+  td {
+    border-bottom: 0;
+    padding: 8px 0;
+  }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: .76rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .table-wrap table th:nth-child(1), .table-wrap table td:nth-child(1),
+  .table-wrap table th:nth-child(2), .table-wrap table td:nth-child(2),
+  .table-wrap table th:nth-child(5), .table-wrap table td:nth-child(5),
+  .table-wrap table th:nth-child(6), .table-wrap table td:nth-child(6),
+  .table-wrap table th:nth-child(7), .table-wrap table td:nth-child(7),
+  .table-wrap table th:nth-child(8), .table-wrap table td:nth-child(8) { width: 100%; min-width: 100%; }
 }
