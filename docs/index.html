@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="topbar-shell">
+      <div class="topbar">
+        <a class="author-link" href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Made by <strong>Diego Marinho</strong></a>
+        <nav class="topbar-nav">
+          <a href="#overview">Global</a>
+          <a href="#regions">Regions</a>
+          <a href="./methodology.html">Methodology</a>
+          <a href="./spotlight.html">Spotlights</a>
+          <a href="./custom-domain.html">Custom domain</a>
+          <a href="./support.html">Support</a>
+        </nav>
+        <div class="theme-toggle" role="group" aria-label="Theme selector">
+          <button data-theme-option="auto" class="theme-button">Auto</button>
+          <button data-theme-option="light" class="theme-button">Light</button>
+          <button data-theme-option="dark" class="theme-button">Dark</button>
+        </div>
+      </div>
+    </div>
     <header class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Updated 2026 · GitHub Pages ready</p>
@@ -21,13 +39,10 @@
           <span class="badge">Spotlight pages</span>
           <span class="badge">Methodology included</span>
         </div>
-        <nav class="hero-nav">
-          <a href="#overview">Overview table</a>
-          <a href="#regions">By region</a>
-          <a href="./methodology.html">Methodology</a>
-          <a href="./spotlight.html">Spotlights</a>
-          <a href="./custom-domain.html">Custom domain</a>
-        </nav>
+        <div class="hero-note panel-inline">
+          <strong>Source:</strong> Times Higher Education Computer Science World University Rankings 2026.
+          This is a curated directory and enrichment layer, <strong>not an aggregated ranking</strong>.
+        </div>
       </div>
       <img src="./assets/hero-banner.svg" alt="Abstract university and AI research banner" class="hero-art" />
     </header>
@@ -48,6 +63,13 @@
             <select id="country-filter">
               <option value="">All countries</option>
             </select>
+            <select id="page-size">
+              <option value="10">Show 10</option>
+              <option value="20" selected>Show 20</option>
+              <option value="50">Show 50</option>
+              <option value="100">Show 100</option>
+              <option value="200">Show 200</option>
+            </select>
             <select id="sort-by">
               <option value="rank-asc">Sort: rank</option>
               <option value="name-asc">Sort: name A–Z</option>
@@ -59,6 +81,11 @@
           </div>
         </div>
         <p id="overview-count" class="muted"></p>
+        <div class="pagination-bar">
+          <button id="page-prev" class="page-button">← Prev</button>
+          <span id="page-status" class="muted">Page 1 of 1</span>
+          <button id="page-next" class="page-button">Next →</button>
+        </div>
         <div class="table-wrap">
           <table>
             <thead>
@@ -93,6 +120,12 @@
 
     <footer class="footer">
       <p>Built for static hosting on GitHub Pages. Last project update is shown in the dataset metadata.</p>
+      <p>
+        Made by <a href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Diego Marinho</a>
+        · <a href="./methodology.html">Methodology</a>
+        · <a href="./support.html">Support</a>
+        · <a href="https://buy.stripe.com/8x200i8bSgVe3Vl3g8bfO00" target="_blank" rel="noreferrer">Donate via Stripe</a>
+      </p>
     </footer>
 
     <script src="./app.js"></script>

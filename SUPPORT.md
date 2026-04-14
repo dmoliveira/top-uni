@@ -1,10 +1,11 @@
 # Support
 
-If you publish this repo publicly, connect this page to your preferred donation channel:
+If this project helps your research or saves you time, you can support ongoing maintenance here:
 
-- GitHub Sponsors
-- Open Collective
-- Ko-fi
-- Buy Me a Coffee
+- Donate via Stripe: https://buy.stripe.com/8x200i8bSgVe3Vl3g8bfO00
 
-For now, contributions are best made through pull requests, issue reports, and data corrections.
+Author:
+
+- Diego Marinho — https://dmoliveira.github.io/my-cv-public/cv/human/
+
+You can also contribute through pull requests, issue reports, and data corrections.

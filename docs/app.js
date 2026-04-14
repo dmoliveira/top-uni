@@ -1,3 +1,40 @@
+const THEME_KEY = "topuni-theme";
+
+const COUNTRY_FLAGS = {
+  Australia: "🇦🇺",
+  Austria: "🇦🇹",
+  Belgium: "🇧🇪",
+  Canada: "🇨🇦",
+  China: "🇨🇳",
+  Denmark: "🇩🇰",
+  Finland: "🇫🇮",
+  France: "🇫🇷",
+  Germany: "🇩🇪",
+  "Hong Kong": "🇭🇰",
+  India: "🇮🇳",
+  Ireland: "🇮🇪",
+  Israel: "🇮🇱",
+  Italy: "🇮🇹",
+  Japan: "🇯🇵",
+  Lebanon: "🇱🇧",
+  Luxembourg: "🇱🇺",
+  Macao: "🇲🇴",
+  Malaysia: "🇲🇾",
+  Netherlands: "🇳🇱",
+  "New Zealand": "🇳🇿",
+  Norway: "🇳🇴",
+  Qatar: "🇶🇦",
+  "Russian Federation": "🇷🇺",
+  "Saudi Arabia": "🇸🇦",
+  Singapore: "🇸🇬",
+  "South Korea": "🇰🇷",
+  Sweden: "🇸🇪",
+  Switzerland: "🇨🇭",
+  Taiwan: "🇹🇼",
+  "United Kingdom": "🇬🇧",
+  "United States": "🇺🇸",
+};
+
 async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) {
@@ -6,8 +43,12 @@ async function loadJson(path) {
   return response.json();
 }
 
-function link(label, url) {
-  return url ? `<a href="${url}" target="_blank" rel="noreferrer">${label}</a>` : "—";
+function countryFlag(country) {
+  return COUNTRY_FLAGS[country] || "🌍";
+}
+
+function link(label, url, className = "") {
+  return url ? `<a class="${className}" href="${url}" target="_blank" rel="noreferrer">${label}</a>` : "—";
 }
 
 function tagList(items = []) {
@@ -18,7 +59,7 @@ function numericScore(value) {
   if (typeof value === "number") return value;
   if (!value) return 0;
   const matches = String(value).match(/\d+(?:\.\d+)?/g);
-  if (!matches || !matches.length) return 0;
+  if (!matches?.length) return 0;
   const nums = matches.map(Number);
   return nums.reduce((sum, n) => sum + n, 0) / nums.length;
 }
@@ -41,55 +82,100 @@ function compareUniversities(a, b, mode) {
   }
 }
 
+function applyTheme(theme) {
+  const root = document.documentElement;
+  const resolved = theme === "auto"
+    ? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+    : theme;
+  root.dataset.theme = resolved;
+  document.querySelectorAll(".theme-button").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.themeOption === theme);
+  });
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY) || "auto";
+  applyTheme(saved);
+  document.querySelectorAll(".theme-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const theme = button.dataset.themeOption || "auto";
+      localStorage.setItem(THEME_KEY, theme);
+      applyTheme(theme);
+    });
+  });
+}
+
 function renderOverview(universities) {
   const body = document.getElementById("overview-body");
   const search = document.getElementById("search");
   const countryFilter = document.getElementById("country-filter");
   const sortBy = document.getElementById("sort-by");
+  const pageSize = document.getElementById("page-size");
+  const prev = document.getElementById("page-prev");
+  const next = document.getElementById("page-next");
+  const pageStatus = document.getElementById("page-status");
   const countEl = document.getElementById("overview-count");
-  if (!body || !search || !countryFilter || !sortBy || !countEl) return;
+  if (!body || !search || !countryFilter || !sortBy || !pageSize || !prev || !next || !pageStatus || !countEl) return;
 
+  let currentPage = 1;
   const countries = [...new Set(universities.map((u) => u.country).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-  countryFilter.innerHTML = '<option value="">All countries</option>' + countries.map((country) => `<option value="${country}">${country}</option>`).join("");
+  countryFilter.innerHTML = '<option value="">🌍 All countries</option>' + countries.map((country) => `<option value="${country}">${countryFlag(country)} ${country}</option>`).join("");
 
-  function draw() {
+  function filteredData() {
     const q = search.value.toLowerCase().trim();
     const country = countryFilter.value;
     const sort = sortBy.value;
-    const filtered = universities
+    return universities
       .filter((u) => !country || u.country === country)
-      .filter((u) => {
-        if (!q) return true;
-        return [u.name, u.country, u.region, u.city || "", ...(u.strengths || [])].join(" ").toLowerCase().includes(q);
-      })
+      .filter((u) => !q || [u.name, u.country, u.region, u.city || "", ...(u.strengths || [])].join(" ").toLowerCase().includes(q))
       .sort((a, b) => compareUniversities(a, b, sort));
-
-    countEl.textContent = `${filtered.length} universities shown`;
-    body.innerHTML = filtered
-      .map((u) => {
-        const dept = u.department ? link(u.department.label, u.department.url) : "—";
-        const researchLinks = u.labs?.length
-          ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ")
-          : "—";
-        const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
-        return `
-          <tr>
-            <td>${u.rank}<div class="muted">THE: ${u.rank_display || u.rank}</div></td>
-            <td><strong>${u.name}</strong><div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
-            <td>${u.region}</td>
-            <td>${u.founded || "—"}</td>
-            <td>${[u.city, u.country].filter(Boolean).join(", ")}</td>
-            <td><div>${dept}</div><div class="muted">${researchLinks}</div></td>
-            <td>${tagList(u.strengths)}</td>
-            <td>${link("Official", u.official_url)} · ${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
-          </tr>`;
-      })
-      .join("");
   }
 
-  [search, countryFilter, sortBy].forEach((el) => el.addEventListener("input", draw));
-  countryFilter.addEventListener("change", draw);
-  sortBy.addEventListener("change", draw);
+  function draw() {
+    const filtered = filteredData();
+    const size = Number(pageSize.value || 20);
+    const totalPages = Math.max(1, Math.ceil(filtered.length / size));
+    currentPage = Math.min(currentPage, totalPages);
+    const start = (currentPage - 1) * size;
+    const pageRows = filtered.slice(start, start + size);
+
+    countEl.textContent = `Showing ${filtered.length ? start + 1 : 0}-${Math.min(start + size, filtered.length)} of ${filtered.length} universities`;
+    pageStatus.textContent = `Page ${currentPage} of ${totalPages}`;
+    prev.disabled = currentPage === 1;
+    next.disabled = currentPage === totalPages;
+
+    body.innerHTML = pageRows.map((u) => {
+      const dept = u.department ? link(u.department.label, u.department.url) : "—";
+      const researchLinks = u.labs?.length ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ") : "—";
+      const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
+      const title = u.official_url
+        ? `<a class="university-link" href="${u.official_url}" target="_blank" rel="noreferrer"><strong>${u.name}</strong></a>`
+        : `<strong>${u.name}</strong>`;
+      return `
+        <tr>
+          <td>${u.rank}<div class="muted">THE: ${u.rank_display || u.rank}</div></td>
+          <td>${title}<div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
+          <td>${u.region}</td>
+          <td>${u.founded || "—"}</td>
+          <td><span class="flag-label">${countryFlag(u.country)}</span>${[u.city, u.country].filter(Boolean).join(", ")}</td>
+          <td><div>${dept}</div><div class="muted">${researchLinks}</div></td>
+          <td>${tagList(u.strengths)}</td>
+          <td>${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
+        </tr>`;
+    }).join("");
+  }
+
+  function resetAndDraw() {
+    currentPage = 1;
+    draw();
+  }
+
+  [search, countryFilter, sortBy, pageSize].forEach((el) => el.addEventListener("input", resetAndDraw));
+  countryFilter.addEventListener("change", resetAndDraw);
+  sortBy.addEventListener("change", resetAndDraw);
+  pageSize.addEventListener("change", resetAndDraw);
+  prev.addEventListener("click", () => { if (currentPage > 1) { currentPage -= 1; draw(); } });
+  next.addEventListener("click", () => { currentPage += 1; draw(); });
   draw();
 }
 
@@ -104,6 +190,7 @@ function renderMeta(meta, universities) {
     <h2>${meta.title}</h2>
     <p>${meta.source_note}</p>
     <p><strong>Updated:</strong> ${meta.updated_at}</p>
+    <p class="muted"><strong>Source note:</strong> This is not an aggregated ranking. Ordered positions follow THE Computer Science World University Rankings 2026, enriched with ROR and official university pages.</p>
     <div class="badge-row">
       ${Object.entries(counts).map(([region, count]) => `<span class="badge">${region}: ${count}</span>`).join("")}
     </div>
@@ -124,7 +211,7 @@ function renderRegions(universities) {
         <h3>${region}</h3>
         <p>${schools.length} universities</p>
         <ol>
-          ${schools.map((u) => `<li><strong>#${u.rank}</strong> ${u.name}</li>`).join("")}
+          ${schools.map((u) => `<li><strong>#${u.rank}</strong> ${countryFlag(u.country)} ${u.name}</li>`).join("")}
         </ol>
       </article>`)
     .join("");
@@ -133,24 +220,24 @@ function renderRegions(universities) {
 function renderSpotlights(spotlights, universities) {
   const targets = [document.getElementById("spotlight-grid"), document.getElementById("spotlight-list")].filter(Boolean);
   if (!targets.length) return;
-  const cards = spotlights.spotlights
-    .map((s) => {
-      const uni = universities.find((u) => u.slug === s.slug);
-      return `
-        <article class="panel card" id="${s.slug}">
-          <p class="eyebrow">Rank #${uni?.rank || "—"}</p>
-          <h3>${s.name}</h3>
-          <p>${(s.advances || []).join(" ")}</p>
-          <div>${tagList(s.strengths)}</div>
-          <p><strong>Department:</strong> ${link(s.department.label, s.department.url)}</p>
-          <p><strong>Labs:</strong> ${(s.labs || []).map((lab) => link(lab.label, lab.url)).join(" · ")}</p>
-          <p><strong>Research:</strong> ${(s.research_links || []).map((r) => link(r.label, r.url)).join(" · ")}</p>
-          <p><strong>Papers / breakthroughs:</strong> ${(s.papers || []).map((p) => link(p.title, p.url)).join(" · ")}</p>
-        </article>`;
-    })
-    .join("");
+  const cards = spotlights.spotlights.map((s) => {
+    const uni = universities.find((u) => u.slug === s.slug);
+    return `
+      <article class="panel card" id="${s.slug}">
+        <p class="eyebrow">Rank #${uni?.rank || "—"}</p>
+        <h3>${uni?.official_url ? `<a class="university-link" href="${uni.official_url}" target="_blank" rel="noreferrer">${s.name}</a>` : s.name}</h3>
+        <p>${(s.advances || []).join(" ")}</p>
+        <div>${tagList(s.strengths)}</div>
+        <p><strong>Department:</strong> ${link(s.department.label, s.department.url)}</p>
+        <p><strong>Labs:</strong> ${(s.labs || []).map((lab) => link(lab.label, lab.url)).join(" · ")}</p>
+        <p><strong>Research:</strong> ${(s.research_links || []).map((r) => link(r.label, r.url)).join(" · ")}</p>
+        <p><strong>Papers / breakthroughs:</strong> ${(s.papers || []).map((p) => link(p.title, p.url)).join(" · ")}</p>
+      </article>`;
+  }).join("");
   targets.forEach((el) => (el.innerHTML = cards));
 }
+
+initTheme();
 
 Promise.all([loadJson("./data/universities.json"), loadJson("./data/spotlights.json")])
   .then(([data, spotlights]) => {

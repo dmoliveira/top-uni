@@ -7,10 +7,35 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="topbar-shell">
+      <div class="topbar">
+        <a class="author-link" href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Made by <strong>Diego Marinho</strong></a>
+        <nav class="topbar-nav">
+          <a href="./index.html#overview">Global</a>
+          <a href="./index.html#regions">Regions</a>
+          <a href="./methodology.html">Methodology</a>
+          <a href="./spotlight.html">Spotlights</a>
+          <a href="./custom-domain.html">Custom domain</a>
+          <a href="./support.html">Support</a>
+        </nav>
+        <div class="theme-toggle" role="group" aria-label="Theme selector">
+          <button data-theme-option="auto" class="theme-button">Auto</button>
+          <button data-theme-option="light" class="theme-button">Light</button>
+          <button data-theme-option="dark" class="theme-button">Dark</button>
+        </div>
+      </div>
+    </div>
     <main class="narrow">
       <p><a href="./index.html">← Back to directory</a></p>
       <h1>Spotlight universities</h1>
       <div id="spotlight-list" class="card-grid"></div>
+      <footer class="footer">
+        <p>
+          Made by <a href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Diego Marinho</a>
+          · <a href="./support.html">Support</a>
+          · <a href="https://buy.stripe.com/8x200i8bSgVe3Vl3g8bfO00" target="_blank" rel="noreferrer">Donate via Stripe</a>
+        </p>
+      </footer>
     </main>
     <script src="./app.js"></script>
   </body>
