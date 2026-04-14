@@ -1,5 +1,11 @@
 const THEME_KEY = "topuni-theme";
 
+function syncTopbarOffset() {
+  const topbar = document.querySelector(".topbar-shell");
+  const height = topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 84;
+  document.documentElement.style.setProperty("--topbar-offset", `${height}px`);
+}
+
 const COUNTRY_FLAGS = {
   Australia: "🇦🇺",
   Austria: "🇦🇹",
@@ -105,6 +111,8 @@ function initTheme() {
   });
 }
 
+window.addEventListener("resize", syncTopbarOffset);
+
 function renderOverview(universities) {
   const body = document.getElementById("overview-body");
   const search = document.getElementById("search");
@@ -148,12 +156,13 @@ function renderOverview(universities) {
       const dept = u.department ? link(u.department.label, u.department.url) : "—";
       const researchLinks = u.labs?.length ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ") : "—";
       const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
+      const rankMeta = u.rank_display && String(u.rank_display) !== String(u.rank) ? `<div class="muted">THE band: ${u.rank_display}</div>` : "";
       const title = u.official_url
         ? `<a class="university-link" href="${u.official_url}" target="_blank" rel="noreferrer"><strong>${u.name}</strong></a>`
         : `<strong>${u.name}</strong>`;
       return `
         <tr>
-          <td>${u.rank}<div class="muted">THE: ${u.rank_display || u.rank}</div></td>
+          <td><strong>${u.rank}</strong>${rankMeta}</td>
           <td>${title}<div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
           <td>${u.region}</td>
           <td>${u.founded || "—"}</td>
@@ -238,6 +247,7 @@ function renderSpotlights(spotlights, universities) {
 }
 
 initTheme();
+syncTopbarOffset();
 
 Promise.all([loadJson("./data/universities.json"), loadJson("./data/spotlights.json")])
   .then(([data, spotlights]) => {
