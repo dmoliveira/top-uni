@@ -5,9 +5,11 @@
 [![GitHub Pages Ready](https://img.shields.io/badge/GitHub%20Pages-ready-black)](./docs/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![Public Repo](https://img.shields.io/badge/repo-public-lightgrey)](./README.md)
-[![Donate](https://img.shields.io/badge/donate-support-orange)](./SUPPORT.md)
+[![Donate via Stripe](https://img.shields.io/badge/donate-stripe-635bff?logo=stripe&logoColor=white)](https://buy.stripe.com/8x200i8bSgVe3Vl3g8bfO00)
 
 Research-friendly directory of the **top 200 universities in the world for Computer Science, AI/ML, and closely related data science fields**.
+
+Created by **[Diego Marinho](https://dmoliveira.github.io/my-cv-public/cv/human/)**.
 
 ## What this includes
 
@@ -35,6 +37,7 @@ python3 -m http.server 8000 -d docs
 
 - Base ranking source: **Times Higher Education Computer Science World University Rankings 2026**.
 - Metadata enrichment: **ROR** plus official university research pages for spotlight institutions.
+- This is **not** an aggregated ranking; the ordered list follows THE's 2026 Computer Science ranking and is enriched for navigation/research use.
 - If an automated official-site match looked unreliable, the field is left blank on purpose.
 - This repo is a practical curated directory, not an official publication of any ranking body.
 
