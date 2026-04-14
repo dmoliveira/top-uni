@@ -163,14 +163,14 @@ function renderOverview(universities) {
         : `<strong>${u.name}</strong>`;
       return `
         <tr>
-          <td><strong>${u.rank}</strong>${rankMeta}</td>
-          <td>${title}<div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
-          <td>${u.region}</td>
-          <td>${u.founded || "—"}</td>
-          <td><span class="flag-label">${countryFlag(u.country)}</span>${[u.city, u.country].filter(Boolean).join(", ")}</td>
-          <td><div>${dept}</div><div class="muted">${researchLinks}</div></td>
-          <td>${tagList(u.strengths)}</td>
-          <td>${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
+          <td data-label="Rank"><strong>${u.rank}</strong>${rankMeta}</td>
+          <td data-label="University">${title}<div class="muted">THE score: ${u.scorecard.overall || "—"}</div></td>
+          <td data-label="Region">${u.region}</td>
+          <td data-label="Founded">${u.founded || "—"}</td>
+          <td data-label="Location"><span class="flag-label">${countryFlag(u.country)}</span>${[u.city, u.country].filter(Boolean).join(", ")}</td>
+          <td data-label="Department / Research links"><div>${dept}</div><div class="muted">${researchLinks}</div></td>
+          <td data-label="Strong at">${tagList(u.strengths)}</td>
+          <td data-label="Links">${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
         </tr>`;
     }).join("");
   }
