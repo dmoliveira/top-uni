@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  --topbar-offset: 84px;
   --bg: #07111f;
   --bg-grad-1: #06101d;
   --bg-grad-2: #0b1525;
@@ -44,27 +45,30 @@ body {
 }
 a { color: var(--accent); }
 button, select, input { font: inherit; }
-main, .hero, .footer, .narrow, .topbar-shell { max-width: 1240px; margin: 0 auto; padding: 24px; }
+main, .hero, .footer, .narrow { max-width: 1240px; margin: 0 auto; padding: 24px; }
 .narrow { max-width: 980px; }
 
 .topbar-shell {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 50;
-  padding-top: 14px;
-  padding-bottom: 0;
+  padding: 0;
 }
 .topbar {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 16px;
-  border: 1px solid var(--line);
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--panel-solid) 88%, transparent);
   backdrop-filter: blur(14px);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
+  border-radius: 0;
+  box-shadow: 0 8px 28px rgba(0,0,0,.18);
 }
 .author-link {
   color: var(--text);
@@ -72,6 +76,8 @@ main, .hero, .footer, .narrow, .topbar-shell { max-width: 1240px; margin: 0 auto
   white-space: nowrap;
 }
 .topbar-nav, .theme-toggle, .badge-row, .hero-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+.topbar-nav { justify-content: center; }
+.theme-toggle { justify-content: flex-end; }
 .topbar-nav a, .theme-button, .page-button, .hero-nav a {
   text-decoration: none;
   border: 1px solid var(--line);
@@ -83,12 +89,14 @@ main, .hero, .footer, .narrow, .topbar-shell { max-width: 1240px; margin: 0 auto
 }
 .theme-button.is-active { background: var(--chip-strong); border-color: var(--accent); }
 
+body { padding-top: var(--topbar-offset); }
+
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 24px;
   align-items: center;
-  min-height: calc(70vh - 70px);
+  min-height: calc(70vh - 100px);
 }
 .hero-art { width: 100%; max-height: 380px; }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .78rem; }
@@ -119,7 +127,12 @@ h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: .2rem 0 1rem; }
   background: var(--chip);
 }
 .section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; }
-.controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+.controls {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.4fr) repeat(3, minmax(180px, 1fr));
+  gap: 10px;
+  align-items: end;
+}
 input[type="search"], select {
   min-width: 180px;
   padding: 12px 14px;
@@ -128,7 +141,7 @@ input[type="search"], select {
   background: var(--panel-solid);
   color: var(--text);
 }
-input[type="search"] { min-width: 280px; }
+input[type="search"] { min-width: 280px; width: 100%; }
 .pagination-bar {
   display: flex;
   justify-content: space-between;
@@ -137,10 +150,11 @@ input[type="search"] { min-width: 280px; }
   margin: 10px 0 16px;
 }
 .page-button[disabled] { opacity: .5; cursor: not-allowed; }
+.page-button { min-width: 96px; }
 .table-wrap { overflow: auto; }
 table { width: 100%; border-collapse: collapse; }
 th, td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { text-align: left; position: sticky; top: 86px; background: var(--panel-solid); z-index: 5; }
+th { text-align: left; position: sticky; top: var(--topbar-offset); background: var(--panel-solid); z-index: 5; }
 .muted { color: var(--muted); font-size: .92rem; }
 .regions-grid, .card-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .footer { color: var(--muted); padding-bottom: 48px; }
@@ -150,12 +164,19 @@ th { text-align: left; position: sticky; top: 86px; background: var(--panel-soli
 .flag-label { margin-right: 6px; }
 
 @media (max-width: 980px) {
-  .topbar { flex-direction: column; align-items: stretch; }
+  .topbar {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
   .topbar-nav, .theme-toggle { justify-content: center; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .section-head { flex-direction: column; align-items: stretch; }
-  .controls { justify-content: stretch; }
+  .controls { grid-template-columns: 1fr 1fr; }
   input[type="search"], select { min-width: 100%; }
   .pagination-bar { flex-direction: column; }
-  th { top: 152px; }
+}
+
+@media (max-width: 680px) {
+  .topbar { padding: 12px 16px; }
+  .controls { grid-template-columns: 1fr; }
 }
