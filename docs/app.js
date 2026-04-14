@@ -112,6 +112,7 @@ function initTheme() {
 }
 
 window.addEventListener("resize", syncTopbarOffset);
+window.addEventListener("load", syncTopbarOffset);
 
 function renderOverview(universities) {
   const body = document.getElementById("overview-body");
