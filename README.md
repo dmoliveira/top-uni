@@ -31,7 +31,6 @@ python3 -m http.server 8000 -d docs
 - Main site: [http://localhost:8000/index.html](http://localhost:8000/index.html)
 - Spotlight pages: [http://localhost:8000/spotlight.html](http://localhost:8000/spotlight.html)
 - Methodology: [http://localhost:8000/methodology.html](http://localhost:8000/methodology.html)
-- Custom domain guide: [http://localhost:8000/custom-domain.html](http://localhost:8000/custom-domain.html)
 
 ## Data notes
 
