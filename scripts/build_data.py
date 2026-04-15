@@ -7,9 +7,11 @@ import urllib.parse
 import urllib.request
 from difflib import SequenceMatcher
 from datetime import datetime, timezone
+from pathlib import Path
 
 
 THE_URL = "https://www.timeshighereducation.com/world-university-rankings/2026/subject-ranking/computer-science"
+CACHE_PATH = Path("docs/data/geocode_cache.json")
 
 
 REGION_MAP = {
@@ -612,6 +614,10 @@ OFFICIAL_OVERRIDES = {
     "university-of-science-and-technology-of-china": {
         "official_url": "https://en.ustc.edu.cn/"
     },
+    "paris-sciences-et-lettres-psl-research-university-paris": {
+        "official_url": "https://psl.eu/en",
+        "city": "Paris",
+    },
     "university-of-texas-at-austin": {
         "official_url": "https://www.utexas.edu/",
         "city": "Austin",
@@ -624,6 +630,42 @@ OFFICIAL_OVERRIDES = {
     },
     "nanjing-university": {"official_url": "https://www.nju.edu.cn/EN/"},
     "city-university-of-hong-kong": {"official_url": "https://www.cityu.edu.hk/"},
+    "yonsei-university-seoul-campus": {
+        "official_url": "https://www.yonsei.ac.kr/en_sc/",
+        "city": "Seoul",
+    },
+    "national-taiwan-university-ntu": {
+        "official_url": "https://www.ntu.edu.tw/english/",
+        "city": "Taipei",
+    },
+    "pohang-university-of-science-and-technology-postech": {
+        "official_url": "https://www.postech.ac.kr/eng/",
+        "city": "Pohang",
+    },
+    "penn-state-main-campus": {
+        "official_url": "https://www.psu.edu/",
+        "city": "University Park",
+    },
+    "southern-university-of-science-and-technology-sustech": {
+        "official_url": "https://www.sustech.edu.cn/en/",
+        "city": "Shenzhen",
+    },
+    "university-of-virginia-main-campus": {
+        "official_url": "https://www.virginia.edu/",
+        "city": "Charlottesville",
+    },
+    "ohio-state-university-main-campus": {
+        "official_url": "https://www.osu.edu/",
+        "city": "Columbus",
+    },
+    "university-of-wurzburg": {
+        "official_url": "https://www.uni-wuerzburg.de/en/",
+        "city": "Würzburg",
+    },
+    "queensland-university-of-technology": {
+        "official_url": "https://www.qut.edu.au/",
+        "city": "Brisbane",
+    },
     "the-hong-kong-polytechnic-university": {
         "official_url": "https://www.polyu.edu.hk/"
     },
@@ -647,13 +689,15 @@ OFFICIAL_OVERRIDES = {
     "norwegian-university-of-science-and-technology": {
         "official_url": "https://www.ntnu.edu/"
     },
-    "queensland-university-of-technology": {"official_url": "https://www.qut.edu.au/"},
     "university-college-dublin": {"official_url": "https://www.ucd.ie/"},
-    "university-of-virginia-main-campus": {"official_url": "https://www.virginia.edu/"},
     "university-of-oulu": {"official_url": "https://www.oulu.fi/en"},
     "north-carolina-state-university": {"official_url": "https://www.ncsu.edu/"},
     "university-of-notre-dame": {"official_url": "https://www.nd.edu/"},
     "university-of-florida": {"official_url": "https://www.ufl.edu/"},
+    "bauman-moscow-state-technical-university": {
+        "official_url": "https://bmstu.ru/en/",
+        "city": "Moscow",
+    },
 }
 
 
@@ -665,6 +709,47 @@ def fetch_text(url: str) -> str:
 
 def fetch_json(url: str):
     return json.loads(fetch_text(url))
+
+
+def load_geocode_cache():
+    if CACHE_PATH.exists():
+        return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+    return {}
+
+
+def save_geocode_cache(cache):
+    CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CACHE_PATH.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def geocode_query(query: str):
+    url = "https://nominatim.openstreetmap.org/search?" + urllib.parse.urlencode(
+        {"q": query, "format": "jsonv2", "limit": 1}
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "top-uni-directory/1.0"})
+    with urllib.request.urlopen(req, timeout=120) as response:
+        return json.loads(response.read().decode("utf-8", "ignore"))
+
+
+def resolve_coordinates(name: str, city: str, country: str, cache):
+    queries = [f"{name}, {country}"]
+    if city:
+        queries.append(f"{name}, {city}, {country}")
+        queries.append(f"{city}, {country}")
+    for query in queries:
+        if query in cache:
+            result = cache[query]
+        else:
+            result = geocode_query(query)
+            cache[query] = result
+            save_geocode_cache(cache)
+            time.sleep(1)
+        if result:
+            item = result[0]
+            return float(item["lat"]), float(item["lon"])
+    return None, None
 
 
 def slugify(value: str) -> str:
@@ -883,7 +968,7 @@ def canonical_name_score(name: str, item) -> int:
     return best
 
 
-def build_record(row):
+def build_record(row, cache):
     items = ror_query(row["name"])
     match = choose_ror_match(row["name"], row["country"], items)
     website = None
@@ -933,6 +1018,10 @@ def build_record(row):
         city = override["city"]
     if override.get("founded"):
         founded = override["founded"]
+    if latitude is None or longitude is None:
+        latitude, longitude = resolve_coordinates(
+            row["name"], city, row["country"], cache
+        )
     if metadata_source == "manual_override":
         match_name_score = max(match_name_score, 95)
     if website and not trusted_official(row["name"], website):
@@ -981,9 +1070,10 @@ def build_record(row):
 
 def main():
     rows = load_the_top_200()
+    cache = load_geocode_cache()
     universities = []
     for idx, row in enumerate(rows, start=1):
-        universities.append(build_record(row))
+        universities.append(build_record(row, cache))
         if idx % 20 == 0:
             time.sleep(1)
 
