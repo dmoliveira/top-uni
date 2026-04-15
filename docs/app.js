@@ -1,5 +1,15 @@
 const THEME_KEY = "topuni-theme";
 
+const CONTINENT_SHAPES = [
+  { x: 85, y: 95, width: 220, height: 120, rx: 70 },
+  { x: 210, y: 235, width: 110, height: 170, rx: 55 },
+  { x: 410, y: 78, width: 135, height: 70, rx: 34 },
+  { x: 448, y: 165, width: 165, height: 115, rx: 45 },
+  { x: 520, y: 270, width: 130, height: 165, rx: 52 },
+  { x: 642, y: 95, width: 225, height: 128, rx: 60 },
+  { x: 785, y: 250, width: 145, height: 85, rx: 40 },
+];
+
 function syncTopbarOffset() {
   const topbar = document.querySelector(".topbar-shell");
   const height = topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 84;
@@ -221,10 +231,110 @@ function renderRegions(universities) {
         <h3>${region}</h3>
         <p>${schools.length} universities</p>
         <ol>
-          ${schools.map((u) => `<li><strong>#${u.rank}</strong> ${countryFlag(u.country)} ${u.name}</li>`).join("")}
+          ${schools.map((u) => `<li><strong>#${u.rank}</strong> ${countryFlag(u.country)} ${u.official_url ? `<a class="region-list-link" href="${u.official_url}" target="_blank" rel="noreferrer">${u.name}</a>` : u.name}</li>`).join("")}
         </ol>
       </article>`)
     .join("");
+}
+
+function projectPoint(longitude, latitude) {
+  return {
+    x: ((Number(longitude) + 180) / 360) * 1000,
+    y: ((90 - Number(latitude)) / 180) * 520,
+  };
+}
+
+function renderMap(universities) {
+  const continents = document.getElementById("map-continents");
+  const pointsEl = document.getElementById("map-points");
+  const tooltip = document.getElementById("map-tooltip");
+  const regionFilter = document.getElementById("map-region-filter");
+  const zoomIn = document.getElementById("map-zoom-in");
+  const zoomOut = document.getElementById("map-zoom-out");
+  const reset = document.getElementById("map-reset");
+  const map = document.getElementById("world-map");
+  const viewport = document.getElementById("map-viewport");
+  if (!continents || !pointsEl || !tooltip || !regionFilter || !zoomIn || !zoomOut || !reset || !map || !viewport) return;
+
+  continents.innerHTML = CONTINENT_SHAPES.map((shape) => `<rect class="continent-shape" x="${shape.x}" y="${shape.y}" width="${shape.width}" height="${shape.height}" rx="${shape.rx}" />`).join("");
+
+  const mapped = universities.filter((u) => Number.isFinite(u.latitude) && Number.isFinite(u.longitude));
+  const regions = [...new Set(mapped.map((u) => u.region))].sort((a, b) => a.localeCompare(b));
+  regionFilter.innerHTML = '<option value="">All regions</option>' + regions.map((region) => `<option value="${region}">${region}</option>`).join("");
+
+  let zoom = 1;
+  let tx = 0;
+  let ty = 0;
+  let dragging = false;
+  let dragStart = null;
+
+  function applyTransform() {
+    viewport.setAttribute("transform", `translate(${tx} ${ty}) scale(${zoom})`);
+  }
+
+  function drawPoints() {
+    const region = regionFilter.value;
+    const rows = mapped.filter((u) => !region || u.region === region);
+    pointsEl.innerHTML = rows.map((u) => {
+      const { x, y } = projectPoint(u.longitude, u.latitude);
+      return `<circle class="map-dot" cx="${x}" cy="${y}" r="5" data-name="${u.name}" data-url="${u.official_url || ""}" data-country="${u.country}" data-city="${u.city || ""}" />`;
+    }).join("");
+
+    pointsEl.querySelectorAll(".map-dot").forEach((dot) => {
+      dot.addEventListener("mouseenter", (event) => {
+        tooltip.hidden = false;
+        tooltip.innerHTML = `<strong>${event.target.dataset.name}</strong><br>${event.target.dataset.city ? `${event.target.dataset.city}, ` : ""}${event.target.dataset.country}`;
+      });
+      dot.addEventListener("mousemove", (event) => {
+        const rect = map.getBoundingClientRect();
+        tooltip.style.left = `${event.clientX - rect.left + 14}px`;
+        tooltip.style.top = `${event.clientY - rect.top + 14}px`;
+      });
+      dot.addEventListener("mouseleave", () => { tooltip.hidden = true; });
+      dot.addEventListener("click", (event) => {
+        const url = event.target.dataset.url;
+        if (url) window.open(url, "_blank", "noopener,noreferrer");
+      });
+    });
+  }
+
+  function setZoom(nextZoom) {
+    zoom = Math.max(1, Math.min(4, nextZoom));
+    applyTransform();
+  }
+
+  map.addEventListener("mousedown", (event) => {
+    dragging = true;
+    dragStart = { x: event.clientX - tx, y: event.clientY - ty };
+    map.classList.add("is-dragging");
+  });
+  window.addEventListener("mouseup", () => {
+    dragging = false;
+    map.classList.remove("is-dragging");
+  });
+  map.addEventListener("mousemove", (event) => {
+    if (!dragging || !dragStart) return;
+    tx = event.clientX - dragStart.x;
+    ty = event.clientY - dragStart.y;
+    applyTransform();
+  });
+  map.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    setZoom(zoom + (event.deltaY < 0 ? 0.2 : -0.2));
+  }, { passive: false });
+
+  zoomIn.addEventListener("click", () => setZoom(zoom + 0.25));
+  zoomOut.addEventListener("click", () => setZoom(zoom - 0.25));
+  reset.addEventListener("click", () => {
+    zoom = 1;
+    tx = 0;
+    ty = 0;
+    applyTransform();
+  });
+  regionFilter.addEventListener("change", drawPoints);
+
+  applyTransform();
+  drawPoints();
 }
 
 function renderSpotlights(spotlights, universities) {
@@ -255,6 +365,7 @@ Promise.all([loadJson("./data/universities.json"), loadJson("./data/spotlights.j
     renderMeta(data.meta, data.universities);
     renderOverview(data.universities);
     renderRegions(data.universities);
+    renderMap(data.universities);
     renderSpotlights(spotlights, data.universities);
   })
   .catch((error) => {

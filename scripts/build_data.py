@@ -890,12 +890,17 @@ def build_record(row):
     wikipedia = None
     founded = None
     city = None
+    latitude = None
+    longitude = None
     ror_id = None
     related = []
     if match:
         founded = match.get("established")
         ror_id = match.get("id")
-        city = match.get("locations", [{}])[0].get("geonames_details", {}).get("name")
+        geo = match.get("locations", [{}])[0].get("geonames_details", {})
+        city = geo.get("name")
+        latitude = geo.get("lat")
+        longitude = geo.get("lng")
         for link in match.get("links", []):
             if link.get("type") == "website" and not website:
                 website = link.get("value")
@@ -918,6 +923,8 @@ def build_record(row):
         ror_id = None
         founded = None
         city = None
+        latitude = None
+        longitude = None
         related = []
     if override.get("official_url"):
         website = override["official_url"]
@@ -945,6 +952,8 @@ def build_record(row):
         "country": row["country"],
         "region": region_for(row["country"]),
         "city": city,
+        "latitude": latitude,
+        "longitude": longitude,
         "founded": founded,
         "official_url": website,
         "wikipedia_url": wikipedia,
