@@ -166,12 +166,11 @@ input[type="search"] { min-width: 280px; width: 100%; }
 }
 .page-button[disabled] { opacity: .5; cursor: not-allowed; }
 .page-button { min-width: 108px; }
-.table-wrap { overflow: auto; }
+.table-wrap { overflow: auto; padding-top: 28px; }
 table { width: 100%; border-collapse: separate; border-spacing: 0; }
 th, td { padding: 12px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { text-align: left; position: sticky; top: var(--topbar-offset); background: var(--panel-solid); z-index: 5; box-shadow: inset 0 -1px 0 var(--line); }
-tbody tr:first-child td { padding-top: 18px; }
-.table-wrap { padding-top: 8px; }
+tbody tr:first-child td { padding-top: 22px; }
 .table-wrap table th:nth-child(1), .table-wrap table td:nth-child(1) { width: 86px; }
 .table-wrap table th:nth-child(2), .table-wrap table td:nth-child(2) { min-width: 170px; }
 .table-wrap table th:nth-child(5), .table-wrap table td:nth-child(5) { min-width: 170px; }
