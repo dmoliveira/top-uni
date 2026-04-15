@@ -1,0 +1,1912 @@
+{
+  "Massachusetts Institute of Technology, United States": [
+    {
+      "place_id": 334757240,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 65066,
+      "lat": "42.3582529",
+      "lon": "-71.0966272",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.7082147431010908,
+      "addresstype": "amenity",
+      "name": "Massachusetts Institute of Technology",
+      "display_name": "Massachusetts Institute of Technology, Storrow Drive, Back Bay, Cambridge, Suffolk County, Massachusetts, 02199, United States",
+      "boundingbox": [
+        "42.3535819",
+        "42.3652645",
+        "-71.1100590",
+        "-71.0817414"
+      ]
+    }
+  ],
+  "Stanford University, United States": [
+    {
+      "place_id": 298741203,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 29268613,
+      "lat": "37.4313138",
+      "lon": "-122.1693654",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.7228063974255421,
+      "addresstype": "amenity",
+      "name": "Stanford University",
+      "display_name": "Stanford University, 450, Jane Stanford Way, Stanford, Santa Clara County, California, 94305, United States",
+      "boundingbox": [
+        "37.4189865",
+        "37.4433992",
+        "-122.1860658",
+        "-122.1520382"
+      ]
+    }
+  ],
+  "Imperial College London, United Kingdom": [
+    {
+      "place_id": 259953377,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 12233221,
+      "lat": "51.4989595",
+      "lon": "-0.1756407",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.608023831191298,
+      "addresstype": "amenity",
+      "name": "Imperial College London",
+      "display_name": "Imperial College London, Exhibition Road, Knightsbridge, City of Westminster, Greater London, England, SW7 2AZ, United Kingdom",
+      "boundingbox": [
+        "51.4973576",
+        "51.5005048",
+        "-0.1796387",
+        "-0.1716923"
+      ]
+    }
+  ],
+  "Peking University, China": [
+    {
+      "place_id": 202196942,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 217111712,
+      "lat": "40.1750746",
+      "lon": "116.1593872",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6175414135228529,
+      "addresstype": "amenity",
+      "name": "北京大学（新燕园校区）",
+      "display_name": "北京大学（新燕园校区）, 顺沙路, 阳坊镇, 昌平区, 北京市, 102205, 中国",
+      "boundingbox": [
+        "40.1696859",
+        "40.1802633",
+        "116.1494589",
+        "116.1643857"
+      ]
+    }
+  ],
+  "Tsinghua University, China": [
+    {
+      "place_id": 202908455,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 7469216,
+      "lat": "40.0022905",
+      "lon": "116.3209630",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6020605368661827,
+      "addresstype": "amenity",
+      "name": "清华大学",
+      "display_name": "清华大学, 30, 双清路, 东升镇, 海淀区, 北京市, 100084, 中国",
+      "boundingbox": [
+        "39.9913343",
+        "40.0119458",
+        "116.3092630",
+        "116.3308165"
+      ]
+    }
+  ],
+  "Technical University of Munich, Germany": [
+    {
+      "place_id": 117472467,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 296754880,
+      "lat": "48.2654976",
+      "lon": "11.6692249",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.603163909164153,
+      "addresstype": "amenity",
+      "name": "Technische Universität München",
+      "display_name": "Technische Universität München, Boltzmannstraße, Hochschul- und Forschungszentrum, Garching bei München, Landkreis München, Bayern, 85748, Deutschland",
+      "boundingbox": [
+        "48.2609734",
+        "48.2702361",
+        "11.6614550",
+        "11.6794005"
+      ]
+    }
+  ],
+  "Nanyang Technological University, Singapore, Singapore": [
+    {
+      "place_id": 235177474,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 115105262,
+      "lat": "1.3484104",
+      "lon": "103.6829332",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5122435862294258,
+      "addresstype": "amenity",
+      "name": "Nanyang Technological University",
+      "display_name": "Nanyang Technological University, 50, Nanyang Avenue, Murai, Western Water Catchment, West Region, Singapore, 639798, Singapore",
+      "boundingbox": [
+        "1.3396504",
+        "1.3569922",
+        "103.6760092",
+        "103.6900716"
+      ]
+    }
+  ],
+  "Zhejiang University, China": [
+    {
+      "place_id": 207019226,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 9755082457,
+      "lat": "30.5215950",
+      "lon": "120.7195312",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 5.5311665522194516e-05,
+      "addresstype": "amenity",
+      "name": "浙江大学（海宁校区）",
+      "display_name": "浙江大学（海宁校区）, 718号, 海州东路, 鹃湖科技城, 硖石街道, 海宁市, 嘉兴市, 浙江省, 314400, 中国",
+      "boundingbox": [
+        "30.5215450",
+        "30.5216450",
+        "120.7194812",
+        "120.7195812"
+      ]
+    }
+  ],
+  "The Hong Kong University of Science and Technology, Hong Kong": [
+    {
+      "place_id": 219366427,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 40664120,
+      "lat": "22.3358031",
+      "lon": "114.2659088",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 6.549095902948069e-05,
+      "addresstype": "amenity",
+      "name": "香港科技大學 The Hong Kong University of Science and Technology",
+      "display_name": "香港科技大學 The Hong Kong University of Science and Technology, 大學道 University Road, 碧水新村 Pik Shui Sun Tsuen, 西貢區 Sai Kung District, 新界 New Territories, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.3317768",
+        "22.3404248",
+        "114.2617409",
+        "114.2695826"
+      ]
+    }
+  ],
+  "Georgia Institute of Technology, United States": [
+    {
+      "place_id": 315746455,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 3341535,
+      "lat": "33.7760948",
+      "lon": "-84.3988077",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5745837805718689,
+      "addresstype": "amenity",
+      "name": "Georgia Tech",
+      "display_name": "Georgia Tech, Peachtree Place Northwest, Midtown, Atlanta, Fulton County, Georgia, 30332, United States",
+      "boundingbox": [
+        "33.7684637",
+        "33.7835452",
+        "-84.4073707",
+        "-84.3858109"
+      ]
+    }
+  ],
+  "University of Texas at Austin, United States": [
+    {
+      "place_id": 292428168,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 1701848,
+      "lat": "30.2851494",
+      "lon": "-97.7339352",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6542164953583288,
+      "addresstype": "amenity",
+      "name": "University of Texas at Austin",
+      "display_name": "University of Texas at Austin, 1, Allandale, Austin, Travis County, Texas, 78712, United States",
+      "boundingbox": [
+        "30.2749856",
+        "30.3973516",
+        "-97.7856260",
+        "-97.7219658"
+      ]
+    }
+  ],
+  "Korea Advanced Institute of Science and Technology (KAIST), South Korea": [],
+  "Korea Advanced Institute of Science and Technology (KAIST), Daejeon, South Korea": [],
+  "Daejeon, South Korea": [
+    {
+      "place_id": 207284837,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2349984,
+      "lat": "36.3497007",
+      "lon": "127.3849016",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 8,
+      "importance": 0.619362225229405,
+      "addresstype": "city",
+      "name": "대전광역시",
+      "display_name": "대전광역시, 대한민국",
+      "boundingbox": [
+        "36.1833683",
+        "36.5002307",
+        "127.2463188",
+        "127.5596183"
+      ]
+    }
+  ],
+  "Johns Hopkins University, United States": [
+    {
+      "place_id": 322487154,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 8043868,
+      "lat": "39.3302023",
+      "lon": "-76.6218536",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6569183078519429,
+      "addresstype": "amenity",
+      "name": "Johns Hopkins University",
+      "display_name": "Johns Hopkins University, 3400, North Charles Street, Charles Village, Baltimore, Maryland, 21218, United States",
+      "boundingbox": [
+        "39.3209343",
+        "39.3363540",
+        "-76.6260272",
+        "-76.6154704"
+      ]
+    }
+  ],
+  "The Chinese University of Hong Kong, Hong Kong": [
+    {
+      "place_id": 218511921,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 7802779,
+      "lat": "22.4201838",
+      "lon": "114.2079145",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5740136743893479,
+      "addresstype": "amenity",
+      "name": "香港中文大學 The Chinese University of Hong Kong",
+      "display_name": "香港中文大學 The Chinese University of Hong Kong, 澤祥街 Chak Cheung Street, 馬料水 Ma Liu Shui, 沙田區 Sha Tin District, 新界 New Territories, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.4118499",
+        "22.4282506",
+        "114.1989273",
+        "114.2149419"
+      ]
+    }
+  ],
+  "Paris Sciences et Lettres – PSL Research University Paris, France": [],
+  "Institut Polytechnique de Paris, France": [
+    {
+      "place_id": 88541205,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 567479667,
+      "lat": "48.7139028",
+      "lon": "2.2141075",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 6.275043869683402e-05,
+      "addresstype": "amenity",
+      "name": "Institut Polytechnique de Paris",
+      "display_name": "Institut Polytechnique de Paris, Avenue René Descartes, Les Joncherettes, Plateau, Palaiseau, Essonne, France métropolitaine, 91120, France",
+      "boundingbox": [
+        "48.7098740",
+        "48.7175984",
+        "2.2039630",
+        "2.2214247"
+      ]
+    }
+  ],
+  "Delft University of Technology, Netherlands": [
+    {
+      "place_id": 97845733,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 201337847,
+      "lat": "51.9988274",
+      "lon": "4.3739604",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5574672574809957,
+      "addresstype": "amenity",
+      "name": "Technische Universiteit Delft",
+      "display_name": "Technische Universiteit Delft, Turbineweg, Schieoevers Zuid, Delft, Zuid-Holland, Nederland, 2627 BP, Nederland",
+      "boundingbox": [
+        "51.9879071",
+        "52.0093576",
+        "4.3681589",
+        "4.3847577"
+      ]
+    }
+  ],
+  "Fudan University, China": [
+    {
+      "place_id": 208509755,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 3936746,
+      "lat": "31.3011748",
+      "lon": "121.4974703",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5682566658004895,
+      "addresstype": "amenity",
+      "name": "复旦大学",
+      "display_name": "复旦大学, 220, 邯郸路, 杨浦区, 五角场, 上海市, 200433, 中国",
+      "boundingbox": [
+        "31.2913755",
+        "31.3047479",
+        "121.4895411",
+        "121.5063079"
+      ]
+    }
+  ],
+  "University of Hong Kong, Hong Kong": [
+    {
+      "place_id": 416408918,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 1424959676,
+      "lat": "22.4189360",
+      "lon": "114.2060323",
+      "category": "amenity",
+      "type": "research_institute",
+      "place_rank": 30,
+      "importance": 6.549095902948069e-05,
+      "addresstype": "amenity",
+      "name": "中國文化研究所 Institute of Chinese Studies",
+      "display_name": "中國文化研究所 Institute of Chinese Studies, 百萬大道 The University Mall, 馬料水 Ma Liu Shui, 沙田區 Sha Tin District, 新界 New Territories, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.4186542",
+        "22.4194249",
+        "114.2055839",
+        "114.2064752"
+      ]
+    }
+  ],
+  "LMU Munich, Germany": [
+    {
+      "place_id": 117530156,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 7080823087,
+      "lat": "48.1521649",
+      "lon": "11.5815350",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 8.462272068355866e-05,
+      "addresstype": "amenity",
+      "name": "Institut für Statistik der LMU",
+      "display_name": "Institut für Statistik der LMU, 33, Ludwigstraße, Maxvorstadt, München, Bayern, 80539, Deutschland",
+      "boundingbox": [
+        "48.1521149",
+        "48.1522149",
+        "11.5814850",
+        "11.5815850"
+      ]
+    }
+  ],
+  "University of Massachusetts, United States": [
+    {
+      "place_id": 326562179,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 51642262,
+      "lat": "42.3694052",
+      "lon": "-72.5342588",
+      "category": "amenity",
+      "type": "post_office",
+      "place_rank": 30,
+      "importance": 4.9929808499229685e-05,
+      "addresstype": "amenity",
+      "name": "United States Post Office",
+      "display_name": "United States Post Office, 145, University Drive, Amherst Center, Amherst, Hampshire County, Massachusetts, 01004, United States",
+      "boundingbox": [
+        "42.3692023",
+        "42.3696059",
+        "-72.5346385",
+        "-72.5338780"
+      ]
+    }
+  ],
+  "University of British Columbia, Canada": [
+    {
+      "place_id": 348910261,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 1424987,
+      "lat": "49.2484638",
+      "lon": "-123.2341555",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6222838486029556,
+      "addresstype": "amenity",
+      "name": "University of British Columbia",
+      "display_name": "University of British Columbia, Rehder, University of British Columbia, Electoral Area A, Metro Vancouver Regional District, British Columbia, V6T, V6T 0C3, Canada",
+      "boundingbox": [
+        "49.2431313",
+        "49.2720328",
+        "-123.2622125",
+        "-123.2273623"
+      ]
+    }
+  ],
+  "Nanjing University, China": [
+    {
+      "place_id": 209561409,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 88779953,
+      "lat": "32.0565957",
+      "lon": "118.7740883",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5508663017000324,
+      "addresstype": "amenity",
+      "name": "南京大学(鼓楼校区)",
+      "display_name": "南京大学(鼓楼校区), 南秀村, 湖南路街道, 鼓楼区, 南京市, 江苏省, 210093, 中国",
+      "boundingbox": [
+        "32.0522188",
+        "32.0610617",
+        "118.7689592",
+        "118.7782662"
+      ]
+    }
+  ],
+  "City University of Hong Kong, Hong Kong": [
+    {
+      "place_id": 219337662,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2817891,
+      "lat": "22.3400205",
+      "lon": "114.1697162",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5193534403561814,
+      "addresstype": "amenity",
+      "name": "香港城市大學 City University of Hong Kong",
+      "display_name": "香港城市大學 City University of Hong Kong, 晴碧花園 Sunshine Grove, 圓洲角 Yuen Chau Kok, 沙田區 Sha Tin District, 新界 New Territories, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.3347495",
+        "22.4334184",
+        "114.1643686",
+        "114.2425239"
+      ]
+    }
+  ],
+  "RWTH Aachen University, Germany": [
+    {
+      "place_id": 106652764,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 30697,
+      "lat": "50.7791732",
+      "lon": "6.0689207",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5760372920512923,
+      "addresstype": "amenity",
+      "name": "RWTH Aachen",
+      "display_name": "RWTH Aachen, Auf der Hörn, Hörn, Aachen-Mitte, Aachen, Städteregion Aachen, Nordrhein-Westfalen, 52074, Deutschland",
+      "boundingbox": [
+        "50.7643267",
+        "50.7938521",
+        "6.0382818",
+        "6.1286162"
+      ]
+    }
+  ],
+  "Monash University, Australia": [
+    {
+      "place_id": 18927561,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 27552390,
+      "lat": "-37.7839745",
+      "lon": "144.9586743",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.2548773901198179,
+      "addresstype": "amenity",
+      "name": "Monash University",
+      "display_name": "Monash University, Walker Street, Parkville, Melbourne, City of Melbourne, Victoria, 3052, Australia",
+      "boundingbox": [
+        "-37.7845590",
+        "-37.7833935",
+        "144.9581507",
+        "144.9592019"
+      ]
+    }
+  ],
+  "Brown University, United States": [
+    {
+      "place_id": 333660219,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 13816239,
+      "lat": "41.8186395",
+      "lon": "-71.4088009",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6461359731526435,
+      "addresstype": "amenity",
+      "name": "Brown University",
+      "display_name": "Brown University, Camp Street, Providence, Providence County, Rhode Island, 02912, United States",
+      "boundingbox": [
+        "41.8154162",
+        "41.8437126",
+        "-71.4122334",
+        "-71.3883373"
+      ]
+    }
+  ],
+  "Kyoto University, Japan": [
+    {
+      "place_id": 245077035,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 163159610,
+      "lat": "35.0270467",
+      "lon": "135.7814382",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6322035806290851,
+      "addresstype": "amenity",
+      "name": "京都大学",
+      "display_name": "京都大学, 東一条通り, 吉田二本松町, 左京区, 京都市, 京都府, 606-8501, 日本",
+      "boundingbox": [
+        "35.0251813",
+        "35.0286441",
+        "135.7787393",
+        "135.7842198"
+      ]
+    }
+  ],
+  "The Hong Kong Polytechnic University, Hong Kong": [
+    {
+      "place_id": 217751411,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 1662329,
+      "lat": "22.3044867",
+      "lon": "114.1796935",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5233071481125083,
+      "addresstype": "amenity",
+      "name": "香港理工大學 The Hong Kong Polytechnic University",
+      "display_name": "香港理工大學 The Hong Kong Polytechnic University, 11, 育才道 Yuk Choi Road, 紅磡灣 Hung Hom Bay, 油尖旺區 Yau Tsim Mong District, 九龍 Kowloon, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.3003853",
+        "22.3129946",
+        "114.1649111",
+        "114.1860956"
+      ]
+    }
+  ],
+  "Sungkyunkwan University (SKKU), South Korea": [
+    {
+      "place_id": 206425230,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 75546222,
+      "lat": "37.5870459",
+      "lon": "126.9906264",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5347540257792979,
+      "addresstype": "amenity",
+      "name": "성균관대학교 인문사회과학캠퍼스",
+      "display_name": "성균관대학교 인문사회과학캠퍼스, 25-2, 성균관로, 명륜3가, 혜화동, 종로구, 서울특별시, 03063, 대한민국",
+      "boundingbox": [
+        "37.5844306",
+        "37.5896621",
+        "126.9893055",
+        "126.9969940"
+      ]
+    }
+  ],
+  "UNSW Sydney, Australia": [
+    {
+      "place_id": 19469465,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 610927146,
+      "lat": "-33.9062434",
+      "lon": "151.2346568",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5707754217779537,
+      "addresstype": "amenity",
+      "name": "University of New South Wales Randwick Campus",
+      "display_name": "University of New South Wales Randwick Campus, King Street, Randwick, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2031, Australia",
+      "boundingbox": [
+        "-33.9066551",
+        "-33.9054057",
+        "151.2333650",
+        "151.2352684"
+      ]
+    }
+  ],
+  "Michigan State University, United States": [
+    {
+      "place_id": 344310977,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 13708038,
+      "lat": "42.7023794",
+      "lon": "-84.4803869",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.624699825904956,
+      "addresstype": "amenity",
+      "name": "Michigan State University",
+      "display_name": "Michigan State University, 426, Auditorium Road, River Trail Neighborhood, East Lansing, Ingham County, Michigan, 48824, United States",
+      "boundingbox": [
+        "42.6694615",
+        "42.7354147",
+        "-84.5093894",
+        "-84.4619293"
+      ]
+    }
+  ],
+  "Yonsei University (Seoul campus), South Korea": [],
+  "Australian National University, Australia": [
+    {
+      "place_id": 19997694,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 279984863,
+      "lat": "-35.2812742",
+      "lon": "149.1172023",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6288784301172483,
+      "addresstype": "amenity",
+      "name": "Australian National University",
+      "display_name": "Australian National University, Edinburgh Avenue, City, Canberra, District of Canberra Central, Australian Capital Territory, 2601, Australia",
+      "boundingbox": [
+        "-35.2900054",
+        "-35.2726359",
+        "149.1098826",
+        "149.1265367"
+      ]
+    }
+  ],
+  "Sorbonne University, France": [
+    {
+      "place_id": 88992033,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 4064150,
+      "lat": "48.8468997",
+      "lon": "2.3574487",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 9.317235065227768e-05,
+      "addresstype": "amenity",
+      "name": "Sorbonne Université - Faculté des Sciences et Ingénierie",
+      "display_name": "Sorbonne Université - Faculté des Sciences et Ingénierie, Rue Linné, Quartier Saint-Victor, Paris 5e Arrondissement, Paris, Île-de-France, France métropolitaine, 75005, France",
+      "boundingbox": [
+        "48.8448871",
+        "48.8489198",
+        "2.3535384",
+        "2.3607485"
+      ]
+    }
+  ],
+  "Northwestern University, United States": [
+    {
+      "place_id": 344663849,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2105485,
+      "lat": "42.0557157",
+      "lon": "-87.6752945",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6519823793529599,
+      "addresstype": "amenity",
+      "name": "Northwestern University",
+      "display_name": "Northwestern University, 633, Clark Street, Downtown, Evanston, Evanston Township, Cook County, Illinois, 60208, United States",
+      "boundingbox": [
+        "42.0468992",
+        "42.0687508",
+        "-87.6947200",
+        "-87.6692517"
+      ]
+    }
+  ],
+  "Tohoku University, Japan": [
+    {
+      "place_id": 241831087,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 16205921,
+      "lat": "38.2533239",
+      "lon": "140.8742108",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5835324984810596,
+      "addresstype": "amenity",
+      "name": "東北大学 片平キャンパス",
+      "display_name": "東北大学 片平キャンパス, 1, 二丁目, 片平, 青葉区, 仙台市, 宮城県, 980-8577, 日本",
+      "boundingbox": [
+        "38.2501425",
+        "38.2560903",
+        "140.8692880",
+        "140.8780108"
+      ]
+    }
+  ],
+  "Harbin Institute of Technology, China": [
+    {
+      "place_id": 203937191,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 13053921,
+      "lat": "45.7415890",
+      "lon": "126.6255626",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5149191411605976,
+      "addresstype": "amenity",
+      "name": "哈尔滨工业大学",
+      "display_name": "哈尔滨工业大学, 92, 西大直街, 花园街道, 南岗区, 哈尔滨市, 香坊区, 黑龙江省, 150000, 中国",
+      "boundingbox": [
+        "45.7351401",
+        "45.7511780",
+        "126.6203654",
+        "126.6343336"
+      ]
+    }
+  ],
+  "University of Technology Sydney, Australia": [
+    {
+      "place_id": 19133662,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 10306702,
+      "lat": "-33.8832536",
+      "lon": "151.2003294",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.48745117841956476,
+      "addresstype": "amenity",
+      "name": "University of Technology Sydney",
+      "display_name": "University of Technology Sydney, Darling Drive, Chinatown, Haymarket, Sydney CBD, Sydney, New South Wales, 2000, Australia, Council of the City of Sydney",
+      "boundingbox": [
+        "-33.8856354",
+        "-33.8791871",
+        "151.1974742",
+        "151.2026958"
+      ]
+    }
+  ],
+  "Eindhoven University of Technology, Netherlands": [
+    {
+      "place_id": 100137340,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 9923996,
+      "lat": "51.4486602",
+      "lon": "5.4903996",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.4952159569321277,
+      "addresstype": "amenity",
+      "name": "Technische Universiteit Eindhoven",
+      "display_name": "Technische Universiteit Eindhoven, 3, Groene Loper, Centrum, Eindhoven, Noord-Brabant, Nederland, 5612 AE, Nederland",
+      "boundingbox": [
+        "51.4452995",
+        "51.4523616",
+        "5.4813229",
+        "5.4990836"
+      ]
+    }
+  ],
+  "Aarhus University, Denmark": [
+    {
+      "place_id": 153095051,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2440251,
+      "lat": "56.1670905",
+      "lon": "10.2026177",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5741566668787859,
+      "addresstype": "amenity",
+      "name": "Aarhus Universitet",
+      "display_name": "Aarhus Universitet, Eugen Warmings Vej, Fuglebakken, Åbyhøj, Aarhus, Aarhus Kommune, Region Midtjylland, 8000, Danmark",
+      "boundingbox": [
+        "56.1578617",
+        "56.1739674",
+        "10.1850451",
+        "10.2168503"
+      ]
+    }
+  ],
+  "King’s College London, United Kingdom": [
+    {
+      "place_id": 258770077,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 382141848,
+      "lat": "51.5030855",
+      "lon": "-0.0900021",
+      "category": "building",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 9.307927061870783e-05,
+      "addresstype": "building",
+      "name": "Hodgkin Building",
+      "display_name": "Hodgkin Building, Newcomen Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 1YX, United Kingdom",
+      "boundingbox": [
+        "51.5026285",
+        "51.5035101",
+        "-0.0907411",
+        "-0.0891444"
+      ]
+    }
+  ],
+  "Indian Institute of Science, India": [
+    {
+      "place_id": 233744303,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 9676004,
+      "lat": "13.0222347",
+      "lon": "77.5671832",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5113978532928073,
+      "addresstype": "amenity",
+      "name": "Indian Institute of Science",
+      "display_name": "Indian Institute of Science, CV Raman Road, Subedarpalya, Bengaluru West City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560012, India",
+      "boundingbox": [
+        "13.0122928",
+        "13.0294474",
+        "77.5586420",
+        "77.5726673"
+      ]
+    }
+  ],
+  "Wuhan University, China": [
+    {
+      "place_id": 430841299,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 10717504,
+      "lat": "30.5373773",
+      "lon": "114.3615350",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5297242330928014,
+      "addresstype": "amenity",
+      "name": "武汉大学",
+      "display_name": "武汉大学, 299, 八一路, 东湖风景区街道（洪山）, 珞珈山街道, 武昌区, 武汉市, 湖北省, 430072, 中国",
+      "boundingbox": [
+        "30.5268274",
+        "30.5479352",
+        "114.3488521",
+        "114.3718820"
+      ]
+    }
+  ],
+  "National Taiwan University (NTU), Taiwan": [],
+  "Pohang University of Science and Technology (POSTECH), South Korea": [],
+  "Texas A&M University, United States": [
+    {
+      "place_id": 292137603,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 8556620,
+      "lat": "30.6108618",
+      "lon": "-96.3520606",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.7480661695057289,
+      "addresstype": "amenity",
+      "name": "Texas A&M University",
+      "display_name": "Texas A&M University, 400, Bizzell Street, College Station, Brazos County, Texas, 77843, United States",
+      "boundingbox": [
+        "30.5586550",
+        "30.6332765",
+        "-96.3832965",
+        "-96.3237716"
+      ]
+    }
+  ],
+  "Universität Heidelberg, Germany": [
+    {
+      "place_id": 114770954,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 17808273,
+      "lat": "49.4186003",
+      "lon": "8.6692402",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6691946423321676,
+      "addresstype": "amenity",
+      "name": "Universität Heidelberg",
+      "display_name": "Universität Heidelberg, Seitzstraße, Neuenheimer Feld, Neuenheim, Heidelberg, Baden-Württemberg, 69120, Deutschland",
+      "boundingbox": [
+        "49.3970639",
+        "49.4256056",
+        "8.6607752",
+        "8.7269848"
+      ]
+    }
+  ],
+  "University of Bonn, Germany": [
+    {
+      "place_id": 103974936,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 2113115094,
+      "lat": "50.7338124",
+      "lon": "7.1022465",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6540901760340185,
+      "addresstype": "amenity",
+      "name": "Rheinische Friedrich-Wilhelms-Universität Bonn",
+      "display_name": "Rheinische Friedrich-Wilhelms-Universität Bonn, Arkadenhof, Bonn-Zentrum, Stadtbezirk Bonn, Bonn, Nordrhein-Westfalen, 53113, Deutschland",
+      "boundingbox": [
+        "50.7337624",
+        "50.7338624",
+        "7.1021965",
+        "7.1022965"
+      ]
+    }
+  ],
+  "University of Bristol, United Kingdom": [
+    {
+      "place_id": 263135993,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 15914002,
+      "lat": "51.4905582",
+      "lon": "-2.6304825",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6013773608527457,
+      "addresstype": "amenity",
+      "name": "University of Bristol",
+      "display_name": "University of Bristol, Barrow Gurney, North Somerset, England, BS9 3RZ, United Kingdom",
+      "boundingbox": [
+        "51.3418495",
+        "51.4924655",
+        "-2.7845018",
+        "-2.5826964"
+      ]
+    }
+  ],
+  "University of Electronic Science and Technology of China, China": [
+    {
+      "place_id": 221511306,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 544169854,
+      "lat": "30.7534211",
+      "lon": "103.9294024",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 6.0002288853238995e-05,
+      "addresstype": "amenity",
+      "name": "电子科技大学（清水河校区）",
+      "display_name": "电子科技大学（清水河校区）, 2006, 西源大道, 天骄西路社区, 合作街道, 高新区, 郫都区, 成都市, 四川省, 611731, 中国",
+      "boundingbox": [
+        "30.7439554",
+        "30.7623675",
+        "103.9179664",
+        "103.9386174"
+      ]
+    }
+  ],
+  "University of Macau, Macao": [
+    {
+      "place_id": 425919776,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 20002113,
+      "lat": "22.1283648",
+      "lon": "113.5437784",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.47442832946514174,
+      "addresstype": "amenity",
+      "name": "澳門大學校本部 Universidade de Macau em Ilha de Montanha",
+      "display_name": "澳門大學校本部 Universidade de Macau em Ilha de Montanha, 大學南圓形地 Rotunda da Universidade Sul, 路環村 Vila de Coloane, 嘉模堂區 Nossa Senhora do Carmo, 氹仔 Taipa, 澳門 Macau, 999078, 中国",
+      "boundingbox": [
+        "22.1205986",
+        "22.1361004",
+        "113.5401725",
+        "113.5474137"
+      ]
+    }
+  ],
+  "University of North Carolina at Chapel Hill, United States": [
+    {
+      "place_id": 318541777,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2882828,
+      "lat": "35.9050354",
+      "lon": "-79.0477533",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6446055499675102,
+      "addresstype": "amenity",
+      "name": "University of North Carolina at Chapel Hill",
+      "display_name": "University of North Carolina at Chapel Hill, Ray Road, Dogwood Acres, Orange County, North Carolina, 27516, United States",
+      "boundingbox": [
+        "35.8933498",
+        "35.9164642",
+        "-79.0923215",
+        "-79.0269224"
+      ]
+    }
+  ],
+  "University of Vienna, Austria": [
+    {
+      "place_id": 174652762,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 1441683,
+      "lat": "48.2131278",
+      "lon": "16.3606855",
+      "category": "building",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 8.694209201185653e-05,
+      "addresstype": "building",
+      "name": "Universität Wien",
+      "display_name": "Universität Wien, 1, Universitätsring, Regierungsviertel, Innere Stadt, Wien, 1010, Österreich",
+      "boundingbox": [
+        "48.2123003",
+        "48.2139260",
+        "16.3590696",
+        "16.3612417"
+      ]
+    }
+  ],
+  "Hong Kong Baptist University, Hong Kong": [
+    {
+      "place_id": 219927427,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 15525646,
+      "lat": "22.3379880",
+      "lon": "114.1826259",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5226608180443435,
+      "addresstype": "amenity",
+      "name": "香港浸會大學 Hong Kong Baptist University",
+      "display_name": "香港浸會大學 Hong Kong Baptist University, 沙田區 Sha Tin District, 新界 New Territories, 香港 Hong Kong, 中国",
+      "boundingbox": [
+        "22.3310576",
+        "22.3883613",
+        "114.1135531",
+        "114.2112375"
+      ]
+    }
+  ],
+  "Penn State (Main campus), United States": [],
+  "Simon Fraser University, Canada": [
+    {
+      "place_id": 348192292,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 102254132,
+      "lat": "49.2767096",
+      "lon": "-122.9178030",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5520351623545626,
+      "addresstype": "amenity",
+      "name": "Simon Fraser University",
+      "display_name": "Simon Fraser University, 8888, Gaglardi Way, Burnaby, Metro Vancouver Regional District, British Columbia, V5A 1S6, Canada",
+      "boundingbox": [
+        "49.2721516",
+        "49.2813003",
+        "-122.9336084",
+        "-122.9028692"
+      ]
+    }
+  ],
+  "Southern University of Science and Technology (SUSTech), China": [],
+  "University of Oulu, Finland": [
+    {
+      "place_id": 252711265,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 11536366,
+      "lat": "65.0593277",
+      "lon": "25.4673577",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5034610200593338,
+      "addresstype": "amenity",
+      "name": "Oulun yliopisto",
+      "display_name": "Oulun yliopisto, Tietopolku, Puulinnanmaa, Linnanmaa, Kaijonharju, Oulu, Oulun seutukunta, Pohjois-Pohjanmaa, Manner-Suomi, 90570, Suomi / Finland",
+      "boundingbox": [
+        "65.0559244",
+        "65.0627278",
+        "25.4614914",
+        "25.4720667"
+      ]
+    }
+  ],
+  "University of Stuttgart, Germany": [
+    {
+      "place_id": 111794181,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 145026506,
+      "lat": "48.7133801",
+      "lon": "9.2120730",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5012003947230182,
+      "addresstype": "amenity",
+      "name": "Universität Hohenheim",
+      "display_name": "Universität Hohenheim, Rübenäcker, Birkach, Birkach-Süd, Plieningen, Stuttgart, Baden-Württemberg, 70599, Deutschland",
+      "boundingbox": [
+        "48.7085540",
+        "48.7181163",
+        "9.2038890",
+        "9.2181351"
+      ]
+    }
+  ],
+  "University of Virginia (Main campus), United States": [],
+  "Arizona State University (Tempe), United States": [
+    {
+      "place_id": 309127926,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 3444656,
+      "lat": "33.4213174",
+      "lon": "-111.9331631",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.6166889841717389,
+      "addresstype": "amenity",
+      "name": "Arizona State University",
+      "display_name": "Arizona State University, 1151, South Forest Avenue, Tempe, Maricopa County, Arizona, 85281, United States",
+      "boundingbox": [
+        "33.4102062",
+        "33.4329786",
+        "-111.9411651",
+        "-111.9092447"
+      ]
+    }
+  ],
+  "Kyung Hee University, South Korea": [
+    {
+      "place_id": 206469258,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 326871536,
+      "lat": "37.5971213",
+      "lon": "127.0519867",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5300112645329739,
+      "addresstype": "amenity",
+      "name": "경희대학교 서울캠퍼스",
+      "display_name": "경희대학교 서울캠퍼스, 26, 경희대로, 회기동, 동대문구, 서울특별시, 02447, 대한민국",
+      "boundingbox": [
+        "37.5929646",
+        "37.6012863",
+        "127.0472943",
+        "127.0563483"
+      ]
+    }
+  ],
+  "Macau University of Science and Technology, Macao": [
+    {
+      "place_id": 220269828,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 10737363,
+      "lat": "22.1526454",
+      "lon": "113.5680410",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.4425151113538204,
+      "addresstype": "amenity",
+      "name": "澳門科技大學 Universidade de Ciência e Tecnologia de Macau",
+      "display_name": "澳門科技大學 Universidade de Ciência e Tecnologia de Macau, 路氹連貫公路圓形地下層行車道 Via de Circulação Desnivelada na Rotunda do Istmo Coloane-Taipa, 澳門 Macau, 嘉模堂區 Nossa Senhora do Carmo, 氹仔 Taipa, 澳門 Macau, 999078, 中国",
+      "boundingbox": [
+        "22.1503023",
+        "22.1550642",
+        "113.5645908",
+        "113.5712510"
+      ]
+    }
+  ],
+  "Nagoya University, Japan": [
+    {
+      "place_id": 246073239,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 144866408,
+      "lat": "35.1533086",
+      "lon": "136.9677806",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5584276289039198,
+      "addresstype": "amenity",
+      "name": "名古屋大学",
+      "display_name": "名古屋大学, 四谷通（山手グリーンロード）, 四谷通三丁目, 千種区, 名古屋市, 愛知県, 464-8601, 日本",
+      "boundingbox": [
+        "35.1480567",
+        "35.1585867",
+        "136.9607185",
+        "136.9742933"
+      ]
+    }
+  ],
+  "North Carolina State University, United States": [
+    {
+      "place_id": 318273095,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 6431764,
+      "lat": "35.7718497",
+      "lon": "-78.6740870",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5845240670119216,
+      "addresstype": "amenity",
+      "name": "North Carolina State University",
+      "display_name": "North Carolina State University, Katharine Stinson Drive, Oberlin, Raleigh, Wake County, North Carolina, 27695, United States",
+      "boundingbox": [
+        "35.7523309",
+        "35.8066088",
+        "-78.7268179",
+        "-78.6612309"
+      ]
+    }
+  ],
+  "Ohio State University (Main campus), United States": [],
+  "Tianjin University, China": [
+    {
+      "place_id": 205612573,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 299961439,
+      "lat": "39.1072533",
+      "lon": "117.1778919",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.42508095126242484,
+      "addresstype": "amenity",
+      "name": "天津医科大学",
+      "display_name": "天津医科大学, 22号, 气象台路, 新兴街道, 海光寺, 和平区, 天津市, 300051, 中国",
+      "boundingbox": [
+        "39.1035168",
+        "39.1085995",
+        "117.1762383",
+        "117.1795318"
+      ]
+    }
+  ],
+  "University at Buffalo, United States": [
+    {
+      "place_id": 323869483,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 13687690,
+      "lat": "43.0019863",
+      "lon": "-78.7859649",
+      "category": "boundary",
+      "type": "census",
+      "place_rank": 25,
+      "importance": 0.5539189419367853,
+      "addresstype": "census",
+      "name": "University at Buffalo",
+      "display_name": "University at Buffalo, Town of Amherst, Erie County, New York, United States",
+      "boundingbox": [
+        "42.9912413",
+        "43.0127893",
+        "-78.8042386",
+        "-78.7723586"
+      ]
+    }
+  ],
+  "University of Liverpool, United Kingdom": [
+    {
+      "place_id": 425667774,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 19980323,
+      "lat": "53.4072429",
+      "lon": "-2.9658337",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5835590182360868,
+      "addresstype": "amenity",
+      "name": "University of Liverpool",
+      "display_name": "University of Liverpool, Pembroke Place, Knowledge Quarter, Edge Hill, Liverpool, Liverpool City Region, England, L69 3GE, United Kingdom",
+      "boundingbox": [
+        "53.4057591",
+        "53.4087286",
+        "-2.9703118",
+        "-2.9615666"
+      ]
+    }
+  ],
+  "University of Oslo, Norway": [
+    {
+      "place_id": 151022830,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 7757342,
+      "lat": "59.9414173",
+      "lon": "10.7227683",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.64458814939506,
+      "addresstype": "amenity",
+      "name": "Universitetet i Oslo",
+      "display_name": "Universitetet i Oslo, Bogstadveien, Majorstuen, Frogner, Oslo, 0367, Norge",
+      "boundingbox": [
+        "59.9146656",
+        "59.9478121",
+        "10.7122999",
+        "10.7378300"
+      ]
+    }
+  ],
+  "University of Würzburg, Germany": [],
+  "Central South University, China": [
+    {
+      "place_id": 208625562,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 7666490743,
+      "lat": "28.1578368",
+      "lon": "112.9322974",
+      "category": "railway",
+      "type": "station",
+      "place_rank": 30,
+      "importance": 0.3035308770567123,
+      "addresstype": "railway",
+      "name": "中南大学",
+      "display_name": "中南大学, 后湖路, 桔子洲街道, 长沙市, 岳麓区, 湘江新区, 岳麓区, 湖南省, 410012, 中国",
+      "boundingbox": [
+        "28.1528368",
+        "28.1628368",
+        "112.9272974",
+        "112.9372974"
+      ]
+    }
+  ],
+  "Graz University of Technology, Austria": [
+    {
+      "place_id": 60633796,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 4576210,
+      "lat": "47.0582807",
+      "lon": "15.4602462",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.48530758963653003,
+      "addresstype": "amenity",
+      "name": "Technische Universität Graz",
+      "display_name": "Technische Universität Graz, Johannes-Zwerger-Platz, Herz-Jesu-Viertel, Katastralgemeinde St. Leonhard, Sankt Leonhard, Graz, Steiermark, 8010, Österreich",
+      "boundingbox": [
+        "47.0564473",
+        "47.0697156",
+        "15.4478052",
+        "15.4668671"
+      ]
+    }
+  ],
+  "Norwegian University of Science and Technology, Norway": [
+    {
+      "place_id": 149543318,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 42282109,
+      "lat": "63.4480239",
+      "lon": "10.4536394",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.22489365626900393,
+      "addresstype": "amenity",
+      "name": "NTNU Ringve botaniske hage",
+      "display_name": "NTNU Ringve botaniske hage, Lade allé, Leangen, Ringve, Østbyen, Trondheim, Trøndelag, 7041, Norge",
+      "boundingbox": [
+        "63.4455274",
+        "63.4499353",
+        "10.4502459",
+        "10.4572157"
+      ]
+    }
+  ],
+  "Queensland University of Technology, Australia": [],
+  "Rutgers University–New Brunswick, United States": [
+    {
+      "place_id": 332052600,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 442698063,
+      "lat": "40.4976786",
+      "lon": "-74.4460046",
+      "category": "building",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 6.191424429689505e-05,
+      "addresstype": "building",
+      "name": "Catholic Center at Rutgers University",
+      "display_name": "Catholic Center at Rutgers University, 84, Somerset Street, New Brunswick, Middlesex County, New Jersey, 08901, United States",
+      "boundingbox": [
+        "40.4974735",
+        "40.4978355",
+        "-74.4461111",
+        "-74.4457641"
+      ]
+    }
+  ],
+  "Sun Yat-sen University, China": [
+    {
+      "place_id": 220610022,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 300917756,
+      "lat": "23.0996034",
+      "lon": "113.2923509",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.543377918638976,
+      "addresstype": "amenity",
+      "name": "中山大学(广州校区南校园)",
+      "display_name": "中山大学(广州校区南校园), 135, 新港西路, 怡乐, 新港街道, 海珠区, 广州市, 广东省, 510275, 中国",
+      "boundingbox": [
+        "23.0937366",
+        "23.1054362",
+        "113.2842478",
+        "113.3007645"
+      ]
+    }
+  ],
+  "Université Grenoble Alpes, France": [
+    {
+      "place_id": 81066780,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 31349153,
+      "lat": "45.1915609",
+      "lon": "5.7672639",
+      "category": "building",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 6.449301899743676e-05,
+      "addresstype": "building",
+      "name": "Présidence Université Grenoble Alpes",
+      "display_name": "Présidence Université Grenoble Alpes, 621, Avenue Centrale, Domaine universitaire de Grenoble, Saint-Martin-d'Hères, Grenoble, Isère, Auvergne-Rhône-Alpes, France métropolitaine, 38400, France",
+      "boundingbox": [
+        "45.1914314",
+        "45.1918249",
+        "5.7670673",
+        "5.7676980"
+      ]
+    }
+  ],
+  "University of Auckland, New Zealand": [
+    {
+      "place_id": 21690642,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 10726338,
+      "lat": "-36.8660955",
+      "lon": "174.7737331",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.5710434524956354,
+      "addresstype": "amenity",
+      "name": "Waipapa Taumata Rau / University of Auckland",
+      "display_name": "Waipapa Taumata Rau / University of Auckland, Gillies Avenue, Epsom, Albert-Eden, Auckland, 1023, New Zealand / Aotearoa",
+      "boundingbox": [
+        "-36.8859004",
+        "-36.8465068",
+        "174.7523854",
+        "174.7766547"
+      ]
+    }
+  ],
+  "Paris Sciences et Lettres – PSL Research University Paris, Paris, France": [],
+  "Paris, France": [
+    {
+      "place_id": 88703675,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 71525,
+      "lat": "48.8534951",
+      "lon": "2.3483915",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 12,
+      "importance": 0.897098092136026,
+      "addresstype": "city",
+      "name": "Paris",
+      "display_name": "Paris, Île-de-France, France métropolitaine, France",
+      "boundingbox": [
+        "48.8155755",
+        "48.9021560",
+        "2.2241220",
+        "2.4697602"
+      ]
+    }
+  ],
+  "Yonsei University (Seoul campus), Seoul, South Korea": [],
+  "Seoul, South Korea": [
+    {
+      "place_id": 411208958,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2297418,
+      "lat": "37.5666791",
+      "lon": "126.9782914",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 8,
+      "importance": 0.7778382871785516,
+      "addresstype": "city",
+      "name": "서울특별시",
+      "display_name": "서울특별시, 대한민국",
+      "boundingbox": [
+        "37.4285424",
+        "37.7014794",
+        "126.7644328",
+        "127.1837702"
+      ]
+    }
+  ],
+  "Bauman Moscow State Technical University, Russian Federation": [],
+  "National Taiwan University (NTU), Taipei, Taiwan": [],
+  "Taipei, Taiwan": [
+    {
+      "place_id": 214397054,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 1293250,
+      "lat": "25.0375198",
+      "lon": "121.5636796",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 7,
+      "importance": 0.7098064222524881,
+      "addresstype": "city",
+      "name": "臺北市",
+      "display_name": "臺北市, 臺灣",
+      "boundingbox": [
+        "24.9605158",
+        "25.2102357",
+        "121.4571436",
+        "121.6659425"
+      ]
+    }
+  ],
+  "Pohang University of Science and Technology (POSTECH), Pohang, South Korea": [],
+  "Pohang, South Korea": [
+    {
+      "place_id": 249898594,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 7740687,
+      "lat": "36.0189315",
+      "lon": "129.3429384",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 12,
+      "importance": 0.556002977224076,
+      "addresstype": "city",
+      "name": "포항시",
+      "display_name": "포항시, 경상북도, 대한민국",
+      "boundingbox": [
+        "35.8383714",
+        "36.3336305",
+        "128.9918490",
+        "129.6010779"
+      ]
+    }
+  ],
+  "Penn State (Main campus), University Park, United States": [],
+  "University Park, United States": [
+    {
+      "place_id": 307619265,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 3480034,
+      "lat": "32.8551267",
+      "lon": "-96.7919454",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 16,
+      "importance": 0.5120068256553122,
+      "addresstype": "town",
+      "name": "University Park",
+      "display_name": "University Park, Dallas County, Texas, 75275, United States",
+      "boundingbox": [
+        "32.8365610",
+        "32.8654944",
+        "-96.8148790",
+        "-96.7710370"
+      ]
+    }
+  ],
+  "Southern University of Science and Technology (SUSTech), Shenzhen, China": [],
+  "Shenzhen, China": [
+    {
+      "place_id": 432369507,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 3464353,
+      "lat": "22.5445741",
+      "lon": "114.0545429",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 10,
+      "importance": 0.66507068790013,
+      "addresstype": "city",
+      "name": "深圳市",
+      "display_name": "深圳市, 广东省, 中国",
+      "boundingbox": [
+        "21.8213642",
+        "23.0165340",
+        "113.6805151",
+        "115.3890648"
+      ]
+    }
+  ],
+  "Beijing Institute of Technology, China": [
+    {
+      "place_id": 206322643,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 30748230,
+      "lat": "39.9578214",
+      "lon": "116.3098237",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.4887796323695434,
+      "addresstype": "amenity",
+      "name": "北京理工大学",
+      "display_name": "北京理工大学, 5, 中关村南大街, 北下关街道, 海淀区, 北京市, 100081, 中国",
+      "boundingbox": [
+        "39.9556583",
+        "39.9600597",
+        "116.3026816",
+        "116.3167991"
+      ]
+    }
+  ],
+  "Ohio State University (Main campus), Columbus, United States": [],
+  "Columbus, United States": [
+    {
+      "place_id": 314024799,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 182706,
+      "lat": "39.9622601",
+      "lon": "-83.0007065",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 16,
+      "importance": 0.6841113154817149,
+      "addresstype": "city",
+      "name": "Columbus",
+      "display_name": "Columbus, Franklin County, Ohio, United States",
+      "boundingbox": [
+        "39.8086936",
+        "40.1573082",
+        "-83.2101797",
+        "-82.7713119"
+      ]
+    }
+  ],
+  "University of Würzburg, Würzburg, Germany": [],
+  "Würzburg, Germany": [
+    {
+      "place_id": 114188135,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 62464,
+      "lat": "49.7780356",
+      "lon": "9.9434769",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 12,
+      "importance": 0.6627141927847726,
+      "addresstype": "county",
+      "name": "Würzburg",
+      "display_name": "Würzburg, Bayern, Deutschland",
+      "boundingbox": [
+        "49.7106843",
+        "49.8454619",
+        "9.8716285",
+        "10.0144286"
+      ]
+    }
+  ],
+  "Bauman Moscow State Technical University, Moscow, Russian Federation": [],
+  "Moscow, Russian Federation": [
+    {
+      "place_id": 406460799,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 102269,
+      "lat": "55.6255780",
+      "lon": "37.6063916",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 8,
+      "importance": 0.871311709597481,
+      "addresstype": "state",
+      "name": "Москва",
+      "display_name": "Москва, Центральный федеральный округ, Россия",
+      "boundingbox": [
+        "55.1421745",
+        "56.0212238",
+        "36.8031012",
+        "37.9674277"
+      ]
+    }
+  ],
+  "University of Virginia (Main campus), Charlottesville, United States": [],
+  "Charlottesville, United States": [
+    {
+      "place_id": 321467039,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 2504948,
+      "lat": "38.0293060",
+      "lon": "-78.4766781",
+      "category": "boundary",
+      "type": "administrative",
+      "place_rank": 12,
+      "importance": 0.6148953508795643,
+      "addresstype": "city",
+      "name": "Charlottesville",
+      "display_name": "Charlottesville, Virginia, United States",
+      "boundingbox": [
+        "38.0095927",
+        "38.0705032",
+        "-78.5237084",
+        "-78.4462997"
+      ]
+    }
+  ],
+  "Queensland University of Technology, Brisbane, Australia": [],
+  "Brisbane, Australia": [
+    {
+      "place_id": 428950191,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "relation",
+      "osm_id": 14027280,
+      "lat": "-27.3659910",
+      "lon": "152.9489630",
+      "category": "place",
+      "type": "city",
+      "place_rank": 16,
+      "importance": 0.7126705606994053,
+      "addresstype": "city",
+      "name": "Brisbane",
+      "display_name": "Brisbane, City of Moreton Bay, Queensland, Australia",
+      "boundingbox": [
+        "-27.9386050",
+        "-26.7922700",
+        "152.3827210",
+        "153.5465130"
+      ]
+    }
+  ]
+}
