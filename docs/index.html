@@ -111,6 +111,40 @@
       </section>
 
       <section class="panel">
+        <div class="section-head map-head">
+          <div>
+            <p class="eyebrow">Global distribution</p>
+            <h2>University map explorer</h2>
+          </div>
+          <div class="map-controls">
+            <label class="muted" for="map-region-filter">Region</label>
+            <select id="map-region-filter">
+              <option value="">All regions</option>
+            </select>
+            <button id="map-zoom-out" class="page-button">−</button>
+            <button id="map-zoom-in" class="page-button">+</button>
+            <button id="map-reset" class="page-button">Reset</button>
+          </div>
+        </div>
+        <p class="muted">Hover dots for university names and click to open the official page when available. Drag to pan, use zoom buttons to explore clusters.</p>
+        <div class="map-shell">
+          <svg id="world-map" viewBox="0 0 1000 520" role="img" aria-label="World map of university locations">
+            <defs>
+              <pattern id="map-grid" width="50" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 50 0 L 0 0 0 40" fill="none" stroke="var(--line)" stroke-width="1" opacity="0.35" />
+              </pattern>
+            </defs>
+            <rect width="1000" height="520" fill="url(#map-grid)"></rect>
+            <g id="map-viewport">
+              <g id="map-continents"></g>
+              <g id="map-points"></g>
+            </g>
+          </svg>
+          <div id="map-tooltip" class="map-tooltip" hidden></div>
+        </div>
+      </section>
+
+      <section class="panel">
         <p class="eyebrow">Featured institutions</p>
         <h2>Spotlight universities</h2>
         <div id="spotlight-grid" class="card-grid"></div>
@@ -118,7 +152,7 @@
     </main>
 
     <footer class="footer">
-      <p>Built for static hosting on GitHub Pages. Last project update is shown in the dataset metadata.</p>
+      <p>A research-friendly directory for exploring top computer science, AI/ML, and data science universities worldwide.</p>
       <p>
         Made by <a href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Diego Marinho</a>
         · <a href="./methodology.html">Methodology</a>
