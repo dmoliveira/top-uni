@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Top 200 CS / AI / Data Science Universities</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   </head>
   <body>
     <div class="topbar-shell">
@@ -128,19 +129,7 @@
         </div>
         <p class="muted">Hover dots for university names and click to open the official page when available. Drag to pan, use zoom buttons to explore clusters.</p>
         <div class="map-shell">
-          <svg id="world-map" viewBox="0 0 1000 520" role="img" aria-label="World map of university locations">
-            <defs>
-              <pattern id="map-grid" width="50" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 40" fill="none" stroke="var(--line)" stroke-width="1" opacity="0.35" />
-              </pattern>
-            </defs>
-            <rect width="1000" height="520" fill="url(#map-grid)"></rect>
-            <g id="map-viewport">
-              <g id="map-continents"></g>
-              <g id="map-points"></g>
-            </g>
-          </svg>
-          <div id="map-tooltip" class="map-tooltip" hidden></div>
+          <div id="world-map" aria-label="World map of university locations"></div>
         </div>
       </section>
 
@@ -160,6 +149,7 @@
       </p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="./app.js"></script>
   </body>
 </html>
