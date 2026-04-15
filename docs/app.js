@@ -252,23 +252,48 @@ function renderMap(universities) {
 
   const markersLayer = window.L.layerGroup().addTo(map);
 
+  function overlapKey(u) {
+    return `${Number(u.latitude).toFixed(4)},${Number(u.longitude).toFixed(4)}`;
+  }
+
+  function offsetLatLng(lat, lng, index, total) {
+    if (total <= 1) return [lat, lng];
+    const angle = (Math.PI * 2 * index) / total;
+    const radiusMeters = 900 + Math.max(0, total - 2) * 180;
+    const latOffset = (radiusMeters * Math.cos(angle)) / 111320;
+    const lngOffset = (radiusMeters * Math.sin(angle)) / (111320 * Math.cos((lat * Math.PI) / 180));
+    return [lat + latOffset, lng + lngOffset];
+  }
+
   function drawPoints() {
     const region = regionFilter.value;
     const rows = mapped.filter((u) => !region || u.region === region);
     markersLayer.clearLayers();
     const bounds = [];
+    const grouped = new Map();
     rows.forEach((u) => {
-      const marker = window.L.circleMarker([u.latitude, u.longitude], {
-        radius: 5,
+      const key = overlapKey(u);
+      if (!grouped.has(key)) grouped.set(key, []);
+      grouped.get(key).push(u);
+    });
+
+    [...grouped.values()].forEach((group) => {
+      group.sort((a, b) => a.rank - b.rank);
+      group.forEach((u, index) => {
+        const [lat, lng] = offsetLatLng(Number(u.latitude), Number(u.longitude), index, group.length);
+        const marker = window.L.circleMarker([lat, lng], {
+        radius: u.rank <= 25 ? 6 : 5,
         weight: 1,
         color: "#ffffff",
         fillColor: "#2f80ed",
         fillOpacity: 0.9,
       });
-      marker.bindTooltip(`${u.name}<br>${u.city ? `${u.city}, ` : ""}${u.country}`);
-      marker.bindPopup(`<strong>${u.name}</strong><br>${u.city ? `${u.city}, ` : ""}${u.country}<br>${u.official_url ? `<a href="${u.official_url}" target="_blank" rel="noreferrer">Official website</a>` : "No official link"}`);
-      markersLayer.addLayer(marker);
-      bounds.push([u.latitude, u.longitude]);
+        marker.bindTooltip(`#${u.rank} ${u.name}<br>${u.city ? `${u.city}, ` : ""}${u.country}${group.length > 1 ? `<br>${group.length} nearby universities shown separately` : ""}`);
+        marker.bindPopup(`<strong>#${u.rank} ${u.name}</strong><br>${u.city ? `${u.city}, ` : ""}${u.country}<br>${u.official_url ? `<a href="${u.official_url}" target="_blank" rel="noreferrer">Official website</a>` : "No official link"}`);
+        markersLayer.addLayer(marker);
+        if (u.rank <= 25) marker.bringToFront();
+        bounds.push([lat, lng]);
+      });
     });
     if (bounds.length) {
       map.fitBounds(bounds, { padding: [30, 30], maxZoom: region ? 4 : 2 });
