@@ -45,6 +45,10 @@ body {
 }
 a { color: var(--accent); }
 button, select, input { font: inherit; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 2px;
+}
 main, .hero, .footer, .narrow { max-width: 1240px; margin: 0 auto; padding: 24px; }
 .narrow { max-width: 980px; }
 
@@ -143,7 +147,7 @@ h3 { font-size: 1.15rem; margin: 0 0 .5rem; }
 .section-head { display: flex; justify-content: space-between; gap: 18px; align-items: end; }
 .controls {
   display: grid;
-  grid-template-columns: minmax(280px, 1.4fr) repeat(3, minmax(180px, 1fr));
+  grid-template-columns: minmax(260px, 1.3fr) repeat(4, minmax(150px, 1fr));
   gap: 12px;
   align-items: end;
 }
@@ -166,6 +170,17 @@ input[type="search"] { min-width: 280px; width: 100%; }
 }
 .page-button[disabled] { opacity: .5; cursor: not-allowed; }
 .page-button { min-width: 108px; }
+.clear-filters-button { min-width: 132px; }
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0 16px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: var(--chip);
+}
 .table-wrap { overflow: auto; padding-top: 28px; }
 table { width: 100%; border-collapse: separate; border-spacing: 0; }
 th, td { padding: 12px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -178,6 +193,7 @@ tbody tr:first-child td { padding-top: 12px; }
 .table-wrap table th:nth-child(7), .table-wrap table td:nth-child(7) { min-width: 180px; }
 .table-wrap table th:nth-child(8), .table-wrap table td:nth-child(8) { width: 108px; }
 .muted { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.table-wrap td .muted { margin-top: 6px; }
 .regions-grid, .card-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .footer { color: var(--muted); padding-bottom: 48px; }
 .footer a { color: var(--accent); }
@@ -231,6 +247,7 @@ tbody tr:first-child td { padding-top: 12px; }
   .topbar { padding: 12px 16px; }
   .topbar-nav a, .theme-button, .page-button { font-weight: 600; }
   .controls { grid-template-columns: 1fr; }
+  .clear-filters-button { width: 100%; }
   .map-shell { min-height: 420px; }
   #world-map { height: 420px; }
   main, .hero, .footer, .narrow { padding: 18px; }
