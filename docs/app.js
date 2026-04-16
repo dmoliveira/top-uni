@@ -187,7 +187,7 @@ function renderOverview(universities) {
       const dept = u.department ? link(u.department.label, u.department.url) : "—";
       const researchLinks = u.labs?.length ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ") : "—";
         const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
-        const profile = u.rank <= 50 ? `<a href="./universities/${u.slug}.html">Profile</a>` : "";
+        const profile = `<a href="./universities/${u.slug}.html">Profile</a>`;
       const rankMeta = u.rank_display && String(u.rank_display) !== String(u.rank) ? `<div class="muted">THE band: ${u.rank_display}</div>` : "";
       const title = u.official_url
         ? `<a class="university-link" href="${u.official_url}" target="_blank" rel="noreferrer"><strong>${u.name}</strong></a>`

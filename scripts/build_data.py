@@ -1137,12 +1137,45 @@ def page_head(
     """
 
 
-def profile_link(university):
-    return (
-        f"./universities/{university['slug']}.html"
-        if university["rank"] <= 50
-        else None
+def itemlist_json(universities, base_path: str = "universities") -> str:
+    items = []
+    for u in universities:
+        items.append(
+            {
+                "@type": "ListItem",
+                "position": u["rank"],
+                "name": u["name"],
+                "url": format_url(f"{base_path}/{u['slug']}.html")
+                if base_path
+                else format_url(""),
+            }
+        )
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": items,
+        },
+        ensure_ascii=False,
     )
+
+
+def breadcrumb_json(items) -> str:
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+                for i, (name, url) in enumerate(items)
+            ],
+        },
+        ensure_ascii=False,
+    )
+
+
+def profile_link(university):
+    return f"./universities/{university['slug']}.html"
 
 
 def overview_rows_html(universities, limit=20):
@@ -1238,7 +1271,7 @@ def render_region_page(region: str, universities):
         f"<tr><td>#{u['rank']}</td><td>"
         + (
             f'<a class="university-link" href="../universities/{u["slug"]}.html">{escape(u["name"])}</a>'
-            if u["rank"] <= 50
+            if u.get("slug")
             else (
                 f'<a class="university-link" href="{u["official_url"]}" target="_blank" rel="noreferrer">{escape(u["name"])}</a>'
                 if u.get("official_url")
@@ -1248,7 +1281,11 @@ def render_region_page(region: str, universities):
         + f"</td><td>{escape(u['country'])}</td><td>{escape(str(u.get('founded') or '—'))}</td></tr>"
         for u in universities
     )
-    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{region} Universities for CS, AI/ML, and Data Science (2026)", f"Explore the top universities in {region} for Computer Science, AI/ML, and Data Science.", f"regions/{slug}.html")}</head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#regions\">← Back to regions</a></p><h1>{escape(region)} universities</h1><div class=\"panel\"><p>{len(universities)} universities from the global top-200 list.</p><table><thead><tr><th>Rank</th><th>University</th><th>Country</th><th>Founded</th></tr></thead><tbody>{rows}</tbody></table></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+    intro = f"Explore {len(universities)} universities in {region} from the global top-200 directory for Computer Science, AI/ML, and Data Science."
+    breadcrumb = breadcrumb_json(
+        [("Home", format_url("")), (region, format_url(f"regions/{slug}.html"))]
+    )
+    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{region} Universities for CS, AI/ML, and Data Science (2026)", f"Explore the top universities in {region} for Computer Science, AI/ML, and Data Science.", f"regions/{slug}.html")}<script type=\"application/ld+json\">{breadcrumb}</script><script type=\"application/ld+json\">{itemlist_json(universities)}</script></head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#regions\">← Back to regions</a></p><h1>{escape(region)} universities</h1><div class=\"panel\"><p>{escape(intro)}</p><table><thead><tr><th>Rank</th><th>University</th><th>Country</th><th>Founded</th></tr></thead><tbody>{rows}</tbody></table></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
 
 
 def render_university_page(university):
@@ -1265,7 +1302,17 @@ def render_university_page(university):
         if department
         else "—"
     )
-    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{university['name']} · Top Universities for CS/AI/Data Science", f"Profile for {university['name']}, including rank, location, strengths, and research links.", f"universities/{university['slug']}.html", "article")}</head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#overview\">← Back to directory</a></p><h1>{escape(university["name"])}</h1><div class=\"panel\"><p><strong>Rank:</strong> #{university["rank"]}</p><p><strong>Location:</strong> {escape(", ".join([part for part in [university.get("city"), university["country"]] if part]))}</p><p><strong>Founded:</strong> {escape(str(university.get("founded") or "—"))}</p><p><strong>Official website:</strong> {f'<a href="{university["official_url"]}" target="_blank" rel="noreferrer">Visit</a>' if university.get("official_url") else "—"}</p><p><strong>THE ranking page:</strong> <a href=\"{university["ranking_links"]["the"]}\" target=\"_blank\" rel=\"noreferrer\">Open</a></p><p><strong>Department:</strong> {dept_html}</p><p><strong>Strengths:</strong> {"".join(f'<span class="tag">{escape(s)}</span>' for s in university.get("strengths", []))}</p><h2>Labs and centers</h2><ul>{labs}</ul><p class=\"muted\">This page is part of a curated directory based on THE Computer Science World University Rankings 2026 and is not an aggregated ranking.</p></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+    breadcrumb = breadcrumb_json(
+        [
+            ("Home", format_url("")),
+            (
+                university["region"],
+                format_url(f"regions/{slugify(university['region'])}.html"),
+            ),
+            (university["name"], format_url(f"universities/{university['slug']}.html")),
+        ]
+    )
+    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{university['name']} · Top Universities for CS/AI/Data Science", f"Profile for {university['name']}, including rank, location, strengths, and research links.", f"universities/{university['slug']}.html", "article")}<script type=\"application/ld+json\">{breadcrumb}</script></head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#overview\">← Back to directory</a></p><h1>{escape(university["name"])}</h1><div class=\"panel\"><p><strong>Rank:</strong> #{university["rank"]}</p><p><strong>Location:</strong> {escape(", ".join([part for part in [university.get("city"), university["country"]] if part]))}</p><p><strong>Founded:</strong> {escape(str(university.get("founded") or "—"))}</p><p><strong>Official website:</strong> {f'<a href="{university["official_url"]}" target="_blank" rel="noreferrer">Visit</a>' if university.get("official_url") else "—"}</p><p><strong>THE ranking page:</strong> <a href=\"{university["ranking_links"]["the"]}\" target=\"_blank\" rel=\"noreferrer\">Open</a></p><p><strong>Department:</strong> {dept_html}</p><p><strong>Strengths:</strong> {"".join(f'<span class="tag">{escape(s)}</span>' for s in university.get("strengths", []))}</p><h2>Labs and centers</h2><ul>{labs}</ul><p class=\"muted\">This page is part of a curated directory based on THE Computer Science World University Rankings 2026 and is not an aggregated ranking.</p></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
 
 
 def build_static_site(metadata, universities):
@@ -1308,7 +1355,7 @@ def build_static_site(metadata, universities):
 
     universities_dir = Path("docs/universities")
     universities_dir.mkdir(parents=True, exist_ok=True)
-    for u in universities[:50]:
+    for u in universities:
         (universities_dir / f"{u['slug']}.html").write_text(
             render_university_page(u), encoding="utf-8"
         )
@@ -1318,7 +1365,7 @@ def build_static_site(metadata, universities):
 
     urls = ["", "methodology.html", "spotlight.html", "support.html"]
     urls += [f"regions/{slugify(region)}.html" for region in grouped]
-    urls += [f"universities/{u['slug']}.html" for u in universities[:50]]
+    urls += [f"universities/{u['slug']}.html" for u in universities]
     sitemap = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',

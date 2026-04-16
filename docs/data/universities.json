@@ -6,8 +6,8 @@
     "source_note": "Curated from the Times Higher Education Computer Science World University Rankings 2026 top 200, then enriched with ROR institutional metadata and official research links for spotlight universities.",
     "coverage": {
       "official_url": 132,
-      "founded": 110,
-      "city": 120,
+      "founded": 108,
+      "city": 118,
       "department": 12,
       "spotlight": 12
     },
@@ -7760,18 +7760,18 @@
       "slug": "universite-grenoble-alpes",
       "country": "France",
       "region": "Europe",
-      "city": "Saint-Martin-d'Hères",
-      "latitude": 45.1787,
-      "longitude": 5.76281,
-      "founded": 2016,
+      "city": null,
+      "latitude": 45.1915609,
+      "longitude": 5.7672639,
+      "founded": null,
       "official_url": "https://www.univ-grenoble-alpes.fr/english/",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University",
-      "ror_url": "https://ror.org/02rx3b187",
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/universite-grenoble-alpes"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 100,
+      "metadata_confidence": 95,
       "scorecard": {
         "overall": "49.5–51.9",
         "research": "32.1",
@@ -7782,11 +7782,7 @@
       },
       "department": null,
       "labs": [],
-      "selected_centers": [
-        "Centre Interuniversitaire de MicroElectronique et Nanotechnologies",
-        "Laboratoire d'Economie Appliquée de Grenoble",
-        "Institut polytechnique de Grenoble"
-      ],
+      "selected_centers": [],
       "strengths": [
         "computer science",
         "AI/data",
@@ -7840,18 +7836,18 @@
       "slug": "universiti-teknologi-petronas",
       "country": "Malaysia",
       "region": "Asia",
-      "city": "Ipoh",
-      "latitude": 4.5841,
-      "longitude": 101.0829,
-      "founded": 1997,
+      "city": null,
+      "latitude": 4.3827595,
+      "longitude": 100.9701137,
+      "founded": null,
       "official_url": "https://www.utp.edu.my/",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Universiti_Teknologi_Petronas",
-      "ror_url": "https://ror.org/048g2sh07",
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/universiti-teknologi-petronas"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 100,
+      "metadata_confidence": 95,
       "scorecard": {
         "overall": "49.5–51.9",
         "research": "31.6",
@@ -7862,9 +7858,7 @@
       },
       "department": null,
       "labs": [],
-      "selected_centers": [
-        "Yayasan UTP"
-      ],
+      "selected_centers": [],
       "strengths": [
         "computer science",
         "AI/data",
