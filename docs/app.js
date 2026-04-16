@@ -49,8 +49,19 @@ async function loadJson(path) {
   return response.json();
 }
 
+function dataPath(filename) {
+  return /\/(regions|universities)\//.test(window.location.pathname)
+    ? `../data/${filename}`
+    : `./data/${filename}`;
+}
+
 function countryFlag(country) {
   return COUNTRY_FLAGS[country] || "🌍";
+}
+
+function positiveInt(value, fallback = 1) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 1 ? Math.floor(parsed) : fallback;
 }
 
 function link(label, url, className = "") {
@@ -100,13 +111,18 @@ function applyTheme(theme) {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem(THEME_KEY) || "auto";
+  const params = new URLSearchParams(window.location.search);
+  const saved = params.get("theme") || localStorage.getItem(THEME_KEY) || "auto";
   applyTheme(saved);
   document.querySelectorAll(".theme-button").forEach((button) => {
     button.addEventListener("click", () => {
       const theme = button.dataset.themeOption || "auto";
       localStorage.setItem(THEME_KEY, theme);
       applyTheme(theme);
+      const next = new URLSearchParams(window.location.search);
+      theme === "auto" ? next.delete("theme") : next.set("theme", theme);
+      const url = `${window.location.pathname}${next.toString() ? `?${next.toString()}` : ""}${window.location.hash}`;
+      window.history.replaceState({}, "", url);
     });
   });
 }
@@ -127,8 +143,14 @@ function renderOverview(universities) {
   if (!body || !search || !countryFilter || !sortBy || !pageSize || !prev || !next || !pageStatus || !countEl) return;
 
   let currentPage = 1;
+  const params = new URLSearchParams(window.location.search);
   const countries = [...new Set(universities.map((u) => u.country).filter(Boolean))].sort((a, b) => a.localeCompare(b));
   countryFilter.innerHTML = '<option value="">🌍 All countries</option>' + countries.map((country) => `<option value="${country}">${countryFlag(country)} ${country}</option>`).join("");
+  if (params.get("search")) search.value = params.get("search");
+  if (params.get("country")) countryFilter.value = params.get("country");
+  if (params.get("sort")) sortBy.value = params.get("sort");
+  if (params.get("pageSize")) pageSize.value = params.get("pageSize");
+  currentPage = positiveInt(params.get("page"), 1);
 
   function filteredData() {
     const q = search.value.toLowerCase().trim();
@@ -152,11 +174,20 @@ function renderOverview(universities) {
     pageStatus.textContent = `Page ${currentPage} of ${totalPages}`;
     prev.disabled = currentPage === 1;
     next.disabled = currentPage === totalPages;
+    const nextParams = new URLSearchParams(window.location.search);
+    search.value ? nextParams.set("search", search.value) : nextParams.delete("search");
+    countryFilter.value ? nextParams.set("country", countryFilter.value) : nextParams.delete("country");
+    sortBy.value ? nextParams.set("sort", sortBy.value) : nextParams.delete("sort");
+    pageSize.value ? nextParams.set("pageSize", pageSize.value) : nextParams.delete("pageSize");
+    currentPage > 1 ? nextParams.set("page", String(currentPage)) : nextParams.delete("page");
+    const url = `${window.location.pathname}${nextParams.toString() ? `?${nextParams.toString()}` : ""}${window.location.hash}`;
+    window.history.replaceState({}, "", url);
 
     body.innerHTML = pageRows.map((u) => {
       const dept = u.department ? link(u.department.label, u.department.url) : "—";
       const researchLinks = u.labs?.length ? u.labs.slice(0, 2).map((lab) => link(lab.label, lab.url)).join(" · ") : "—";
-      const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
+        const spotlight = u.spotlight ? `<a href="./spotlight.html#${u.slug}">Spotlight</a>` : "";
+        const profile = u.rank <= 50 ? `<a href="./universities/${u.slug}.html">Profile</a>` : "";
       const rankMeta = u.rank_display && String(u.rank_display) !== String(u.rank) ? `<div class="muted">THE band: ${u.rank_display}</div>` : "";
       const title = u.official_url
         ? `<a class="university-link" href="${u.official_url}" target="_blank" rel="noreferrer"><strong>${u.name}</strong></a>`
@@ -170,7 +201,7 @@ function renderOverview(universities) {
           <td data-label="Location"><span class="flag-label">${countryFlag(u.country)}</span>${[u.city, u.country].filter(Boolean).join(", ")}</td>
           <td data-label="Department / Research links"><div>${dept}</div><div class="muted">${researchLinks}</div></td>
           <td data-label="Strong at">${tagList(u.strengths)}</td>
-          <td data-label="Links">${link("THE", u.ranking_links.the)} ${spotlight ? `· ${spotlight}` : ""}</td>
+            <td data-label="Links">${[link("THE", u.ranking_links.the), profile, spotlight].filter(Boolean).join(" · ")}</td>
         </tr>`;
     }).join("");
   }
@@ -334,7 +365,7 @@ function renderSpotlights(spotlights, universities) {
 initTheme();
 syncTopbarOffset();
 
-Promise.all([loadJson("./data/universities.json"), loadJson("./data/spotlights.json")])
+Promise.all([loadJson(dataPath("universities.json")), loadJson(dataPath("spotlights.json"))])
   .then(([data, spotlights]) => {
     renderMeta(data.meta, data.universities);
     renderOverview(data.universities);
