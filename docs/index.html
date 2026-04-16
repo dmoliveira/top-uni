@@ -102,9 +102,14 @@
               <option value="founded-desc">Sort: newest first</option>
               <option value="score-desc">Sort: THE score</option>
             </select>
+            <button id="clear-filters" class="page-button clear-filters-button" type="button">Clear filters</button>
           </div>
         </div>
         <p id="overview-count" class="muted"></p>
+        <div id="empty-state" class="empty-state" hidden>
+          <strong>No universities match this filter.</strong>
+          <span>Try clearing search, country, or sort options.</span>
+        </div>
         <div class="pagination-bar">
           <button id="page-prev" class="page-button">← Prev</button>
           <span id="page-status" class="muted">Page 1 of 1</span>
@@ -151,7 +156,7 @@
             <button id="map-reset" class="page-button">Reset</button>
           </div>
         </div>
-        <p class="muted">Hover dots for university names and click to open the official page when available. Drag to pan, use zoom buttons to explore clusters.</p>
+        <p class="muted">Hover dots for university names and click to open the official page when available. Drag to pan, use zoom buttons to explore clusters. Dense cities may spread markers slightly so nearby universities remain visible.</p>
         <div class="map-shell">
           <div id="world-map" aria-label="World map of university locations"></div>
         </div>
@@ -165,11 +170,13 @@
     </main>
 
     <footer class="footer">
-      <p>A research-friendly directory for exploring top computer science, AI/ML, and data science universities worldwide.</p>
+      <p>Explore, compare, and navigate the world’s leading Computer Science, AI/ML, and Data Science universities.</p>
       <p>
         Made by <a href="https://dmoliveira.github.io/my-cv-public/cv/human/" target="_blank" rel="noreferrer">Diego Marinho</a>
+        · <a href="./index.html">Home</a>
         · <a href="./methodology.html">Methodology</a>
         · <a href="./support.html">Support</a>
+        · <a href="https://github.com/dmoliveira/top-uni" target="_blank" rel="noreferrer">GitHub</a>
       </p>
     </footer>
 

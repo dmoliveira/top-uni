@@ -140,7 +140,9 @@ function renderOverview(universities) {
   const next = document.getElementById("page-next");
   const pageStatus = document.getElementById("page-status");
   const countEl = document.getElementById("overview-count");
-  if (!body || !search || !countryFilter || !sortBy || !pageSize || !prev || !next || !pageStatus || !countEl) return;
+  const clearFilters = document.getElementById("clear-filters");
+  const emptyState = document.getElementById("empty-state");
+  if (!body || !search || !countryFilter || !sortBy || !pageSize || !prev || !next || !pageStatus || !countEl || !clearFilters || !emptyState) return;
 
   let currentPage = 1;
   const params = new URLSearchParams(window.location.search);
@@ -174,6 +176,7 @@ function renderOverview(universities) {
     pageStatus.textContent = `Page ${currentPage} of ${totalPages}`;
     prev.disabled = currentPage === 1;
     next.disabled = currentPage === totalPages;
+    emptyState.hidden = filtered.length > 0;
     const nextParams = new URLSearchParams(window.location.search);
     search.value ? nextParams.set("search", search.value) : nextParams.delete("search");
     countryFilter.value ? nextParams.set("country", countryFilter.value) : nextParams.delete("country");
@@ -215,6 +218,13 @@ function renderOverview(universities) {
   countryFilter.addEventListener("change", resetAndDraw);
   sortBy.addEventListener("change", resetAndDraw);
   pageSize.addEventListener("change", resetAndDraw);
+  clearFilters.addEventListener("click", () => {
+    search.value = "";
+    countryFilter.value = "";
+    sortBy.value = "rank-asc";
+    pageSize.value = "20";
+    resetAndDraw();
+  });
   prev.addEventListener("click", () => { if (currentPage > 1) { currentPage -= 1; draw(); } });
   next.addEventListener("click", () => { currentPage += 1; draw(); });
   draw();
