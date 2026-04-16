@@ -5,6 +5,7 @@ import time
 import unicodedata
 import urllib.parse
 import urllib.request
+from html import escape
 from difflib import SequenceMatcher
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,6 +13,7 @@ from pathlib import Path
 
 THE_URL = "https://www.timeshighereducation.com/world-university-rankings/2026/subject-ranking/computer-science"
 CACHE_PATH = Path("docs/data/geocode_cache.json")
+SITE_URL = "https://dmoliveira.github.io/top-uni"
 
 
 REGION_MAP = {
@@ -542,6 +544,11 @@ OFFICIAL_OVERRIDES = {
         "city": "London",
         "founded": 1907,
     },
+    "university-of-edinburgh": {
+        "official_url": "https://www.ed.ac.uk/",
+        "city": "Edinburgh",
+        "founded": 1582,
+    },
     "ecole-polytechnique-federale-de-lausanne": {
         "official_url": "https://www.epfl.ch/en/"
     },
@@ -1068,6 +1075,260 @@ def build_record(row, cache):
     }
 
 
+def format_url(path: str) -> str:
+    return f"{SITE_URL}/{path.lstrip('./')}"
+
+
+def topbar_html(prefix: str = "./") -> str:
+    return f"""
+    <div class=\"topbar-shell\">
+      <div class=\"topbar\">
+        <a class=\"author-link\" href=\"https://dmoliveira.github.io/my-cv-public/cv/human/\" target=\"_blank\" rel=\"noreferrer\">Made by <strong>Diego Marinho</strong></a>
+        <nav class=\"topbar-nav\">
+          <a href=\"{prefix}index.html#overview\">Global</a>
+          <a href=\"{prefix}index.html#regions\">Regions</a>
+          <a href=\"{prefix}methodology.html\">Methodology</a>
+          <a href=\"{prefix}spotlight.html\">Spotlights</a>
+          <a href=\"{prefix}support.html\">Support</a>
+        </nav>
+        <div class=\"theme-toggle\" role=\"group\" aria-label=\"Theme selector\">
+          <button data-theme-option=\"auto\" class=\"theme-button\">Auto</button>
+          <button data-theme-option=\"light\" class=\"theme-button\">Light</button>
+          <button data-theme-option=\"dark\" class=\"theme-button\">Dark</button>
+        </div>
+      </div>
+    </div>
+    """
+
+
+def footer_html(prefix: str = "./") -> str:
+    return f"""
+    <footer class=\"footer\">
+      <p>A research-friendly directory for exploring top computer science, AI/ML, and data science universities worldwide.</p>
+      <p>
+        Made by <a href=\"https://dmoliveira.github.io/my-cv-public/cv/human/\" target=\"_blank\" rel=\"noreferrer\">Diego Marinho</a>
+        · <a href=\"{prefix}methodology.html\">Methodology</a>
+        · <a href=\"{prefix}support.html\">Support</a>
+      </p>
+    </footer>
+    """
+
+
+def page_head(
+    title: str, description: str, canonical_path: str, og_type: str = "website"
+) -> str:
+    canonical = format_url(canonical_path)
+    return f"""
+    <meta charset=\"utf-8\" />
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+    <title>{escape(title)}</title>
+    <meta name=\"description\" content=\"{escape(description)}\" />
+    <link rel=\"canonical\" href=\"{canonical}\" />
+    <meta property=\"og:type\" content=\"{og_type}\" />
+    <meta property=\"og:title\" content=\"{escape(title)}\" />
+    <meta property=\"og:description\" content=\"{escape(description)}\" />
+    <meta property=\"og:url\" content=\"{canonical}\" />
+    <meta property=\"og:image\" content=\"{format_url("assets/hero-banner.svg")}\" />
+    <meta name=\"twitter:card\" content=\"summary_large_image\" />
+    <meta name=\"twitter:title\" content=\"{escape(title)}\" />
+    <meta name=\"twitter:description\" content=\"{escape(description)}\" />
+    <link rel=\"stylesheet\" href=\"{("./" if "/" not in canonical_path else "../")}styles.css\" />
+    <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css\" integrity=\"sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=\" crossorigin=\"\" />
+    """
+
+
+def profile_link(university):
+    return (
+        f"./universities/{university['slug']}.html"
+        if university["rank"] <= 50
+        else None
+    )
+
+
+def overview_rows_html(universities, limit=20):
+    rows = []
+    for u in universities[:limit]:
+        dept = (
+            f'<a href="{u["department"]["url"]}" target="_blank" rel="noreferrer">{escape(u["department"]["label"])}</a>'
+            if u.get("department")
+            else "—"
+        )
+        research = (
+            " · ".join(
+                f'<a href="{lab["url"]}" target="_blank" rel="noreferrer">{escape(lab["label"])}</a>'
+                for lab in u.get("labs", [])[:2]
+            )
+            or "—"
+        )
+        title = escape(u["name"])
+        if u.get("official_url"):
+            title = f'<a class="university-link" href="{u["official_url"]}" target="_blank" rel="noreferrer"><strong>{title}</strong></a>'
+        else:
+            title = f"<strong>{title}</strong>"
+        links = [
+            f'<a href="{u["ranking_links"]["the"]}" target="_blank" rel="noreferrer">THE</a>'
+        ]
+        profile = profile_link(u)
+        if profile:
+            links.append(f'<a href="{profile}">Profile</a>')
+        if u.get("spotlight"):
+            links.append(f'<a href="./spotlight.html#{u["slug"]}">Spotlight</a>')
+        rows.append(
+            f'<tr><td data-label="Rank"><strong>{u["rank"]}</strong></td>'
+            f'<td data-label="University">{title}<div class="muted">THE score: {escape(str(u["scorecard"]["overall"] or "—"))}</div></td>'
+            f'<td data-label="Region">{escape(u["region"])}</td>'
+            f'<td data-label="Founded">{escape(str(u["founded"] or "—"))}</td>'
+            f'<td data-label="Location">{escape(", ".join([part for part in [u.get("city"), u["country"]] if part]))}</td>'
+            f'<td data-label="Department / Research links"><div>{dept}</div><div class="muted">{research}</div></td>'
+            f'<td data-label="Strong at">{"".join(f'<span class="tag">{escape(s)}</span>' for s in u.get("strengths", []))}</td>'
+            f'<td data-label="Links">{" · ".join(links)}</td></tr>'
+        )
+    return "".join(rows)
+
+
+def region_cards_html(universities):
+    grouped = {}
+    for u in universities:
+        grouped.setdefault(u["region"], []).append(u)
+    cards = []
+    for region in sorted(grouped):
+        slug = slugify(region)
+        items = "".join(
+            f"<li><strong>#{u['rank']}</strong> "
+            + (
+                f'<a class="region-list-link" href="{u["official_url"]}" target="_blank" rel="noreferrer">{escape(u["name"])}</a>'
+                if u.get("official_url")
+                else escape(u["name"])
+            )
+            + (
+                f' · <a href="./regions/{slug}.html">region page</a>'
+                if u is grouped[region][0]
+                else ""
+            )
+            + "</li>"
+            for u in grouped[region][:15]
+        )
+        cards.append(
+            f'<article class="panel region-card"><h3>{escape(region)}</h3><p>{len(grouped[region])} universities · <a href="./regions/{slug}.html">Open region page</a></p><ol>{items}</ol></article>'
+        )
+    return "".join(cards)
+
+
+def spotlight_cards_html(universities):
+    cards = []
+    for u in [u for u in universities if u.get("spotlight")]:
+        cards.append(
+            f'<article class="panel card" id="{u["slug"]}"><p class="eyebrow">Rank #{u["rank"]}</p><h3><a class="university-link" href="./universities/{u["slug"]}.html">{escape(u["name"])}</a></h3><div>{"".join(f'<span class="tag">{escape(s)}</span>' for s in u.get("strengths", []))}</div></article>'
+        )
+    return "".join(cards)
+
+
+def replace_marker(text: str, marker: str, content: str) -> str:
+    return re.sub(
+        rf"(<!-- {marker}_START -->)(.*?)(<!-- {marker}_END -->)",
+        rf"\1{content}\3",
+        text,
+        flags=re.S,
+    )
+
+
+def render_region_page(region: str, universities):
+    slug = slugify(region)
+    rows = "".join(
+        f"<tr><td>#{u['rank']}</td><td>"
+        + (
+            f'<a class="university-link" href="../universities/{u["slug"]}.html">{escape(u["name"])}</a>'
+            if u["rank"] <= 50
+            else (
+                f'<a class="university-link" href="{u["official_url"]}" target="_blank" rel="noreferrer">{escape(u["name"])}</a>'
+                if u.get("official_url")
+                else escape(u["name"])
+            )
+        )
+        + f"</td><td>{escape(u['country'])}</td><td>{escape(str(u.get('founded') or '—'))}</td></tr>"
+        for u in universities
+    )
+    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{region} Universities for CS, AI/ML, and Data Science (2026)", f"Explore the top universities in {region} for Computer Science, AI/ML, and Data Science.", f"regions/{slug}.html")}</head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#regions\">← Back to regions</a></p><h1>{escape(region)} universities</h1><div class=\"panel\"><p>{len(universities)} universities from the global top-200 list.</p><table><thead><tr><th>Rank</th><th>University</th><th>Country</th><th>Founded</th></tr></thead><tbody>{rows}</tbody></table></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+
+
+def render_university_page(university):
+    labs = (
+        "".join(
+            f'<li><a href="{lab["url"]}" target="_blank" rel="noreferrer">{escape(lab["label"])}</a></li>'
+            for lab in university.get("labs", [])
+        )
+        or "<li>—</li>"
+    )
+    department = university.get("department")
+    dept_html = (
+        f'<a href="{department["url"]}" target="_blank" rel="noreferrer">{escape(department["label"])}</a>'
+        if department
+        else "—"
+    )
+    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{university['name']} · Top Universities for CS/AI/Data Science", f"Profile for {university['name']}, including rank, location, strengths, and research links.", f"universities/{university['slug']}.html", "article")}</head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#overview\">← Back to directory</a></p><h1>{escape(university["name"])}</h1><div class=\"panel\"><p><strong>Rank:</strong> #{university["rank"]}</p><p><strong>Location:</strong> {escape(", ".join([part for part in [university.get("city"), university["country"]] if part]))}</p><p><strong>Founded:</strong> {escape(str(university.get("founded") or "—"))}</p><p><strong>Official website:</strong> {f'<a href="{university["official_url"]}" target="_blank" rel="noreferrer">Visit</a>' if university.get("official_url") else "—"}</p><p><strong>THE ranking page:</strong> <a href=\"{university["ranking_links"]["the"]}\" target=\"_blank\" rel=\"noreferrer\">Open</a></p><p><strong>Department:</strong> {dept_html}</p><p><strong>Strengths:</strong> {"".join(f'<span class="tag">{escape(s)}</span>' for s in university.get("strengths", []))}</p><h2>Labs and centers</h2><ul>{labs}</ul><p class=\"muted\">This page is part of a curated directory based on THE Computer Science World University Rankings 2026 and is not an aggregated ranking.</p></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+
+
+def build_static_site(metadata, universities):
+    index_path = Path("docs/index.html")
+    index_text = index_path.read_text(encoding="utf-8")
+    counts = {}
+    for u in universities:
+        counts[u["region"]] = counts.get(u["region"], 0) + 1
+    meta_html = (
+        f"<h2>{escape(metadata['title'])}</h2><p>{escape(metadata['source_note'])}</p><p><strong>Updated:</strong> {metadata['updated_at']}</p>"
+        + '<div class="badge-row">'
+        + "".join(
+            f'<span class="badge">{escape(region)}: {count}</span>'
+            for region, count in sorted(counts.items())
+        )
+        + "</div>"
+        + f'<p class="muted">Coverage: official links {metadata["coverage"]["official_url"]}/200 · founded year {metadata["coverage"]["founded"]}/200 · city {metadata["coverage"]["city"]}/200 · spotlight pages {metadata["coverage"]["spotlight"]}</p>'
+    )
+    index_text = replace_marker(index_text, "STATIC_META_SUMMARY", meta_html)
+    index_text = replace_marker(
+        index_text, "STATIC_OVERVIEW_ROWS", overview_rows_html(universities)
+    )
+    index_text = replace_marker(
+        index_text, "STATIC_REGIONS", region_cards_html(universities)
+    )
+    index_text = replace_marker(
+        index_text, "STATIC_SPOTLIGHTS", spotlight_cards_html(universities)
+    )
+    index_path.write_text(index_text, encoding="utf-8")
+
+    regions_dir = Path("docs/regions")
+    regions_dir.mkdir(parents=True, exist_ok=True)
+    grouped = {}
+    for u in universities:
+        grouped.setdefault(u["region"], []).append(u)
+    for region, items in grouped.items():
+        (regions_dir / f"{slugify(region)}.html").write_text(
+            render_region_page(region, items), encoding="utf-8"
+        )
+
+    universities_dir = Path("docs/universities")
+    universities_dir.mkdir(parents=True, exist_ok=True)
+    for u in universities[:50]:
+        (universities_dir / f"{u['slug']}.html").write_text(
+            render_university_page(u), encoding="utf-8"
+        )
+
+    robots = "User-agent: *\nAllow: /\nSitemap: https://dmoliveira.github.io/top-uni/sitemap.xml\n"
+    Path("docs/robots.txt").write_text(robots, encoding="utf-8")
+
+    urls = ["", "methodology.html", "spotlight.html", "support.html"]
+    urls += [f"regions/{slugify(region)}.html" for region in grouped]
+    urls += [f"universities/{u['slug']}.html" for u in universities[:50]]
+    sitemap = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for url in urls:
+        sitemap.append(f"  <url><loc>{format_url(url)}</loc></url>")
+    sitemap.append("</urlset>")
+    Path("docs/sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
+
+
 def main():
     rows = load_the_top_200()
     cache = load_geocode_cache()
@@ -1137,6 +1398,8 @@ def main():
             ensure_ascii=False,
             indent=2,
         )
+
+    build_static_site(metadata, universities)
 
     print(f"Built dataset for {len(universities)} universities.")
 

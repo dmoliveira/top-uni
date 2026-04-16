@@ -1908,5 +1908,28 @@
         "153.5465130"
       ]
     }
+  ],
+  "Universiti Teknologi Petronas, Malaysia": [
+    {
+      "place_id": 241954203,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 339101068,
+      "lat": "4.3827595",
+      "lon": "100.9701137",
+      "category": "amenity",
+      "type": "university",
+      "place_rank": 30,
+      "importance": 0.41538953938164336,
+      "addresstype": "amenity",
+      "name": "Universiti Teknologi Petronas",
+      "display_name": "Universiti Teknologi Petronas, Persiaran Desa Kediaman, Seri Iskandar, Perak Tengah, Perak, 32610, Malaysia",
+      "boundingbox": [
+        "4.3749503",
+        "4.3905137",
+        "100.9598594",
+        "100.9805131"
+      ]
+    }
   ]
 }
