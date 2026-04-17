@@ -1278,7 +1278,7 @@ def render_region_page(region: str, universities):
                 else escape(u["name"])
             )
         )
-        + f"</td><td>{escape(u['country'])}</td><td>{escape(str(u.get('founded') or '—'))}</td></tr>"
+        + f'</td><td><a class="university-link" href="../countries/{slugify(u["country"])}.html">{escape(u["country"])}</a></td><td>{escape(str(u.get("founded") or "—"))}</td></tr>'
         for u in universities
     )
     intro = f"Explore {len(universities)} universities in {region} from the global top-200 directory for Computer Science, AI/ML, and Data Science."
@@ -1286,6 +1286,19 @@ def render_region_page(region: str, universities):
         [("Home", format_url("")), (region, format_url(f"regions/{slug}.html"))]
     )
     return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{region} Universities for CS, AI/ML, and Data Science (2026)", f"Explore the top universities in {region} for Computer Science, AI/ML, and Data Science.", f"regions/{slug}.html")}<script type=\"application/ld+json\">{breadcrumb}</script><script type=\"application/ld+json\">{itemlist_json(universities)}</script></head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#regions\">← Back to regions</a></p><h1>{escape(region)} universities</h1><div class=\"panel\"><p>{escape(intro)}</p><table><thead><tr><th>Rank</th><th>University</th><th>Country</th><th>Founded</th></tr></thead><tbody>{rows}</tbody></table></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+
+
+def render_country_page(country: str, universities):
+    slug = slugify(country)
+    rows = "".join(
+        f'<tr><td>#{u["rank"]}</td><td><a class="university-link" href="../universities/{u["slug"]}.html">{escape(u["name"])}</a></td><td>{escape(u["region"])}</td><td>{escape(str(u.get("founded") or "—"))}</td></tr>'
+        for u in universities
+    )
+    intro = f"Explore {len(universities)} universities in {country} from the global top-200 directory for Computer Science, AI/ML, and Data Science."
+    breadcrumb = breadcrumb_json(
+        [("Home", format_url("")), (country, format_url(f"countries/{slug}.html"))]
+    )
+    return f"""<!doctype html><html lang="en"><head>{page_head(f"{country} Universities for CS, AI/ML, and Data Science (2026)", f"Explore the top universities in {country} for Computer Science, AI/ML, and Data Science.", f"countries/{slug}.html")}<script type="application/ld+json">{breadcrumb}</script><script type="application/ld+json">{itemlist_json(universities)}</script></head><body>{topbar_html("../")}<main class="narrow"><p><a href="../index.html#overview">← Back to directory</a></p><h1>{escape(country)} universities</h1><div class="panel"><p>{escape(intro)}</p><table><thead><tr><th>Rank</th><th>University</th><th>Region</th><th>Founded</th></tr></thead><tbody>{rows}</tbody></table></div>{footer_html("../")}</main><script src="../app.js"></script></body></html>"""
 
 
 def render_university_page(university):
@@ -1312,7 +1325,7 @@ def render_university_page(university):
             (university["name"], format_url(f"universities/{university['slug']}.html")),
         ]
     )
-    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{university['name']} · Top Universities for CS/AI/Data Science", f"Profile for {university['name']}, including rank, location, strengths, and research links.", f"universities/{university['slug']}.html", "article")}<script type=\"application/ld+json\">{breadcrumb}</script></head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#overview\">← Back to directory</a></p><h1>{escape(university["name"])}</h1><div class=\"panel\"><p><strong>Rank:</strong> #{university["rank"]}</p><p><strong>Location:</strong> {escape(", ".join([part for part in [university.get("city"), university["country"]] if part]))}</p><p><strong>Founded:</strong> {escape(str(university.get("founded") or "—"))}</p><p><strong>Official website:</strong> {f'<a href="{university["official_url"]}" target="_blank" rel="noreferrer">Visit</a>' if university.get("official_url") else "—"}</p><p><strong>THE ranking page:</strong> <a href=\"{university["ranking_links"]["the"]}\" target=\"_blank\" rel=\"noreferrer\">Open</a></p><p><strong>Department:</strong> {dept_html}</p><p><strong>Strengths:</strong> {"".join(f'<span class="tag">{escape(s)}</span>' for s in university.get("strengths", []))}</p><h2>Labs and centers</h2><ul>{labs}</ul><p class=\"muted\">This page is part of a curated directory based on THE Computer Science World University Rankings 2026 and is not an aggregated ranking.</p></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
+    return f"""<!doctype html><html lang=\"en\"><head>{page_head(f"{university['name']} · Top Universities for CS/AI/Data Science", f"Profile for {university['name']}, including rank, location, strengths, and research links.", f"universities/{university['slug']}.html", "article")}<script type=\"application/ld+json\">{breadcrumb}</script></head><body>{topbar_html("../")}<main class=\"narrow\"><p><a href=\"../index.html#overview\">← Back to directory</a></p><h1>{escape(university["name"])}</h1><div class=\"panel\"><p><strong>Rank:</strong> #{university["rank"]}</p><p><strong>Location:</strong> {escape(university.get("city") + ", " if university.get("city") else "")}<a class="university-link" href="../countries/{slugify(university["country"])}.html">{escape(university["country"])}</a></p><p><strong>Founded:</strong> {escape(str(university.get("founded") or "—"))}</p><p><strong>Official website:</strong> {f'<a href="{university["official_url"]}" target="_blank" rel="noreferrer">Visit</a>' if university.get("official_url") else "—"}</p><p><strong>THE ranking page:</strong> <a href=\"{university["ranking_links"]["the"]}\" target=\"_blank\" rel=\"noreferrer\">Open</a></p><p><strong>Department:</strong> {dept_html}</p><p><strong>Strengths:</strong> {"".join(f'<span class="tag">{escape(s)}</span>' for s in university.get("strengths", []))}</p><h2>Labs and centers</h2><ul>{labs}</ul><p class=\"muted\">This page is part of a curated directory based on THE Computer Science World University Rankings 2026 and is not an aggregated ranking.</p></div>{footer_html("../")}</main><script src=\"../app.js\"></script></body></html>"""
 
 
 def build_static_site(metadata, universities):
@@ -1341,7 +1354,6 @@ def build_static_site(metadata, universities):
     index_text = replace_marker(
         index_text, "STATIC_SPOTLIGHTS", spotlight_cards_html(universities)
     )
-    index_path.write_text(index_text, encoding="utf-8")
 
     regions_dir = Path("docs/regions")
     regions_dir.mkdir(parents=True, exist_ok=True)
@@ -1360,11 +1372,37 @@ def build_static_site(metadata, universities):
             render_university_page(u), encoding="utf-8"
         )
 
+    countries_dir = Path("docs/countries")
+    countries_dir.mkdir(parents=True, exist_ok=True)
+    by_country = {}
+    for u in universities:
+        by_country.setdefault(u["country"], []).append(u)
+    for country, items in by_country.items():
+        (countries_dir / f"{slugify(country)}.html").write_text(
+            render_country_page(country, items), encoding="utf-8"
+        )
+
+    country_counts = sorted(by_country.items(), key=lambda kv: (-len(kv[1]), kv[0]))[
+        :12
+    ]
+    country_cards = "".join(
+        f'<article class="panel region-card"><h3>{escape(country)}</h3><p>{len(items)} universities · <a href="./countries/{slugify(country)}.html">Open country page</a></p><ol>'
+        + "".join(
+            f'<li><strong>#{u["rank"]}</strong> <a class="region-list-link" href="./universities/{u["slug"]}.html">{escape(u["name"])}</a></li>'
+            for u in items[:10]
+        )
+        + "</ol></article>"
+        for country, items in country_counts
+    )
+    index_text = replace_marker(index_text, "STATIC_COUNTRIES", country_cards)
+    index_path.write_text(index_text, encoding="utf-8")
+
     robots = "User-agent: *\nAllow: /\nSitemap: https://dmoliveira.github.io/top-uni/sitemap.xml\n"
     Path("docs/robots.txt").write_text(robots, encoding="utf-8")
 
     urls = ["", "methodology.html", "spotlight.html", "support.html"]
     urls += [f"regions/{slugify(region)}.html" for region in grouped]
+    urls += [f"countries/{slugify(country)}.html" for country in by_country]
     urls += [f"universities/{u['slug']}.html" for u in universities]
     sitemap = [
         '<?xml version="1.0" encoding="UTF-8"?>',

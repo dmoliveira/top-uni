@@ -50,7 +50,7 @@ async function loadJson(path) {
 }
 
 function dataPath(filename) {
-  return /\/(regions|universities)\//.test(window.location.pathname)
+  return /\/(regions|countries|universities)\//.test(window.location.pathname)
     ? `../data/${filename}`
     : `./data/${filename}`;
 }
