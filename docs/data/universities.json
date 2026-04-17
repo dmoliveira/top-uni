@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Top 200 Computer Science, AI/ML, and Data Science Universities",
-    "updated_at": "2026-04-16",
+    "updated_at": "2026-04-17",
     "updated_year": "2026",
     "source_note": "Curated from the Times Higher Education Computer Science World University Rankings 2026 top 200, then enriched with ROR institutional metadata and official research links for spotlight universities.",
     "coverage": {
-      "official_url": 132,
+      "official_url": 131,
       "founded": 108,
       "city": 118,
       "department": 12,
@@ -6210,18 +6210,18 @@
       "slug": "beijing-institute-of-technology",
       "country": "China",
       "region": "Asia",
-      "city": "Beijing",
-      "latitude": 39.9075,
-      "longitude": 116.39723,
-      "founded": 1940,
-      "official_url": "https://bit.edu.cn",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Beijing_Institute_of_Technology",
-      "ror_url": "https://ror.org/01skt4w74",
+      "city": null,
+      "latitude": 39.9578214,
+      "longitude": 116.3098237,
+      "founded": null,
+      "official_url": null,
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/beijing-institute-technology"
       },
       "metadata_source": "ror",
-      "metadata_confidence": 100,
+      "metadata_confidence": 82,
       "scorecard": {
         "overall": "52.0–53.9",
         "research": "39.3",
@@ -7760,18 +7760,18 @@
       "slug": "universite-grenoble-alpes",
       "country": "France",
       "region": "Europe",
-      "city": null,
-      "latitude": 45.1915609,
-      "longitude": 5.7672639,
-      "founded": null,
+      "city": "Saint-Martin-d'Hères",
+      "latitude": 45.1787,
+      "longitude": 5.76281,
+      "founded": 2016,
       "official_url": "https://www.univ-grenoble-alpes.fr/english/",
-      "wikipedia_url": null,
-      "ror_url": null,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University",
+      "ror_url": "https://ror.org/02rx3b187",
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/universite-grenoble-alpes"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 95,
+      "metadata_confidence": 100,
       "scorecard": {
         "overall": "49.5–51.9",
         "research": "32.1",
@@ -7782,7 +7782,11 @@
       },
       "department": null,
       "labs": [],
-      "selected_centers": [],
+      "selected_centers": [
+        "Centre Interuniversitaire de MicroElectronique et Nanotechnologies",
+        "Laboratoire d'Economie Appliquée de Grenoble",
+        "Institut polytechnique de Grenoble"
+      ],
       "strengths": [
         "computer science",
         "AI/data",
