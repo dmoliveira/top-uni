@@ -15,6 +15,16 @@ THE_URL = "https://www.timeshighereducation.com/world-university-rankings/2026/s
 CACHE_PATH = Path("docs/data/geocode_cache.json")
 SITE_URL = "https://dmoliveira.github.io/top-uni"
 
+COUNTRY_INTROS = {
+    "United States": "The United States has the deepest concentration of globally recognized computer science and AI research universities, spanning theory, systems, robotics, and frontier machine learning.",
+    "United Kingdom": "The United Kingdom combines historic universities with globally influential computer science research, especially in theory, systems, machine learning, and interdisciplinary AI work.",
+    "China": "China features a large and highly competitive set of universities with strong momentum in AI, systems, applied computing, and large-scale research engineering.",
+    "Australia": "Australia offers a strong group of research universities with visible strengths in machine learning, software engineering, data science, and applied computing across major cities.",
+    "Canada": "Canada remains one of the most influential countries in modern AI, with major universities that contribute strongly to deep learning, reinforcement learning, and data-intensive computing.",
+    "Singapore": "Singapore has a compact but exceptionally strong university ecosystem for AI, security, systems, and data science, with high international visibility.",
+    "Germany": "Germany combines technical universities and major research institutions with strong performance in systems, engineering-driven computing, AI, and applied data research.",
+}
+
 
 REGION_MAP = {
     "United States": "North America",
@@ -1294,7 +1304,14 @@ def render_country_page(country: str, universities):
         f'<tr><td>#{u["rank"]}</td><td><a class="university-link" href="../universities/{u["slug"]}.html">{escape(u["name"])}</a></td><td>{escape(u["region"])}</td><td>{escape(str(u.get("founded") or "—"))}</td></tr>'
         for u in universities
     )
-    intro = f"Explore {len(universities)} universities in {country} from the global top-200 directory for Computer Science, AI/ML, and Data Science."
+    strengths = sorted({s for u in universities for s in u.get("strengths", [])})[:3]
+    intro = COUNTRY_INTROS.get(country)
+    if not intro:
+        strength_text = (
+            ", ".join(strengths) if strengths else "computer science and AI research"
+        )
+        unit = "university" if len(universities) == 1 else "universities"
+        intro = f"{country} appears in this directory with {len(universities)} {unit} spanning {strength_text}, giving a quick view of its strongest institutions in the 2026 top-200 list."
     breadcrumb = breadcrumb_json(
         [("Home", format_url("")), (country, format_url(f"countries/{slug}.html"))]
     )
