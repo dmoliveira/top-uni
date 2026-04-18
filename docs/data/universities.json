@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Top 200 Computer Science, AI/ML, and Data Science Universities",
-    "updated_at": "2026-04-17",
+    "updated_at": "2026-04-18",
     "updated_year": "2026",
     "source_note": "Curated from the Times Higher Education Computer Science World University Rankings 2026 top 200, then enriched with ROR institutional metadata and official research links for spotlight universities.",
     "coverage": {
-      "official_url": 131,
+      "official_url": 132,
       "founded": 108,
-      "city": 118,
+      "city": 119,
       "department": 12,
       "spotlight": 12
     },
@@ -4269,17 +4269,17 @@
       "country": "Russian Federation",
       "region": "Europe",
       "city": "Moscow",
-      "latitude": 55.75222,
-      "longitude": 37.61556,
-      "founded": 1830,
+      "latitude": 55.625578,
+      "longitude": 37.6063916,
+      "founded": null,
       "official_url": "https://bmstu.ru/en/",
-      "wikipedia_url": "http://en.wikipedia.org/wiki/Bauman_Moscow_State_Technical_University",
-      "ror_url": "https://ror.org/00pb8h375",
+      "wikipedia_url": null,
+      "ror_url": null,
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/bauman-moscow-state-technical-university"
       },
       "metadata_source": "manual_override",
-      "metadata_confidence": 100,
+      "metadata_confidence": 95,
       "scorecard": {
         "overall": "56.2–59.0",
         "research": "49.4",
@@ -6210,18 +6210,18 @@
       "slug": "beijing-institute-of-technology",
       "country": "China",
       "region": "Asia",
-      "city": null,
-      "latitude": 39.9578214,
-      "longitude": 116.3098237,
-      "founded": null,
-      "official_url": null,
-      "wikipedia_url": null,
-      "ror_url": null,
+      "city": "Beijing",
+      "latitude": 39.9075,
+      "longitude": 116.39723,
+      "founded": 1940,
+      "official_url": "https://bit.edu.cn",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Beijing_Institute_of_Technology",
+      "ror_url": "https://ror.org/01skt4w74",
       "ranking_links": {
         "the": "https://www.timeshighereducation.com/world-university-rankings/beijing-institute-technology"
       },
       "metadata_source": "ror",
-      "metadata_confidence": 82,
+      "metadata_confidence": 100,
       "scorecard": {
         "overall": "52.0–53.9",
         "research": "39.3",
