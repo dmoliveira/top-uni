@@ -516,6 +516,7 @@ function renderRegions(universities) {
           </div>
           <a class="country-badge" href="./regions/${regionSlug(region)}.html">Top ${Math.min(10, schools.length)}</a>
         </div>
+        <p class="table-subtext">Leading institutions across ${region}, ordered by the global ranking.</p>
         <ol>
           ${schools.slice(0, 3).map((u) => `<li><strong>#${u.rank}</strong> ${u.official_url ? `<a class="region-list-link" href="${u.official_url}" target="_blank" rel="noreferrer">${u.name}</a>` : u.name}</li>`).join("")}
         </ol>
@@ -545,6 +546,7 @@ function renderCountries(universities) {
           <span>${schools.length} universities</span>
           <span>Top score: ${scoreValue(schools[0], "overall").toFixed(1)}</span>
         </div>
+        <p class="table-subtext">Top-ranked universities from ${country} in this year’s CS-focused directory.</p>
         <ol>
           ${schools.slice(0, 3).map((u) => `<li><strong>#${u.rank}</strong> <a class="region-list-link" href="./universities/${u.slug}.html">${u.name}</a></li>`).join("")}
         </ol>
@@ -667,6 +669,7 @@ function renderSpotlights(spotlights, universities) {
             </div>
             <p class="muted">${(spotlight.advances || []).slice(0, 1).join(" ")}</p>
             <div class="spotlight-tags">${tagList((spotlight.strengths || []).slice(0, 4))}</div>
+            <p class="table-subtext">Dedicated research spotlight with labs, department links, and notable breakthroughs.</p>
           </article>`;
       }).join("");
   }
