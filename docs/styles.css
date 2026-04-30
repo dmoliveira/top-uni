@@ -208,8 +208,17 @@ body { padding-top: var(--topbar-offset); }
   padding-inline: 12px;
 }
 
+.theme-toggle {
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel-solid) 94%, transparent);
+}
+
 .github-button {
   box-shadow: 0 8px 20px rgba(47, 107, 255, 0.08);
+  font-weight: 700;
 }
 
 .hero {
@@ -284,6 +293,25 @@ h4 { font-size: 1rem; }
 
 .hero-nav { margin-top: 24px; }
 
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hero-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel-solid) 84%, transparent);
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 600;
+}
+
 .hero-primary,
 .hero-secondary {
   display: inline-flex;
@@ -349,10 +377,10 @@ h4 { font-size: 1rem; }
 }
 
 .panel-inline {
-  margin-top: 18px;
-  padding: 15px 18px;
+  margin-top: 14px;
+  padding: 13px 16px;
   border-radius: 18px;
-  background: color-mix(in srgb, var(--chip) 78%, var(--panel-solid));
+  background: color-mix(in srgb, var(--chip) 54%, var(--panel-solid));
 }
 
 .hero-visual {
@@ -516,6 +544,7 @@ h4 { font-size: 1rem; }
   gap: 14px;
   padding: 22px 18px;
   border-radius: 20px;
+  min-height: 108px;
 }
 
 .stat-icon {
@@ -1081,6 +1110,10 @@ tbody tr:hover td { background: color-mix(in srgb, var(--chip) 50%, transparent)
   .topbar-actions,
   .theme-toggle { justify-content: center; }
 
+  .topbar-actions {
+    flex-direction: column;
+  }
+
   .hero,
   .homepage-main-grid,
   .lower-grid,
@@ -1111,6 +1144,7 @@ tbody tr:hover td { background: color-mix(in srgb, var(--chip) 50%, transparent)
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
   }
+  .hero-trust-row { gap: 8px; }
   .theme-button {
     width: 100%;
     justify-content: center;
