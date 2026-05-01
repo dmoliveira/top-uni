@@ -15,7 +15,6 @@
     <meta name="twitter:title" content="Top 200 Universities for Computer Science, AI/ML, and Data Science (2026)" />
     <meta name="twitter:description" content="Explore the top 200 universities in the world for Computer Science, AI/ML, and Data Science, with official links, locations, founded year, strengths, and research spotlight pages." />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script type="application/ld+json" id="structured-data-webpage">
       {
         "@context": "https://schema.org",
@@ -71,14 +70,10 @@
         </a>
         <nav class="topbar-nav" aria-label="Primary navigation">
           <a href="#overview">Rankings</a>
-          <a href="#spotlights">Universities</a>
-          <a href="#regions">Regions</a>
-          <a href="#insights">Insights</a>
           <a href="./methodology.html">Methodology</a>
           <a href="./support.html">About</a>
         </nav>
         <div class="topbar-actions">
-          <a class="github-button" href="https://github.com/dmoliveira/top-uni" target="_blank" rel="noreferrer">★ Star on GitHub</a>
           <div class="theme-toggle" role="group" aria-label="Theme selector">
             <button data-theme-option="auto" class="theme-button" aria-label="Use automatic theme">Auto</button>
             <button data-theme-option="light" class="theme-button" aria-label="Use light theme">Light</button>
@@ -88,7 +83,7 @@
       </div>
     </div>
 
-    <header class="hero">
+    <header class="hero hero-simple">
       <div class="hero-copy">
         <p class="edition-badge">2026 Edition</p>
         <h1>
@@ -106,43 +101,16 @@
           <a class="hero-primary" href="#overview">Explore rankings</a>
           <a class="hero-secondary" href="./methodology.html">How we rank</a>
         </div>
-        <div class="hero-trust-row">
-          <span class="hero-trust-pill">THE 2026 source</span>
-          <span class="hero-trust-pill">Global university coverage</span>
-          <span class="hero-trust-pill">Research and industry signals</span>
-        </div>
-        <div class="hero-note panel-inline">
-          <strong>Source:</strong> Times Higher Education Computer Science World University Rankings 2026,
-          enriched with official university and research metadata.
-        </div>
+        <p class="hero-source muted"><strong>Source:</strong> THE Computer Science World University Rankings 2026, enriched with official university and research metadata.</p>
       </div>
 
-      <section class="panel hero-visual" aria-labelledby="hero-visual-title">
-        <div class="hero-visual-head">
-          <div>
-            <h2 id="hero-visual-title">Global Excellence Map</h2>
-            <p class="muted">Research strength vs. industry impact across the ranked institutions.</p>
-          </div>
-          <span class="info-dot" aria-hidden="true">i</span>
-        </div>
-        <div class="hero-chart-shell">
-          <span class="axis-label axis-y">Research</span>
-          <span class="axis-label axis-x">Industry Impact</span>
-          <div class="hero-chart-grid">
-            <div id="hero-scatter" class="hero-scatter" role="img" aria-label="Scatter plot comparing research strength and industry impact for top universities by region"></div>
-          </div>
-        </div>
-        <div class="legend" id="hero-scatter-legend"></div>
-        <p id="hero-chart-caption" class="muted hero-chart-caption">Each dot represents one of the leading universities in the ranking.</p>
-        <div id="hero-scatter-highlights" class="hero-highlight-list"></div>
-      </section>
     </header>
 
     <main>
-      <section id="meta-summary" class="stats-grid" aria-label="Summary statistics"></section>
+      <section id="meta-summary" class="meta-inline" aria-label="Summary statistics"><p class="muted">Loading summary metadata…</p></section>
 
       <div class="homepage-main-grid">
-        <section id="overview" class="panel section-panel overview-panel">
+        <section id="overview" class="panel section-panel">
           <div class="section-head">
             <div>
               <p class="section-kicker">Top 200 Universities</p>
@@ -152,33 +120,14 @@
 
           <div class="controls-label-row">
             <span class="controls-label">Search and filter the ranking</span>
-            <span class="controls-meta">Sort, narrow by geography, and browse the full top 200.</span>
+            <span class="controls-meta">Search the ranking and narrow by region.</span>
           </div>
-          <div class="controls controls-six">
+          <div id="overview-controls" class="controls controls-six" hidden>
             <input id="search" type="search" placeholder="Search universities…" aria-label="Search universities" />
-            <select id="country-filter" aria-label="Filter by country">
-              <option value="">All countries</option>
-            </select>
             <select id="region-filter" aria-label="Filter by region">
               <option value="">All regions</option>
             </select>
-            <select id="sort-by" aria-label="Sort rankings">
-              <option value="rank-asc">Sort: rank</option>
-              <option value="score-desc">Sort: overall score</option>
-              <option value="research-desc">Sort: research</option>
-              <option value="industry-desc">Sort: industry</option>
-              <option value="citations-desc">Sort: citations</option>
-              <option value="name-asc">Sort: name A–Z</option>
-              <option value="country-asc">Sort: country A–Z</option>
-            </select>
-            <select id="page-size" aria-label="Results per page">
-              <option value="10">Show 10</option>
-              <option value="20" selected>Show 20</option>
-              <option value="50">Show 50</option>
-              <option value="100">Show 100</option>
-              <option value="200">Show 200</option>
-            </select>
-            <button id="clear-filters" class="page-button clear-filters-button quiet-button" type="button">Reset filters</button>
+            <button id="clear-filters" class="page-button clear-filters-button quiet-button" type="button">Clear</button>
           </div>
 
           <p id="overview-count" class="muted overview-count"></p>
@@ -186,7 +135,7 @@
             <strong>No universities match this filter.</strong>
             <span>Try clearing the search query or adjusting the selected filters.</span>
           </div>
-          <div class="pagination-bar">
+          <div id="overview-pagination" class="pagination-bar" hidden>
             <button id="page-prev" class="page-button">← Prev</button>
             <span id="page-status" class="muted">Page 1 of 1</span>
             <button id="page-next" class="page-button">Next →</button>
@@ -203,35 +152,13 @@
                   <th scope="col">Research</th>
                   <th scope="col">Industry</th>
                   <th scope="col">Citations</th>
-                  <th scope="col">Trend</th>
                 </tr>
               </thead>
-              <tbody id="overview-body"></tbody>
+              <tbody id="overview-body"><tr><td colspan="7" class="muted">Loading ranking snapshot…</td></tr></tbody>
             </table>
           </div>
         </section>
 
-        <aside class="sidebar-stack" id="insights">
-          <section class="panel section-panel">
-            <div class="section-head compact-head">
-              <div>
-                <p class="section-kicker">Score Breakdown</p>
-                <h2>Average metric profile</h2>
-              </div>
-            </div>
-            <div id="score-breakdown" class="score-breakdown"></div>
-          </section>
-
-          <section class="panel section-panel">
-            <div class="section-head compact-head">
-              <div>
-                <p class="section-kicker">Ranking Insights</p>
-                <h2>What stands out</h2>
-              </div>
-            </div>
-            <div id="ranking-insights" class="insight-list"></div>
-          </section>
-        </aside>
       </div>
 
       <div class="lower-grid">
@@ -243,33 +170,10 @@
             </div>
           </div>
           <p class="muted section-intro">A quick path into each regional cluster, anchored by the strongest universities in the ranking.</p>
-          <div id="regions-grid" class="stack-grid"></div>
+          <div id="regions-grid" class="stack-grid"><article class="region-card"><p class="muted">Loading regional leaders…</p></article></div>
         </section>
 
-        <section class="panel section-panel map-panel">
-          <div class="section-head map-head">
-            <div>
-              <p class="section-kicker">Universities Around the World</p>
-              <h2>Global distribution map</h2>
-            </div>
-            <div class="map-controls">
-              <label class="muted" for="map-region-filter">Region</label>
-              <select id="map-region-filter">
-                <option value="">All regions</option>
-              </select>
-              <button id="map-zoom-out" class="page-button">−</button>
-              <button id="map-zoom-in" class="page-button">+</button>
-              <button id="map-reset" class="page-button">Reset</button>
-            </div>
-          </div>
-          <p class="muted">Pan and zoom the map to inspect regional clusters and open official university pages from marker popups.</p>
-          <div class="map-shell">
-            <div id="world-map" aria-label="World map of university locations"></div>
-          </div>
-          <div class="map-summary" id="map-summary"></div>
-        </section>
-
-        <section id="spotlights" class="panel section-panel spotlight-panel">
+        <section id="spotlights" class="panel section-panel">
           <div class="section-head compact-head">
             <div>
               <p class="section-kicker">Spotlight: Top Universities</p>
@@ -278,38 +182,10 @@
             <a class="text-link" href="./spotlight.html">View all spotlights →</a>
           </div>
           <p class="muted section-intro">Shortlist of standout institutions with strong research ecosystems and dedicated spotlight pages.</p>
-          <div id="spotlight-grid" class="spotlight-list"></div>
+          <div id="spotlight-grid" class="spotlight-list"><article class="spotlight-item"><p class="muted">Loading featured spotlights…</p></article></div>
         </section>
       </div>
 
-      <div class="bottom-grid">
-        <section class="panel section-panel countries-panel">
-          <div class="section-head compact-head">
-            <div>
-              <p class="section-kicker">Top Countries for CS &amp; AI</p>
-              <h2>Countries with the deepest top-ranked presence</h2>
-            </div>
-          </div>
-          <p class="muted section-intro">The countries contributing the largest share of top-ranked CS, AI/ML, and data science institutions.</p>
-          <div id="countries-grid" class="countries-grid"></div>
-        </section>
-
-        <aside class="panel cta-panel">
-          <p class="section-kicker">Contribute &amp; Stay Updated</p>
-          <h2>Help improve the ranking directory</h2>
-          <p>
-            This project is open source and community-driven. Star the repository, review the
-            methodology, or open an issue when you spot a data gap or want to suggest improvements.
-          </p>
-          <div class="cta-actions">
-            <a class="hero-primary" href="https://github.com/dmoliveira/top-uni" target="_blank" rel="noreferrer">Star on GitHub</a>
-            <a class="hero-secondary" href="./support.html">How to contribute</a>
-          </div>
-          <div class="cta-mini-graph" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </aside>
-      </div>
     </main>
 
     <footer class="footer">
@@ -323,7 +199,6 @@
       </p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="./app.js"></script>
   </body>
 </html>
