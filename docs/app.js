@@ -41,6 +41,18 @@ const COUNTRY_FLAGS = {
   "United States": "🇺🇸",
 };
 
+const REGION_COLORS = {
+  "North America": "#2f6bff",
+  Europe: "#874dff",
+  Asia: "#22b8bf",
+  Oceania: "#ff9c3d",
+  "South America": "#62d49f",
+  Africa: "#f25f7a",
+};
+
+const OVERVIEW_MAP_WIDTH = 900;
+const OVERVIEW_MAP_HEIGHT = 340;
+
 async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) {
@@ -165,10 +177,12 @@ function renderOverview(universities) {
   const countEl = document.getElementById("overview-count");
   const clearFilters = document.getElementById("clear-filters");
   const emptyState = document.getElementById("empty-state");
+  const map = document.getElementById("overview-map");
+  const mapLegend = document.getElementById("overview-map-legend");
 
   if (!body || !search || !regionFilter || !prev || !next || !pageStatus || !pagination || !countEl || !clearFilters || !emptyState) return;
 
-  const controls = { body, search, regionFilter, prev, next, pageStatus, pagination, countEl, clearFilters, emptyState };
+  const controls = { body, search, regionFilter, prev, next, pageStatus, pagination, countEl, clearFilters, emptyState, map, mapLegend };
   let currentPage = 1;
   const params = new URLSearchParams(window.location.search);
   const regions = [...new Set(universities.map((u) => u.region).filter(Boolean))].sort((a, b) => a.localeCompare(b));
@@ -198,6 +212,7 @@ function renderOverview(universities) {
     controls.emptyState.hidden = filtered.length > 0;
     syncOverviewUrl(controls, currentPage);
     controls.body.innerHTML = pageRows.map(renderOverviewRow).join("");
+    renderOverviewMap(filtered, pageRows, controls);
   }
 
   function resetAndDraw() {
@@ -281,6 +296,48 @@ function renderOverviewRow(university) {
       <td data-label="Industry">${industry}</td>
       <td data-label="Citations">${citations}</td>
     </tr>`;
+}
+
+function renderOverviewMap(rows, currentRows, controls) {
+  if (!controls.map || !controls.mapLegend) return;
+  const currentSlugs = new Set(currentRows.map((row) => row.slug));
+  const mapped = rows.filter((row) => Number.isFinite(row.latitude) && Number.isFinite(row.longitude));
+  const usedRegions = Object.keys(REGION_COLORS).filter((region) => mapped.some((row) => row.region === region));
+
+  controls.mapLegend.innerHTML = usedRegions.map((region) => `
+    <span class="overview-map-region">
+      <span class="overview-map-swatch" style="background:${REGION_COLORS[region] || "#2f6bff"}"></span>
+      ${region}
+    </span>`).join("");
+
+  if (!rows.length) {
+    controls.map.innerHTML = `<p class="muted">No universities match the current search or region filter.</p>`;
+    return;
+  }
+
+  if (!mapped.length) {
+    controls.map.innerHTML = `<p class="muted">No mapped universities match the current filter.</p>`;
+    return;
+  }
+
+  const dots = mapped.map((row) => {
+    const x = ((Number(row.longitude) + 180) / 360) * OVERVIEW_MAP_WIDTH;
+    const y = ((90 - Number(row.latitude)) / 180) * OVERVIEW_MAP_HEIGHT;
+    const radius = currentSlugs.has(row.slug) ? 4.6 : 2.9;
+    const classes = `overview-map-dot${currentSlugs.has(row.slug) ? " is-current" : ""}`;
+    const color = REGION_COLORS[row.region] || "#2f6bff";
+    const label = `${row.name} — ${row.city ? `${row.city}, ` : ""}${row.country}`;
+    return `<circle class="${classes}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${radius}" fill="${color}"><title>${label}</title></circle>`;
+  }).join("");
+
+  controls.map.innerHTML = `
+    <svg class="overview-map-svg" viewBox="0 0 ${OVERVIEW_MAP_WIDTH} ${OVERVIEW_MAP_HEIGHT}" aria-hidden="true">
+      <text class="overview-map-axis-label" x="10" y="20">90°N</text>
+      <text class="overview-map-axis-label" x="10" y="${(OVERVIEW_MAP_HEIGHT / 2).toFixed(0)}">Equator</text>
+      <text class="overview-map-axis-label" x="10" y="${OVERVIEW_MAP_HEIGHT - 12}">90°S</text>
+      <text class="overview-map-axis-label" x="10" y="${OVERVIEW_MAP_HEIGHT - 28}">Current page results are highlighted</text>
+      ${dots}
+    </svg>`;
 }
 
 function renderRegions(universities) {
@@ -373,10 +430,14 @@ function showHomepageBootstrapFailure(message) {
   const overviewCount = document.getElementById("overview-count");
   const regions = document.getElementById("regions-grid");
   const spotlights = document.getElementById("spotlight-grid");
+  const map = document.getElementById("overview-map");
+  const mapLegend = document.getElementById("overview-map-legend");
 
   if (summary) {
     summary.innerHTML = `<p class="muted"><strong>Live summary data unavailable.</strong> ${message}</p>`;
   }
+  if (map) map.innerHTML = `<p class="muted"><strong>Map unavailable.</strong><br>${message}</p>`;
+  if (mapLegend) mapLegend.innerHTML = "";
   if (overviewCount) {
     overviewCount.textContent = "Ranking data is temporarily unavailable.";
   }
